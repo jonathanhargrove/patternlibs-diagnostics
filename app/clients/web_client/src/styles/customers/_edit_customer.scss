@@ -1,0 +1,75 @@
+.customer-form-view {
+  max-width: 800px;
+
+  .grid-row {
+    @include grid-row(nest);
+  }
+
+  .state,
+  .zip {
+    @include grid-column($columns: 3);
+  }
+
+  .address,
+  .name,
+  .phone,
+  .email,
+  .contact-panel,
+  .alerts-panel,
+  .notification-recipients-panel {
+    @include grid-column($columns: 6);
+  }
+
+  .notes-title,
+  .customer-info-title,
+  .company,
+  .notes-panel {
+    @include grid-column($columns: 12);
+  }
+
+  .company input[type="text"] {
+    width: 48%;
+  }
+
+  @media #{$small-only} {
+    .state,
+    .zip,
+    .address,
+    .phone,
+    .email,
+    .name,
+    .contact-panel,
+    .notification-recipients-panel {
+      @include grid-column($columns: 12);
+    }
+
+    .company input[type="text"] {
+      width: 100%;
+    }
+  }
+
+  .state {
+    margin-bottom: 1rem;
+  }
+
+  .label-with-tooltip {
+    float: left;
+    margin-right: 10px;
+  }
+
+  .icon-question3 {
+    color: #2ca3e1;
+  }
+
+  .notes-panel {
+    margin-bottom: 15px;
+
+    textarea {
+      height: 6.5em;
+    }
+  }
+
+  .alerts-panel {
+    display: grid;
+  }
+}

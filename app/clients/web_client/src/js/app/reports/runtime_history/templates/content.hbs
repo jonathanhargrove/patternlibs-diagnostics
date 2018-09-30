@@ -1,0 +1,14 @@
+<div class="runtime-history-detail">
+  <div class="chart-controls">
+    {{#if modeToggleEnabled}}<div class="mode-toggle"></div>{{/if}}
+    <div class="date-picker"></div>
+    <div class="date-paginator"></div>
+  </div>
+  <div class="chart-content"></div>
+  {{#if showAlertFilterWarning}}
+    <div class="alert-filter-warning">The alerts shown represent unique alerts that have been reported along with the approximate times the alerts were generated. ({{uniqueAlerts}} unique {{pluralize uniqueAlerts "alert"}} of {{totalAlerts}} total {{pluralize totalAlerts "alert"}} are displayed)</div>
+  {{/if}}
+  <div class="legends row"></div>
+  <div class="stages"></div>
+  <div class="download-csv"></div>
+</div>

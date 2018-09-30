@@ -1,0 +1,27 @@
+@import "colors";
+
+$only-small: "only screen and (max-width: 767px)";
+$button-border-width: 0px;
+$button-radius: em-calc(4px);
+$button-font-med: em-calc(12px);
+$button-font-weight: 700;
+$header-min-height: 34px;
+
+// Font variables
+$base-font-size: 14px;
+$base-line-height: 1.4;
+$base-font-weight: 400;
+$body-font-color: $primary-font-color;
+
+$body-font-family:  'Source Sans Pro', sans-serif;
+$header-font-family: 'Source Sans Pro', sans-serif;
+
+$table-head-bg: $headline-color;
+$table-head-font-size: $base-font-size;
+$table-head-font-color: $body-font-color;
+
+$table-row-font-size: $base-font-size;
+$table-row-font-color: $body-font-color;
+
+$button-font-med: $base-font-size;
+$button-font-tny: $base-font-size - 2;

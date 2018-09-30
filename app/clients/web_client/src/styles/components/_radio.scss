@@ -1,0 +1,36 @@
+.form-radio-label {
+  vertical-align: middle;
+
+  * {
+    vertical-align: middle;
+  }
+}
+
+// outer selection ring
+// needs extra specificity to override foundation
+input[type="radio"].form-radio {
+  appearance: none;
+  border: 2px $grey solid;
+  border-radius: 100%;
+  height: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  width: 20px;
+}
+
+// outer selection ring
+.form-radio:checked {
+  border-color: $green;
+}
+
+//inner selection ring
+.form-radio:checked::before {
+  background-color: $green;
+  border-radius: 100%;
+  content: '';
+  height: 12px;
+  margin-left: 2px;
+  margin-top: 2px;
+  position: absolute;
+  width: 12px;
+}

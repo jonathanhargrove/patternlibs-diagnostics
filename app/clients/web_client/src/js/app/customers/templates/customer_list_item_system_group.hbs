@@ -1,0 +1,30 @@
+{{#if anySystemsWithGroups}}
+  <div class="group-header">
+    <div class="group-name-link">
+      <a data-route href="/customers/{{customerId}}/systems/{{firstDeviceId}}">{{group}}</a>
+      ({{systemCount}})
+    </div>
+    <div class="group-header-clickable">
+      <div class="group-header-alerts">
+        {{#if totalCriticalAlerts}}
+          <span class="critical">
+            <span class="{{alarmIcon 'critical'}}"></span><span class="count">{{totalCriticalAlerts}}</span>
+          </span>
+        {{/if}}
+        {{#if totalMajorAlerts}}
+          <span class="major">
+            <span class="{{alarmIcon 'major'}}"></span><span class="count">{{totalMajorAlerts}}</span>
+          </span>
+        {{/if}}
+        {{#if totalNormalAlerts}}
+          <span class="normal">
+            <span class="{{alarmIcon 'normal'}}"></span><span class="count">{{totalNormalAlerts}}</span>
+          </span>
+        {{/if}}
+      </div>
+      <span class="group-header-toggle icon-arrow-down2"></span>
+    </div>
+  </div>
+{{/if}}
+<div data-systems-container class="systems">
+</div>

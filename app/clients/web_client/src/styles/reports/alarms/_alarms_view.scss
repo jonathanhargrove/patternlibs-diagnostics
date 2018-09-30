@@ -1,0 +1,182 @@
+.normal-alarm {
+  background-color: $normal-alarm-color;
+}
+
+.major-alarm {
+  background-color: $major-alarm-color;
+}
+
+.critical-alarm {
+  background-color: $critical-alarm-color;
+}
+
+.alarm {
+  border-bottom: 1.5px solid $table-block-sep-color;
+  &:nth-child(odd) { background: $table-stripe-color; }
+}
+
+h4 {
+  padding: 10px;
+  margin: 0;
+  color: $placeholder-color;
+  font-weight: normal;
+}
+
+.alarm-attributes {
+  @include grid-row();
+  padding: 5px;
+
+  .icon-drawer-state {
+    cursor: pointer;
+    @include grid-column($columns: .5, $collapse: true);
+  }
+
+  @media #{$large-up} {
+    .icon-drawer-state {
+      cursor: pointer;
+      @include grid-column($columns: .25, $collapse: true);
+    }
+  }
+
+  .detail {
+    @include grid-row();
+    @include grid-column($columns: 11.5, $collapse: true);
+
+    .alarm-icon {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-top: 4px;
+
+      &.critical {
+        color: $critical-alarm-color;
+      }
+
+      &.major {
+        color: $major-alarm-color;
+      }
+
+      &.normal {
+        color: $normal-alarm-color;
+      }
+    }
+
+    .alarm-details {
+      font-size: 1.1rem;
+      padding-left: 10px;
+
+      .alarm-level-code {
+        @extend .font-bold;
+        margin-bottom: -7px;
+
+        [class^="icon-"], [class*=" icon-"] {
+          padding-right: 6px;
+        }
+
+        &.critical {
+          color: $critical-alarm-color;
+        }
+
+        &.major {
+          color: $major-alarm-color;
+        }
+
+        &.normal {
+          color: $normal-alarm-color;
+        }
+      }
+
+      .alarm-date {
+        font-size: em-calc(15.2px);
+        color: $table-field-label-color;
+      }
+    }
+
+    .description {
+      padding-top: 10px;
+      padding-left: 10px;
+    }
+
+    @media #{$small-only} { // Below: 640px
+      .alarm-icon {
+        @include grid-column($columns: 1);
+      }
+      .alarm-details {
+        @include grid-column($columns: 10);
+      }
+      .description {
+        @include grid-column($columns: 12);
+      }
+    }
+    @media #{$medium-only} { // Between: 640px - 1024px
+      .alarm-icon {
+        @include grid-column($columns: .5, $collapse: true);
+      }
+      .alarm-details {
+        @include grid-column($columns: 2.5);
+      }
+      .description {
+        @include grid-column($columns: 8.5);
+      }
+    }
+    @media #{$large-up} { // Above: 1024px
+      .alarm-icon {
+        @include grid-column($columns: .5, $collapse: true);
+      }
+      .alarm-details {
+        @include grid-column($columns: 2);
+      }
+      .description {
+        @include grid-column($columns: 9);
+      }
+    }
+  }
+}
+
+.potential-causes {
+  padding: 5px;
+  margin-bottom: 5px;
+
+  .causes, .unit-type, .serial-id, .zone-number {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.icon-drawer-state {
+  margin-top: 5px;
+  font-size: 20px;
+  float: left;
+  color: $table-field-label-color;
+}
+
+.open .icon-drawer-state { @extend .icon-arrow-down; }
+.closed .icon-drawer-state { @extend .icon-arrow-right2; }
+
+
+.alarm.open {
+  .potential-causes {
+    display: block;
+  }
+}
+
+.alarm.closed {
+  .potential-causes {
+    display: none;
+  }
+}
+
+@media #{$small-only} {
+  .causes, .unit-type, .serial-id, .zone-number {
+     @include grid-column($columns: 12);
+  }
+}
+
+@media #{$medium-up} {
+  .causes {
+    @include grid-column($columns: 6);
+  }
+
+  .unit-type, .serial-id, .zone-number {
+    @include grid-column($columns: 2);
+  }
+}

@@ -1,0 +1,25 @@
+.restrictions-manager {
+  .feature-code {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+  }
+
+  .remove-button {
+    padding: 5px;
+  }
+
+  .feature-container {
+    position: relative;
+    width: 500px;
+  }
+
+  .feature-code-container {
+    display: inline-block;
+    width: 100px;
+  }
+
+  .remove-container {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,15 @@
+<select name="dispositionAction">
+  {{#each dispositionActions}}
+    <option value="{{this}}">{{this}}</option>
+  {{/each}}
+  <option id="user-entered-value">{{customDispositionAction}}</option>
+</select>
+<input value="{{dispositionAction}}" maxlength="100"></input>
+<div class="save-success save-status"><span class="icon-ok"></span> Saved!</div>
+<div class="save-error save-status"><span class="icon-remove"></span> Error!</div>
+{{#if showRemoveButton}}
+  <div class="remove-disposition-container">
+    <span>Alerts have cleared</span>
+    <button class="remove secondary-button">Remove</button>
+  </div>
+{{/if}}

@@ -1,0 +1,15 @@
+.connected-status-icon {
+  @extend %status-icon;
+
+  &.--unknown {
+    @extend %status-icon__unknown;
+  }
+
+  &.--connected {
+    @extend %status-icon__success;
+  }
+
+  &.--disconnected {
+    @extend %status-icon__error;
+  }
+}

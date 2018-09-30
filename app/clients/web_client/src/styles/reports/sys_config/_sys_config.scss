@@ -1,0 +1,49 @@
+#sys-config-container {
+  .panel-content {
+    .panel-grid {
+      @include equal-width-grid-panel(1,2,4);
+      @include grid-row;
+      @include grid-block-style;
+
+      > li {
+        min-height: 280px;
+        border-bottom: 1px solid $grey;
+      }
+    }
+  }
+
+  .panel-header {
+    .experimental {
+      background: $yellow-light;
+      color: $grey-dark;
+      border-radius: 4px;
+      margin-left: 10px;
+      padding: 4px;
+    }
+  }
+
+  .toggle-is-editing {
+    @extend .secondary-button;
+    float: right;
+    margin: 5px 6px;
+    min-width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  &.is-editing .toggle-is-editing {
+    border: 2px solid $primary-action-color;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .indoor-unit {
+    .field-label { width: 70%; }
+    .field-control, .field-value { width: 30%; }
+  }
+
+  .misc-settings {
+    .field-label { width: 50%; }
+    .field-control, .field-value { width: 50%; }
+  }
+}

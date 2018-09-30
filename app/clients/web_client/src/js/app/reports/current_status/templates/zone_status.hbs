@@ -1,0 +1,51 @@
+<ul class="panel-grid">
+  {{#each zones}}
+    <li>
+      <div class="block-title">
+        {{name}}
+        {{#if controllingHumidity}}
+          <div class="controllingZone" title="Controlling Zone for Humidity."></div>
+        {{/if}}
+      </div>
+      <div class="block-content">
+        <div class="damper-humidity">
+          <div class="damper">
+            <div class='title'>Damper {{percent damper}}</div>
+            <div class="damper-block">
+              <img src="{{fanStatusImg ../fanStatusOn}}" class="zone-fan">
+              <img src="/img/devices/damper.png" class="blade" style="transform: rotate({{damperAngle damper}}); -webkit-transform: rotate({{damperAngle damper}});">
+              <i class="icon-right"></i>
+            </div>
+            <div class='title'>Zone Size {{ratioToPercent zoneSize}}</div>
+          </div>
+          <div class="temp-humidity">
+            <div class="temperature">{{degrees indoorTemperature 1}}</div>
+            <div class="relative-humidity">{{ratioToPercent relativeHumidity}}</div>
+            <div class="setpoint-pill">
+              <div class="pill heat-point"><span>{{degrees heatSetpoint 0}}</span></div>
+              <div class="pill cool-point"><span>{{degrees coolSetpoint 0}}</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="load-sensor">
+          <div class="row">
+            <div class="term">load value</div>
+            <div class="description">{{defaultIfOutrageous load}}</div>
+          </div>
+          <div class="row">
+            <div class="term">Sensor Type</div>
+            <div class="description">{{constToTitleCase sensorType}}</div>
+          </div>
+          <div class="row">
+            <div class="term">Zone Mode</div>
+            <div class="description {{downcase reqZoneMode}}">{{constToTitleCase reqZoneMode}}</div>
+          </div>
+          <div class="row">
+            <div class="term">Voting Zone</div>
+            <div class="description {{posNegColor voting}}">{{yesNo voting}}</div>
+          </div>
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>

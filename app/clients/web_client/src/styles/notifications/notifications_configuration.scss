@@ -1,0 +1,120 @@
+.notifications-configuration {
+  .sort-controls {
+    float: right;
+    margin-right: 8px;
+    margin-top: 15px;
+  }
+
+  .search-container {
+    @include clearfix;
+    padding-bottom: 2rem;
+  }
+
+  .search-form-view {
+    @media #{$medium-up} {
+      width: 25%;
+      float: right;
+    }
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .notification__alarm {
+    display: none;
+  }
+
+  .notification__description {
+    display: none;
+  }
+
+  @media #{$large-up} {
+    .notification__control {
+      width: 12%;
+    }
+
+    .notification__code,
+    .notification__severity {
+      width: 9%;
+    }
+
+    .notification__alarm {
+      display: table-cell;
+      width: 25%;
+    }
+
+    .notification__description {
+      display: table-cell;
+      width: 45%;
+    }
+
+    .notification__description-text {
+      margin-bottom: 0;
+    }
+
+    .checkbox-control {
+      display: inline-block;
+    }
+  }
+
+  .checkbox-control,
+  tr,
+  td {
+    color: inherit;
+  }
+
+  tr.disabled {
+    color: $grey-light;
+  }
+
+  .checkbox-control {
+    @extend %base-checkbox;
+
+    .checkbox-indicator {
+      font-size: 2rem;
+      position: relative;
+    }
+
+    input[type="checkbox"]:checked ~ .checkbox-indicator::after {
+      opacity: 0;
+    }
+
+    input[type="checkbox"]:not(:checked) ~ .checkbox-indicator::after {
+      background-color: white;
+      // the code point for icon-ban-circle
+      content: "\e60e";
+      font-family: 'Nexia-IcoFont';
+      font-size: 1.3rem;
+      opacity: 1;
+      position: absolute;
+      top: 5px;
+      left: 6px;
+    }
+  }
+
+  .checkbox-indicator,
+  .notification__label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .notification__label {
+    font-weight: bold;
+    margin-left: 6px;
+    display: none;
+
+    @media #{$medium-up} {
+      display: inline-block;
+    }
+  }
+
+  .disabled .notification__label {
+    margin-left: 0;
+  }
+
+  td.notification__code {
+    text-transform: uppercase;
+  }
+}

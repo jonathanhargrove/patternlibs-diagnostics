@@ -1,0 +1,31 @@
+.stages {
+  @include nexia-table-style;
+
+  table {
+    width: 95%;
+
+    thead {
+      background: none;
+      th {
+        height: 34px;
+      }
+    }
+  }
+
+  padding-bottom: 30px;
+  padding-top: 15px;
+
+  .icon, .cell-label {
+    float: left;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .cell-label {
+    margin-left: 10px;
+    width: 75%;
+  }
+}

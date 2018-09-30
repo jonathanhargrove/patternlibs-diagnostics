@@ -1,0 +1,1 @@
+This is the style for Flat buttons based on material UI terminology.

@@ -1,0 +1,44 @@
+%status-icon {
+  color: $white;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+%status-icon__unknown {
+  @extend %status-icon;
+
+  .icon-foreground {
+    display: block;
+    width: 20px;
+  }
+}
+
+%status-icon__known {
+  @extend %status-icon;
+
+  .icon-foreground {
+    left: -2px;
+    position: absolute;
+    top: 0;
+  }
+
+  .icon-background {
+    text-shadow: -1px 2px 7px $raised-icon-shadow-color;
+  }
+}
+
+%status-icon__success {
+  @extend %status-icon__known;
+
+  .icon-background {
+    color: $green;
+  }
+}
+
+%status-icon__error {
+  @extend %status-icon__known;
+
+  .icon-background {
+    color: $red;
+  }
+}

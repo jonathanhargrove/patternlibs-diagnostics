@@ -1,0 +1,37 @@
+.responsive-table-header, .responsive-table-content {
+  @include grid-row();
+}
+
+.responsive-table-header {
+  @include table-header();
+  @extend .hide-for-small;
+  @include radius($global-radius);
+}
+
+.responsive-table-content {
+  background-color: $white;
+}
+
+.column-header {
+  @extend .header-base;
+  border-right: 1px solid $table-header-bg-color;
+  vertical-align: middle;
+  display: table-cell;
+  color: $table-field-label-color;
+  font-weight: 700;
+  padding-left: 10px !important;
+  font-size: .9rem;
+  background-color: $inner-container-background-color;
+}
+
+.column-label {
+  @extend .generic-header;
+  @extend .show-for-small;
+  @include radius($global-radius);
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: $inner-container-background-color;
+  float: left;
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+{{#if series}}
+<div class="primary-legend-container active">
+    <ul>
+      {{#each series}}
+      <li class="zone" data-zone-id="{{options.id}}">
+        <div class="primary-icon" style="background-color:{{color}};"></div>
+        <div class="description">{{name}}</div>
+      </li>
+      {{/each}}
+    </ul>
+</div>
+{{/if}}
+<div class="secondary-legend-container">
+  <ul>
+    {{#each items}}
+    <li class="secondary-legend-item" data-id="{{toggleName}}">
+      <div class="secondary-icon {{type}}"></div>
+      <div class="description">{{name}}</div>
+    </li>
+    {{/each}}
+  </ul>
+</div>

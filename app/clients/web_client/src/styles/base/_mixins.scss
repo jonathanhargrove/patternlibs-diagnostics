@@ -1,0 +1,132 @@
+@mixin gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background: -moz-linear-gradient(top,  $from, $to);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+@mixin box_shadow($offset-x: 0, $offset-y: 1px, $blur-radius: 2px, $color: rgba(0, 0, 0, .5)) {
+  box-shadow: $offset-x $offset-y $blur-radius $color;
+}
+
+// side-radius does not support bottom or top (there's a bug in their code)
+@mixin vertical-radius($side, $radius:$global-radius) {
+	@if $experimental {
+		-moz-border-radius-#{$side}-left: $radius;
+		-moz-border-radius-#{$side}-right: $radius;
+		-webkit-border-#{$side}-left-radius: $radius;
+		-webkit-border-#{$side}-right-radius: $radius;
+	}
+	border-#{$side}-left-radius: $radius;
+	border-#{$side}-right-radius: $radius;
+}
+
+@mixin rounded-edges($radius) {
+  -webkit-border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+
+  -moz-border-radius-topright: $radius;
+  -moz-border-radius-topleft: $radius;
+  -moz-border-radius-bottomright: $radius;
+  -moz-border-radius-bottomleft: $radius;
+
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-left-corners($radius) {
+  -webkit-border-top-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+
+  -moz-border-radius-topleft: $radius;
+  -moz-border-radius-bottomleft: $radius;
+
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-right-corners($radius) {
+  -webkit-border-top-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+
+  -moz-border-radius-topright: $radius;
+  -moz-border-radius-bottomright: $radius;
+
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin tooltip-box-shadow-border {
+  border: 2px solid $module-header-color;
+  -webkit-box-shadow: 2px 2px 2px -2px $module-header-color, 2px 2px 2px -2px $module-header-color, -2px 2px 2px -2px $module-header-color;
+  -moz-box-shadow:    2px 2px 2px -2px $module-header-color, 2px 2px 2px -2px $module-header-color, -2px 2px 2px -2px $module-header-color;
+  box-shadow:         2px 2px 2px -2px $module-header-color, 2px 2px 2px -2px $module-header-color, -2px 2px 2px -2px $module-header-color;
+}
+
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin last-updated-at {
+  // TODO: is this width necessary, since it's floated?
+  width: 57%;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  display: inline-block;
+  height: 100%;
+  float: right;
+  padding-right: 10px;
+}
+
+// https://css-tricks.com/snippets/sass/mixin-to-qualify-a-selector
+/// Since the current way to qualify a class from within its ruleset is quite
+/// ugly, here is a mixin providing a friendly API to do so.
+/// @author Hugo Giraudel
+/// @param {String} $element-selector - Element selector
+/// Example:
+///   @include qualify(a) {
+///     text-decoration: none;
+///   }
+@mixin qualify($element-selector) {
+  @at-root #{$element-selector + &} {
+    @content;
+  }
+}
+
+@mixin vertically-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*
+  Often, float is used to distribute items evenly in a container,
+  but float collapses the parent and prevents the use of inline
+  alignment, forcing you to use things like margin and padding to
+  align elements. This helper instead uses text-align: justify to
+  distribute items evenly in a container.
+*/
+@mixin justify-content($font-size: 1rem, $vertical-align: middle) {
+  text-align: justify;
+  font-size: 0.1px;
+
+  > * {
+    display: inline-block;
+    font-size: $font-size;
+    vertical-align: $vertical-align;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,1 @@
+This is the style used for an add & delete buttons. 

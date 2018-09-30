@@ -1,0 +1,100 @@
+#site-message-banner {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid $border-color;
+  min-height: 80px;
+  overflow: hidden;
+  height: 100%;
+
+  &.info {
+    background-color: $info-banner-background-color;
+  }
+
+  &.warning {
+    background-color: $warning-banner-background-color;
+  }
+
+  .dismiss {
+    float: right;
+    cursor: pointer;
+    color: $icon-dismiss-color;
+    font-size: 1.2em;
+    width: 35px;
+    height: 35px;
+    margin: -5px -5px auto auto;
+
+    &:hover {
+      color: darken($icon-dismiss-color, 15%);
+    }
+  }
+
+  .message.with-image {
+    padding-left: 20px;
+    margin-top: -5px;
+  }
+
+  .primary-text {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .contents {
+    max-width: 80em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .image {
+    cursor: pointer;
+
+    &:hover {
+      .expand {
+        background: darken($subcaption-background-color, 10%);
+      }
+    }
+
+    .expand {
+      text-align: center;
+      background: $subcaption-background-color;
+      color: $subcaption-color;
+      font-size: .8em;
+      padding: 3px;
+    }
+  }
+
+  @media #{$medium} {
+    .image {
+      @include grid-column($columns: 2, $collapse: true);
+    }
+
+    .message {
+      @include grid-column($columns: 9.5, $collapse: true);
+    }
+  }
+
+  @media #{$large-up} {
+    .image {
+      @include grid-column($columns: 1, $collapse: true);
+    }
+
+    .message {
+      @include grid-column($columns: 10.5, $collapse: true);
+    }
+  }
+
+  @media #{$small-only} {
+    .image {
+      float: left;
+
+      margin-bottom: 10px;
+    }
+
+    .message {
+      @include grid-column($columns: 12, $collapse: true);
+    }
+
+    .message.with-image {
+      padding-left: 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.system-status-container {
+  .panel-content {
+    .panel-grid {
+      @include equal-width-grid-panel(1,3,5);
+      @include grid-block-style;
+
+      li {
+        min-height: 180px;
+      }
+
+      .temp-humidity {
+        left: 50%;
+        margin: 0 auto;
+        width: 101px;
+        float: none;
+        text-align: center;
+      }
+
+      .single-zone {
+        padding-top: 20px;
+      }
+
+      .status .block-title {
+        @include justify-content(.9rem);
+      }
+    }
+  }
+}

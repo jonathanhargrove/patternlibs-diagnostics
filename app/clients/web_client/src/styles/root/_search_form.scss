@@ -1,0 +1,41 @@
+.search-form-view {
+  border: 1px solid #CCCCCC;
+
+  .submit {
+    span { margin-left: -5px; }
+    float: right;
+    margin: 0px;
+    border-radius: 0px;
+    min-width: 0px;
+    width: 2em;
+    height: 100%;
+  }
+
+  .search-box {
+    margin-right: 3em;
+  }
+
+  .clear-search {
+    width: 1.5em;
+    float: left;
+    padding-top: 0.9em;
+    padding-left: 0.5em;
+    color: #AAAAAA;
+  }
+
+  .search-input {
+    overflow: hidden;
+    border: medium none;
+  }
+
+  .search {
+    border: none;
+    margin: 0;
+    margin-top: 2px;
+  }
+
+  // Make this doubly specific to override the global input styles on :focus
+  .search.search {
+    box-shadow: none;
+  }
+}

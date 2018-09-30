@@ -1,0 +1,9 @@
+<button class="submit" type="submit"><span class="icon-search2"/></button>
+<div class="search-box">
+  {{#if query}}
+  <div data-js="clear-search" class="clear-search icon-cancel-circle" />
+  {{/if}}
+  <div class="search-input">
+    <input type="text" class="search" data-js="query" placeholder="Search" value="{{query}}" {{#if isChrome}}autocomplete="off"{{/if}}>
+  </div>
+</div>

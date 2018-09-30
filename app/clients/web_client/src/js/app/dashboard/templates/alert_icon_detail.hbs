@@ -1,0 +1,29 @@
+<div id="map-customer-icon-detail">
+  <a class="name" href="/customers/{{id}}#all">{{fullName this}}</a>
+  <div class="steet-address">{{streetAddress this}}</div>
+  <div class="city-state-zip">{{cityStateZip this}}</div>
+  <a class="contact-link email" href="mailto:cust@email.com" target="_blank">{{email}}</a>
+  <a class="contact-link phone" href="tel://{{phone}}" target="_blank">{{phoneNumber phone}}</a>
+  <div class="device">
+    {{#each devicesWithAlerts}}
+        <div class="device-info">
+          <div><a href="/customers/{{this.customerId}}/systems/{{this.deviceId}}">{{this.name}}</a>
+            <div class="alerts">
+              {{#if this.criticalAlerts}}
+                <span class="critical">
+                  <span class="icon-warning-sign alert-icon"></span>
+                  <span class="count">{{this.criticalAlerts}}</span>
+                </span>
+              {{/if}}
+              {{#if this.majorAlerts}}
+                <span class="major">
+                  <span class="icon-notification alert-icon"></span>
+                  <span class="count">{{this.majorAlerts}}</span>
+                </span>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+</div>

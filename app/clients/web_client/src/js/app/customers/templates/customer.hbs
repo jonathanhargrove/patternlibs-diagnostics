@@ -1,0 +1,33 @@
+<div class="heading">
+  <div id="customer-system-heading">
+    {{#if showCompanyName}}
+      <h1 class="customer-name">{{companyName}}</h1>
+    {{else}}
+      <h1 class="customer-name">{{fullName this}}</h1>
+    {{/if}}
+    <div class="systems-and-notes">
+      <span id="group-dropdown"></span>
+      <button class="notes secondary-button">Notes</button>
+    </div>
+  </div>
+</div>
+<div class="customer-header">
+  <div class="customer-details">
+    <div class="customer-address">
+      {{#if showCompanyName}}
+        <div id="company-contact-name">{{fullName this}}</div>
+      {{/if}}
+      <div>{{streetAddress this}}</div>
+      <div>{{cityStateZip this}}</div>
+    </div>
+    <div class="customer-contact">
+      <a href="mailto:{{email}}" target="_blank">{{email}}</a>
+      <a href="tel://{{phone}}" target="_blank">{{phoneNumber phone}}</a>
+    </div>
+  </div>
+  <div class="customer-actions">
+    <button class="add-system standard-button"><i class="icon-plus3"></i>Add System</button>
+    <button class="edit-customer secondary-button">Edit Customer</button>
+  </div>
+</div>
+<div id="devices"></div>

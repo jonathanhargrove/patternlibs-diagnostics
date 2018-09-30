@@ -1,0 +1,71 @@
+<div class="panel-container">
+  <div class="panel-header {{severity}}">
+    <div class="title">{{countString}}</div>
+    <div class="error icon-circle"></div>
+    <div class="error icon-notification"></div>
+    {{#if lastUpdatedAt}}
+      <div class="last-updated-at">Last updated: {{longDateTime lastUpdatedAt}}</div>
+    {{/if}}
+  </div>
+  {{#if alarms}}
+    {{#each alarms}}
+      <div class="alarm closed">
+        <div class="alarm-attributes">
+          <div class="icon-drawer-state"></div>
+          <div class="detail">
+            <div class="alarm-icon {{alarmIcon severity}} {{severity}}"></div>
+            <div class="alarm-details">
+              <div class="alarm-level-code {{severity}}">
+                {{code}}
+              </div>
+              <span class="alarm-date">{{{nullText formattedDate}}}</span>
+            </div>
+            {{#each description}}
+            <div class="description">{{this}}</div>
+            {{/each}}
+          </div>
+          <div class="potential-causes">
+            <div class="responsive-table-header">
+              <div class="causes column-header">Potential Causes</div>
+              <div class="unit-type column-header">Unit Type</div>
+              <div class="serial-id column-header">Serial ID</div>
+              <div class="zone-number column-header">Zone Number</div>
+            </div>
+            <div class="responsive-table-content">
+              <div class="column-label">Potential Causes</div>
+              <div class="causes">
+                <ul>
+                  {{#each rootCause.causes}}
+                  <li>
+                    {{info}}
+                    {{#if details.length}}
+                      <ul class="cause-detail">
+                        {{#each details}}
+                          <li>{{this}}</li>
+                        {{/each}}
+                      </ul>
+                    {{/if}}
+                  </li>
+                  {{/each}}
+                </ul>
+                {{#each rootCause.details}}
+                  <div class="details">{{this}}</div>
+                {{/each}}
+              </div>
+              {{#if showPlatformInfo}}
+                <div class="column-label">Unit Type</div>
+                <div class="unit-type">{{{nullText unitType}}}</div>
+                <div class="column-label">Serial Number</div>
+                <div class="serial-id">{{{nullText serialId}}}</div>
+                <div class="column-label">Zone Number</div>
+                <div class="zone-number">{{{nullText zoneId}}}</div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <h4>No alerts detected</h4>
+  {{/if}}
+</div>

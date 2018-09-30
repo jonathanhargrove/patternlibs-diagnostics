@@ -1,0 +1,37 @@
+<ul class="device-tabs">
+  <li class="prev-page"><a href="#"><i class="icon-left"></i></a></li>
+  {{#each systems}}
+    <li class="tab">
+      <a href="#" data-system-id="{{id}}">
+        <div class="tab-content">
+          <button class="notes">Notes</button>
+          <div class="device-name">{{nullText name id}}</div>
+          <div>{{boolText zoningEnabled 'Zoned' 'Non-zoned' '--'}} <span class="device-identifier" title="Device ID: {{id}}">{{id}}</span></div>
+          <div>Model: {{nullText deviceModel '--'}} <span class="device-identifier" title="Serial Number: {{serialNumber}}">{{serialNumber}}</span></div>
+        </div>
+      </a>
+    </li>
+  {{/each}}
+  <li class="next-page"><a href="#"><i class="icon-right"></i></a></li>
+</ul>
+<select class="device-dropdown">
+  {{#each systems}}
+    <option data-device-id="{{id}}" value="{{id}}">{{id}} - {{primaryDevice.deviceModel}} - {{primaryDevice.status}}</option>
+  {{/each}}
+</select>
+<div id="system-view" class="system-view"></div>
+<div class="button-container">
+  {{#if spiderFeatureEnabled}}
+    {{#if hasSpider}}
+    <button class="delete-ndm-button delete-ndm">
+      Delete {{ productShortName }} Data Module
+    </button>
+    {{else}}
+    <button class="add-ndm-button add-ndm">
+      <i class="icon-plus3"></i>
+      Add {{ productShortName }} Data Module
+    </button>
+    {{/if}}
+  {{/if}}
+  <button class="delete-button delete-system">Delete System</button>
+</div>

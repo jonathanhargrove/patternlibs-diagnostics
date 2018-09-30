@@ -1,0 +1,55 @@
+.icon-drawer-state {
+  margin-top: 5px;
+  font-size: 20px;
+  float: left;
+  color: $table-field-label-color;
+
+  &.closed {
+    @extend .icon-arrow-right2;
+  }
+
+  &.open {
+    @extend .icon-arrow-down;
+  }
+}
+
+.device-panel {
+  margin-top: 30px;
+}
+
+.panel-content {
+  box-sizing: border-box;
+  @include vertical-radius(bottom);
+}
+
+.panel-content-title {
+  color: $module-header-color;
+  font-weight: bold;
+  font-size: .9rem;
+  background-color: $inner-container-background-color;
+  border-right: 1px solid white;
+  @include bottom-box-shadow;
+}
+
+.not-opted-in {
+  .page-instructions {
+    text-align: left;
+    margin: 2em 200px 0 20em;
+  }
+}
+
+#system-header {
+  margin-top: 5px;
+
+  #change-group {
+    float: right;
+
+    a {
+      font-weight: normal;
+    }
+  }
+}
+
+#system-view {
+  margin-top: 10px;
+}

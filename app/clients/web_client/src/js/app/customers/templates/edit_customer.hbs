@@ -1,0 +1,13 @@
+<div class="header">
+  <h1 class="title">{{formAction this}} Customer</h1>
+</div>
+<form class="customer-form">
+  <div class="form-view" />
+  <div class="button-container">
+    <button class='submit'>Save</button>
+    <a href="/customers" class="cancel">Cancel</a>
+    {{#if id}}
+      <button class="delete-customer delete-button" data-js="delete-customer">Delete Customer</button>
+    {{/if}}
+  </div>
+</form>

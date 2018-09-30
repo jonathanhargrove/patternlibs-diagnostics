@@ -1,0 +1,11 @@
+<form id="search-container" action="">
+  <button id="submit" type="submit"><span class="icon-search2"/></button>
+  <div id="search-box">
+    {{#if query}}
+    <div id="clear-search" class="icon-cancel-circle" />
+    {{/if}}
+    <div id="search-input">
+      <input type="text" id="search" placeholder="Search" value="{{query}}">
+    </div>
+  </div>
+</form>

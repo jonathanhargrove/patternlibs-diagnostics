@@ -1,0 +1,175 @@
+<ul class="panel-grid no-bullet block-grid">
+  <li class="panel-grid-block status">
+    <div class="block-title">
+      <div class="config-toggle-many">
+        <label class="checkbox-control">
+          <span>System Status</span>
+          <input
+            type="checkbox"
+            data-toggle-sensor-type="status"
+            {{#if allStatusEnabled}}checked="checked"{{/if}}
+            {{#unless configEnabled}}disabled="disabled"{{/unless}}
+          />
+          <i class="checkbox-indicator"></i>
+        </label>
+      </div>
+      <div data-status-icon></div>
+    </div>
+    <ul class="block-content">
+      {{#each status}}
+        <li class="field{{#if className}} {{className}}{{/if}}" data-sensor="{{attr}}">
+          <label class="checkbox-control">
+            {{#if configurable}}
+              <input
+                type="checkbox"
+                data-toggle-sensor="{{attr}}"
+                data-sensor-type="status"
+                {{#if enabled}}checked="checked"{{/if}}
+                {{#unless ../../configEnabled}}disabled="disabled"{{/unless}}
+              />
+              <i class="checkbox-indicator"></i>
+            {{/if}}
+            <span class="field-contents">
+              <span class="field-label">{{label}}</span>
+              {{#if description}}
+                <span class="field-description">({{description}})</span>
+              {{/if}}
+              <span class="field-value">
+                {{{nullText value "—"}}}
+              </span>
+            </span>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </li>
+  <li class="panel-grid-block thermostat">
+    <div class="block-title">
+      <div class="config-toggle-many">
+        <label class="checkbox-control">
+          <span>Thermostat</span>
+          <input
+            type="checkbox"
+            data-toggle-sensor-type="thermostat"
+            {{#if allThermostatEnabled}}checked="checked"{{/if}}
+            {{#unless configEnabled}}disabled="disabled"{{/unless}}
+          />
+          <i class="checkbox-indicator"></i>
+        </label>
+      </div>
+    </div>
+    <ul class="block-content">
+      {{#each thermostat}}
+        <li class="field{{#if className}} {{className}}{{/if}}" data-sensor="{{attr}}">
+          <label class="checkbox-control">
+            {{#if configurable}}
+              <input
+                type="checkbox"
+                data-toggle-sensor="{{attr}}"
+                data-sensor-type="thermostat"
+                {{#if enabled}}checked="checked"{{/if}}
+                {{#unless ../../configEnabled}}disabled="disabled"{{/unless}}
+              />
+              <i class="checkbox-indicator"></i>
+            {{/if}}
+            <span class="field-contents">
+              <span class="field-label">{{label}}</span>
+              {{#if description}}
+                <span class="field-description">({{description}})</span>
+              {{/if}}
+              <span class="field-value">
+                {{{nullText value "—"}}}
+              </span>
+            </span>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </li>
+  <li class="panel-grid-block outdoor">
+    <div class="block-title">
+      <div class="config-toggle-many">
+        <label class="checkbox-control">
+          <span>Outdoor</span>
+          <input
+            type="checkbox"
+            data-toggle-sensor-type="outdoor"
+            {{#if allOutdoorEnabled}}checked="checked"{{/if}}
+            {{#unless configEnabled}}disabled="disabled"{{/unless}}
+          />
+          <i class="checkbox-indicator"></i>
+        </label>
+      </div>
+    </div>
+    <ul class="block-content">
+      {{#each outdoor}}
+        <li class="field{{#if className}} {{className}}{{/if}}" data-sensor="{{attr}}">
+          <label class="checkbox-control">
+            {{#if configurable}}
+              <input
+                type="checkbox"
+                data-toggle-sensor="{{attr}}"
+                data-sensor-type="outdoor"
+                {{#if enabled}}checked="checked"{{/if}}
+                {{#unless ../../configEnabled}}disabled="disabled"{{/unless}}
+              />
+              <i class="checkbox-indicator"></i>
+            {{/if}}
+            <span class="field-contents">
+              <span class="field-label">{{label}}</span>
+              {{#if description}}
+                <span class="field-description">({{description}})</span>
+              {{/if}}
+              <span class="field-value">
+                {{{nullText value "—"}}}
+              </span>
+            </span>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </li>
+  <li class="panel-grid-block indoor">
+    <div class="block-title">
+      <div class="config-toggle-many">
+        <label class="checkbox-control">
+          <span>Indoor</span>
+          <input
+            type="checkbox"
+            data-toggle-sensor-type="indoor"
+            {{#if allIndoorEnabled}}checked="checked"{{/if}}
+            {{#unless configEnabled}}disabled="disabled"{{/unless}}
+          />
+          <i class="checkbox-indicator"></i>
+        </label>
+      </div>
+    </div>
+    <ul class="block-content">
+      {{#each indoor}}
+        <li class="field{{#if className}} {{className}}{{/if}}" data-sensor="{{attr}}">
+          <label class="checkbox-control">
+            {{#if configurable}}
+              <input
+                type="checkbox"
+                data-toggle-sensor="{{attr}}"
+                data-sensor-type="indoor"
+                {{#if enabled}}checked="checked"{{/if}}
+                {{#unless ../../configEnabled}}disabled="disabled"{{/unless}}
+              />
+              <i class="checkbox-indicator"></i>
+            {{/if}}
+            <span class="field-contents">
+              <span class="field-label">{{label}}</span>
+              {{#if description}}
+                <span class="field-description">({{description}})</span>
+              {{/if}}
+              <span class="field-value">
+                {{{nullText value "—"}}}
+              </span>
+            </span>
+          </label>
+        </li>
+      {{/each}}
+    </ul>
+  </li>
+</ul>

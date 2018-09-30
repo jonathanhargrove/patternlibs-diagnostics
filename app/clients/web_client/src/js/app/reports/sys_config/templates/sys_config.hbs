@@ -1,0 +1,172 @@
+<ul class="panel-grid no-bullet">
+  <li>
+    <div class="outdoor-unit">
+      <div class="block-title">Outdoor Unit</div>
+      <div class="block-content">
+        <div class="field">
+          <div class="field-label">OD Unit Type</div>
+          <div class="field-value od-unit">{{friendlyName report.outdoorUnitType}}</div>
+        </div>
+        <div class="field">
+          <div class="field-label">OD Unit Stages</div>
+          <div class="field-value od-stages">{{friendlyName report.outdoorStage "N/A"}}</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Compressor Type</div>
+          <div class="field-value od-compressor">{{friendlyName report.compressorType "N/A"}}</div>
+        </div>
+        {{#if showConfigurable}}
+        <div class="field" data-js="configurable-item">
+          <div class="field-label">Outdoor Unit Tonnage</div>
+          {{#if state.isEditing}}
+            <input class="field-control" type="number" min="0" data-js="config.outdoorUnitTonnage">
+          {{else}}
+            <div class="field-value">{{nullText config.outdoorUnitTonnage}}</div>
+          {{/if}}
+        </div>
+        {{/if}} {{!/showConfigurable}}
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="indoor-unit">
+      <div class="block-title">Indoor Unit</div>
+      <div class="block-content">
+        <div class="field">
+          <div class="field-label">ID Unit Type</div>
+          <div class="field-value">{{friendlyName report.indoorUnitType}}</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ID Unit Stages</div>
+          <div class="field-value">{{friendlyName report.indoorStage}}</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Blower Type</div>
+          <div class="field-value">{{friendlyName report.blowerType}}</div>
+        </div>
+        {{#if showConfigurable}}
+        <div class="field" data-js="configurable-item">
+          <div class="field-label">Indoor Unit/Coil Refrig Tonnage</div>
+          {{#if state.isEditing}}
+            <input class="field-control" type="number" min="0" data-js="config.indoorUnitCoilTonnage">
+          {{else}}
+            <div class="field-value">{{nullText config.indoorUnitCoilTonnage}}</div>
+          {{/if}}
+        </div>
+        <div class="field" data-js="configurable-item">
+          <div class="field-label">Gas Furnace BTUH Per Stage</div>
+          {{#if state.isEditing}}
+            <input class="field-control" type="number" min="0" data-js="config.gasFurnaceBtuhPerStage">
+          {{else}}
+            <div class="field-value">{{nullText config.gasFurnaceBtuhPerStage}}</div>
+          {{/if}}
+        </div>
+        <div class="field" data-js="configurable-item">
+          <div class="field-label">Electric Heat KW Per Stage</div>
+          {{#if state.isEditing}}
+            <input class="field-control" type="number" min="0" data-js="config.electricHeatKwPerStage">
+          {{else}}
+            <div class="field-value">{{nullText config.electricHeatKwPerStage}}</div>
+          {{/if}}
+        </div>
+        {{/if}} {{!/showConfigurable}}
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="indoor-unit">
+      <div class="block-title">Accessories</div>
+      <div class="field">
+        <div class="field-label">Filtration Type</div>
+        <div class="field-value">{{friendlyName report.filterType}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Humidifier Installed</div>
+        <div class="field-value {{posNegColor report.humidifier}}">{{friendlyName report.humidifier}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Ventilation Installed</div>
+        <div class="field-value {{posNegColor report.ventilator}}">{{friendlyName report.ventilator}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">DeHumidifier Installed</div>
+        <div class="field-value {{posNegColor report.dehumidifier}}">{{friendlyName report.dehumidifier}}</div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="indoor-unit">
+      <div class="block-title">Lockouts</div>
+      <div class="field">
+        <div class="field-label">Aux Heat</div>
+        <div class="field-value"> {{lockoutValue report.lockouts.auxiliaryHeat}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Comp Heat</div>
+        <div class="field-value"> {{lockoutValue report.lockouts.compressorHeat}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Cooling 1st Stg</div>
+        <div class="field-value">{{lockoutValue report.lockouts.coolingFirstStage}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Comp Heat 1st Stg</div>
+        <div class="field-value ">{{lockoutValue report.lockouts.heatingFirstStage}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">ID Heat 1st Stg</div>
+        <div class="field-value">{{lockoutValue report.lockouts.indoorHeatingFirstStage}}</div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+{{#if showConfigurable}}
+<!-- New Row -->
+<ul class="panel-grid no-bullet block-grid" data-js="configurable-container">
+
+  <!-- Filter location, NDM Power Source -->
+  <li class="panel-grid-block misc-settings">
+    <ul class="block-content">
+      <li class="field" data-js="configurable-item">
+        <label class="field-label" for="filter_location">
+          Filter Location
+        </label>
+
+        {{#if state.isEditing}}
+          <select id="filter_location" class="field-control"></select>
+        {{else}}
+          <div class="field-value">{{friendlySystemConfig config.filterLocation}}</div>
+        {{/if}}
+      </li>
+      <li class="field" data-js="configurable-item">
+        <label class="field-label" for="ndm_power_source">
+          NDM Power Source
+        </label>
+
+        {{#if state.isEditing}}
+          <select id="ndm_power_source" class="field-control"></select>
+        {{else}}
+          <div class="field-value">{{friendlySystemConfig config.ndmPowerSource}}</div>
+        {{/if}}
+      </li>
+      <li class="field" data-js="configurable-item">
+        <label class="field-label" for="refrigerant_type">
+          Refrigerant Type
+        </label>
+
+        {{#if state.isEditing}}
+          <select id="refrigerant_type" class="field-control" data-js="config.refrigerantType"></select>
+        {{else}}
+          <div class="field-value">{{friendlySystemConfig config.refrigerantType}}</div>
+        {{/if}}
+      </li>
+    </ul>
+  </li>
+
+  <li class="panel-grid-block">
+    <div class="block-title">Shutdown Devices</div>
+    <div class="block-content shutdown-devices-container" data-js="shutdown-devices-container"></div>
+  </li>
+</ul>
+{{/if}} {{!/showConfigurable}}

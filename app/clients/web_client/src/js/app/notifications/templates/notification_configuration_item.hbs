@@ -1,0 +1,17 @@
+<td class="notification__control">
+  <label class="checkbox-control">
+    <input
+      type="checkbox"
+    />
+    <i class="checkbox-indicator icon-envelope"></i>
+  </label>
+  <label class="notification__label" data-js="notification-label"></label>
+</td>
+<td class="notification__code" data-js="notification-code">{{displayValue}}</td>
+<td class="notification__severity" data-js="notification-severity">{{severity}}</td>
+<td class="notification__alarm" data-js="notification-alarm">{{alarmDescription}}</td>
+<td class="notification__description">
+  {{#each problemDescription}}
+    <p class="notification__description-text">{{{replace this '\n' '<br />'}}}</p>
+  {{/each}}
+</td>

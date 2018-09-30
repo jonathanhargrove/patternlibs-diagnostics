@@ -1,0 +1,53 @@
+<div class="tooltip-wrapper">
+  <div class="tooltips-details">
+    <div class="time">{{time}}</div>
+
+    <fieldset class="outdoor">
+      <legend class="legend"><b>Outdoor</b></legend>
+      <div class="temp">{{degreesF outdoorTemp 1}}</div>
+      <div class="humidity">{{percentRh outdoorHumidity 1}}</div>
+    </fieldset>
+    {{#if displayOutdoorCapacity}}
+      <div class="outdoor-capacity">
+        % Compressor Speed: {{percent outdoorCapacity}}
+      </div>
+    {{/if}}
+    {{#if displayIndoorCapacity}}
+      <div class="indoor-capacity">
+        % Furnace Speed: {{percent indoorCapacity}}
+      </div>
+    {{/if}}
+  </div>
+  <table>
+    <tr>
+      {{#if displayZoneName}}
+      <th>ZONE</th>
+      {{/if}}
+      <th>SP</th>
+      <th>IDT</th>
+      {{#unless smallDevice}}
+        <th>RH</th>
+        {{#if displayDamperPosition}}<th>Damper</th>{{/if}}
+      {{/unless}}
+      <th></th>
+    </tr>
+    {{#each zones}}
+      <tr class="zone">
+        {{#if ../displayZoneName}}
+        <td class="name" style="color:{{color}};">{{name}}</td>
+        {{/if}}
+        <td class="setpoint-temp" style="color:{{color}};">{{degrees setpointTemp 0}}</td>
+        <td class="internal-temp" style="color:{{color}};">{{degrees indoorTemp 1}}</td>
+        {{#unless ../smallDevice}}
+          <td class="internal-temp" data-js="indoor-humidity" style="color:{{color}};">{{percent indoorHumidity 1}}</td>
+          {{#if ../../displayDamperPosition}}
+            <td class="damper" style="color:{{color}};">
+              {{percent damperPosition 0}}
+            </td>
+          {{/if}}
+        {{/unless}}
+        <td class="mode">{{mode}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</div>

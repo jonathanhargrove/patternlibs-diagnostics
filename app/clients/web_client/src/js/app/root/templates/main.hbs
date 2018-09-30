@@ -1,0 +1,21 @@
+<div id="header">
+  <div class="logo" id="logo_img"></div>
+  {{#if loggedIn}}
+    <div class="header-menu">
+      <a data-route href="logout">Logout</a>
+    </div>
+    <div class="user-info">
+      <i>Welcome, {{username}}</i>
+      {{#if dealerName}} -
+        <div class="dealer-name">{{dealerName}}</div>
+        <div class='dealer-phone'>{{dealerPhoneNumber}}</div>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
+{{#if impersonatedDealer}}
+<div class="impersonating">
+  <h1 class="icon-exclamation-sign">Impersonating {{impersonatedDealer}}</h1>
+  <button id="stop-impersonating">Cancel</button>
+</div>
+{{/if}}

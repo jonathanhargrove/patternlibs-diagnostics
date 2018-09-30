@@ -1,0 +1,17 @@
+.maintenance {
+  width: 100%;
+  padding-top: 20px;
+  #maintenance-info {
+    width: 15em;
+    padding-top: 1em;
+
+    color: $blue-light;
+    font-size: 50px;
+    font-weight: bold;
+    float: right;
+  }
+}
+
+#version-changed-view {
+  width: 20%;
+}

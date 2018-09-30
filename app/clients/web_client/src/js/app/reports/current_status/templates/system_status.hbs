@@ -1,0 +1,137 @@
+<ul class="panel-grid no-bullet">
+  {{#unless multiZone}}
+  <li>
+    <div class="single-zone">
+      <div class="damper-humidity">
+        <div class="temp-humidity">
+          <div class="temperature">{{degrees firstZone.indoorTemperature 1}}</div>
+          <div class="relative-humidity">{{ratioToPercent firstZone.relativeHumidity}}</div>
+          <div class="setpoint-pill">
+            <div class="pill heat-point"><span>{{degrees firstZone.heatSetpoint 0}}</span></div>
+            <div class="pill cool-point"><span>{{degrees firstZone.coolSetpoint 0}}</span></div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </li>
+  {{/unless}}
+  <li>
+    <div class="settings">
+      <div class="block-title">Settings</div>
+      <div class="field">
+        <div class="field-label">Firmware</div>
+        <div class="field-value">{{firmwareVersion}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Fan Mode</div>
+        <div class="field-value">{{fanMode}}</div>
+      </div>
+      <div class="field sub">
+        <div class="field-label">Htg RH Setpoint</div>
+        <div class="field-value">{{percent rhHeatingSetpoint}}</div>
+      </div>
+      <div class="field sub">
+        <div class="field-label">Clg RH Setpoint</div>
+        <div class="field-value">{{percent rhCoolingSetpoint}}</div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="status">
+      <div class="block-title">
+        <span>Status</span>
+        <div data-status-icon></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Sys Mode</div>
+        <div class="field-value {{downcase systemMode}}">{{constToTitleCase systemMode}}</div>
+      </div>
+      {{#each validOperatingStages}}
+      <div class="field">
+        <div class="field-label">{{stageStatusName @key ../validOperatingStages}} Status</div>
+        <div class="field-value">{{displayStage ../operatingStatus this}}</div>
+      </div>
+      {{else}}
+      <div class="field sys-status">
+        <div class="field-label">Sys Status</div>
+        <div class="field-value">{{friendlyName operatingStatus}}</div>
+      </div>
+      {{/each}}
+      {{#if compressorDeliveredCapacity}}
+      <div class="field compressor-capacity">
+        <div class="field-label" title="This value is the current compressor speed as a percentage of the maximum speed.  Compressor speed is limited in heating mode by ambient temperatures generally above 17F.">% Compressor Speed</div>
+        <div class="field-value">{{percent compressorDeliveredCapacity}}</div>
+      </div>
+      {{/if}}
+      {{#if furnaceDeliveredCapacity}}
+      <div class="field furnace-capacity">
+        <div class="field-label" title="This value is the current furnace delivered capacity as a percentage of the total.">% Furnace Speed</div>
+        <div class="field-value">{{percent furnaceDeliveredCapacity}}</div>
+      </div>
+      {{/if}}
+      <div class="field">
+        <div class="field-label">{{airflowLabel}}</div>
+        <div class="field-value">{{airFlowPercentage}}</div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="operations">
+      <div class="block-title">Operations</div>
+      <div class="field">
+        <div class="field-label">Sys Load Value</div>
+        <div class="field-value">{{defaultIfOutrageous loadValue}}</div>
+      </div>
+      <div class="field {{tempColor outdoorTemperature}}">
+        <div class="field-label">Outdoor Temp</div>
+        <div class="field-value">{{degrees outdoorTemperature 1}}</div>
+      </div>
+      {{#if multiZone}}
+      <div class="field">
+        <div class="field-label">Indoor Rh</div>
+        <div class="field-value">{{percent relativeHumidity}}</div>
+      </div>
+      {{/if}}
+    </div>
+  </li>
+  <li>
+    <div class="accessories">
+      <div class="block-title">Accessories</div>
+      <div class="field">
+        <div class="field-label">Humidifier</div>
+        <div class="field-value">{{humidifierStatus}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Dehumidifier</div>
+        <div class="field-value">{{dehumidifierStatus}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Ventilation</div>
+        <div class="field-value">{{ventilatorStatus}}</div>
+      </div>
+    </div>
+  </li>
+  {{#if multiZone}}
+  <li>
+    <div class="multi-zone">
+      <div class="block-title">Zoning Info</div>
+      <div class="field static-pressure">
+        <div class="field-label">Static Pressure</div>
+        <div class="field-value">{{precision staticPressure 3}} "WC</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Discharge Temp</div>
+        <div class="field-value cool">{{degrees dischargeAirTemperature 1}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Return Air Temp</div>
+        <div class="field-value cool">{{degrees returnAirTemperature 1}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Excess Air</div>
+        <div class="field-value">{{percent excessAirPercentage}}</div>
+      </div>
+    </div>
+  </li>
+  {{/if}}
+</ul>

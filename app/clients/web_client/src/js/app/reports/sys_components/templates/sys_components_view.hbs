@@ -1,0 +1,32 @@
+<div class="panel-container">
+  <div class="panel-header">
+    <div class="title">System Components<span class="count"> ({{componentCount}})</span></div>
+    <div class="error icon-circle"></div>
+    <div class="error icon-notification"></div>
+    {{#if lastUpdatedAt}}
+      <div class="last-updated-at">Last updated: {{longDateTime lastUpdatedAt}}</div>
+    {{/if}}
+  </div>
+  <div class="panel-content">
+    {{#if hasMany}}
+      <div class="icon-toggle-state {{boolText closed 'closed' 'open' 'closed'}}"></div>
+    {{/if}}
+    <table class="{{boolText closed 'closed' 'open' 'closed'}} {{#unless hasMany}}only-one{{/unless}}">
+      <thead>
+        <tr>
+          <th>Description</th>
+          {{#if hasZones}}
+            <th>Associated Zone</th>
+          {{/if}}
+          <th>Model Number (required)</th>
+          <th>Serial Number</th>
+          <th>Version Number</th>
+          <th>{{#if hasCommunicating}}Communication Status{{else}}Actions{{/if}}</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <button class='secondary-button' id='add-component'>Add New Component</button>
+  </div>
+</div>

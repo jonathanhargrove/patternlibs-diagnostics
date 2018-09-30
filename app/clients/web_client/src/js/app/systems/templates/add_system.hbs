@@ -1,0 +1,32 @@
+<div class="header">
+  <h1 class="title">Add System</h1>
+</div>
+<form class="custom">
+  <fieldset>
+    <div>
+      <label>Device AUID or Serial Number
+        <input type="text" name="primaryDeviceId" autofocus/>
+      </label>
+    </div>
+    {{#if showGroupSelection}}
+      <div id="group-selection">
+      </div>
+      <div class='new-group hidden'>
+        <label>Enter New Group Name
+          <input id="new-group" type="text"></input>
+        </label>
+      </div>
+    {{/if}}
+    <div>
+      <label>Notes
+        <textarea name="note" class="no-resize-width"></textarea>
+      </label>
+    </div>
+    <div class="notes">
+    </div>
+  </fieldset>
+  <div class="button-container">
+    <button class='submit' name="save">Save</button>
+    <a class="cancel">Cancel</a>
+  </div>
+</form>

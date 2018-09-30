@@ -1,0 +1,24 @@
+<div class="header">
+  <h1 class="title">Assign {{deviceId}} To Customer</h1>
+</div>
+<form>
+  <fieldset>
+    <div class="form-radio-wrapper">
+      <input class="form-radio" type="radio" name="customer_type" value="current" checked id="current-customer">
+      <label class="form-radio-label" for="current-customer">&nbsp;Current&nbsp;</label>
+    </div>
+
+    <div class="form-radio-wrapper">
+      <input class="form-radio" type="radio" name="customer_type" value="new" id="new-customer">
+      <label class="form-radio-label" for="new-customer">&nbsp;New&nbsp;</label>
+    </div>
+  </fieldset>
+</form>
+<form class="customer-form">
+  <div class="new-form-view"></div>
+  <div class="search-form-view"></div>
+  <div class="button-container">
+    <button class='submit'>Save</button>
+    <a href="/customers" class="cancel">Cancel</a>
+  </div>
+</form>

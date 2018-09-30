@@ -1,0 +1,83 @@
+$rose: #f3e0e0;
+
+.server-error {
+  background: $rose;
+  width: 100%;
+  border: 1px solid $border-color;
+
+  .contents {
+    @include grid-row();
+    min-height: 100px;
+
+    @media #{$medium-up} {
+      height: 100px;
+    }
+  }
+
+  .details,
+  .message,
+  .controls {
+    @include grid-column(12);
+    margin: 1rem 0;
+
+    @media #{$medium-up} {
+      @include grid-column(4);
+      margin: 0;
+
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .details {
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left;
+    }
+
+    .icon,
+    .text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .icon {
+      @extend %status-icon__error;
+      margin-right: 12px;
+    }
+
+    .secondary-message,
+    .occurred-at,
+    .cause {
+      margin: 0;
+    }
+
+    .secondary-message {
+      font-weight: bold;
+    }
+  }
+
+  .message {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .controls {
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: right;
+    }
+  }
+
+  .dismiss-button {
+    @extend .secondary-button;
+    padding: 6px 30px;
+
+    &:focus {
+      background: $white;
+    }
+  }
+}

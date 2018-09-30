@@ -1,0 +1,10 @@
+{
+  "extends": ["../../../.eslintrc"],
+  "globals": {
+    "afterEach": false,
+    "beforeEach": false,
+    "describe": false,
+    "expect": false,
+    "it": false
+  }
+}

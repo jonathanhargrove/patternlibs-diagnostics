@@ -1,0 +1,1 @@
+Documentation of new UI patterns observed in the wild that might come in handy for Diagnostics.

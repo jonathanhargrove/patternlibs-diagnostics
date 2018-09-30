@@ -1,0 +1,24 @@
+<div class="panel-container">
+  <div class="panel-header">
+    <div class="title">{{title}}</div>
+    <div class="stream-error error icon-circle"></div>
+    <div class="stream-error error icon-notification"></div>
+
+    {{#if showConfigurable}}
+    <!-- Comes before .last-updated-at in markup so the order is reversed when `float:right` -->
+    <button class="toggle-is-editing" data-js="toggle-is-editing">
+      {{#if state.isEditing}}
+        Done
+      {{else}}
+        Edit
+      {{/if}}
+    </button>
+    {{/if}} {{! showConfigurable}}
+
+    {{#if lastUpdatedAt}}
+      <div class="last-updated-at">Last updated: {{longDateTime lastUpdatedAt}}</div>
+    {{/if}}
+  </div>
+  <div class="panel-content">
+  </div>
+</div>

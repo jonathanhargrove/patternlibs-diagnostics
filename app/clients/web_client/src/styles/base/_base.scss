@@ -1,0 +1,132 @@
+@import "variables";
+@import "mixins";
+
+html, body {
+  // TODO: this is required by a bug in popper.js, a dependency of tippy.js
+  // https://github.com/FezVrasta/popper.js/issues/302
+  // This _shouldn't_ make a difference since we're not using the off canvas menu
+  height: auto !important;
+}
+
+div.background {
+  background-color: $background-color;
+  width: 100%;
+  min-height: 100%;
+  margin-bottom: 0px;
+}
+
+div.container {
+  margin: auto;
+  max-width: 1400px;
+  min-height: 230px;
+}
+
+div.outer_container {
+  @extend .container;
+}
+
+div.inner_container {
+  @extend .container;
+  background-color: $inner-container-background-color;
+  padding: 12px 12px;
+
+  @media #{$small-only} {
+    padding: 0;
+  }
+}
+
+@mixin bottom-box-shadow($opacity:.5) {
+  box-shadow:0 1px 4px rgba(0,0,0,$opacity);
+}
+
+#banner-container {
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+}
+
+#main-content {
+  background-color: #ffffff;
+  @include radius($global-radius);
+  @include bottom-box-shadow;
+  padding: 30px;
+  min-height: 700px;
+
+  @media #{$small-only} {
+    padding: 10px;
+  }
+}
+
+#logo_img {
+  background-image: url("/img/link_logo.jpg");
+  background-size: auto;
+  height: 57px;
+  width: 152px;
+}
+
+.main_header {
+  background-color: #ffffff;
+  overflow-y: hidden;
+}
+
+.header-base {
+  @extend .font-bold;
+  padding: 5px;
+  color: $secondary-font-color;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.generic-header {
+  @extend .header-base;
+  background-color: $background-color;
+  position: relative;
+  z-index: 999;
+}
+
+.heading {
+  color: $headline-color;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+h1 {
+  @extend .heading;
+  font-size: 28px;
+}
+
+h2 {
+  @extend .heading;
+  font-size: 18px;
+}
+
+h3 {
+  @extend .heading;
+  font-size: 16px;
+}
+
+h4, h5, h6 {
+  @extend .heading;
+  font-size: 14px;
+}
+
+select {
+  padding: 6px 7px;
+}
+
+.header-link {
+  float: right;
+  text-transform: uppercase;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clear-fix {
+  float: none;
+  clear: both;
+}

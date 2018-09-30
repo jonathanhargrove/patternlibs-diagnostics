@@ -1,0 +1,33 @@
+.ndm-runtime-history-container {
+  .loading {
+    // override the padding-top from .runtime-history-container
+    padding-top: 100px;
+  }
+
+  .stuck {
+    top: 0;
+    background: #FFFFFF;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+  }
+
+  .panel-content {
+    .runtime-history-detail {
+      .chart-controls {
+        &.stuck {
+          padding-bottom: 10px;
+          z-index: 1;
+        }
+      }
+
+      @media #{$small-only} {
+        .chart-controls {
+          .instructions {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

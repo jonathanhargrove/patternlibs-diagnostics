@@ -1,0 +1,51 @@
+// TODO: Replace this with Foundation's modal implementation
+.modal-background {
+  z-index: 999;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: black;
+  opacity: .5;
+}
+
+.error-box {
+  z-index: 1000;
+  display: inline-block;
+  background: red;
+  color: #FFF;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 15px;
+  @include radius();
+  width: 100%;
+}
+
+label {
+  .error-box {
+    float: right;
+    margin: 0;
+    width: auto;
+    margin-top: -16px !important;
+    @include radius(0);
+    @include vertical-radius(bottom);
+  }
+}
+
+.error-box-modal {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  font-size: 27px;
+  padding: 13px 21px;
+  opacity: .80;
+  margin-top: 0;
+  border-radius: 0;
+
+  button {
+    margin: 0 0 0 20px;
+    font-size: 20px;
+  }
+}

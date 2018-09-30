@@ -1,0 +1,15 @@
+{{#if anySystemsWithGroups}}
+  <select id="group-select" class="group-select" >
+    <option value="{{allValue}}">ALL SYSTEMS ({{systemCount}})</option>
+    <optgroup label="Groups">
+      {{#if unassignedSystemCount}}
+        <option id="unassigned-systems" value="">UNASSIGNED SYSTEMS ({{unassignedSystemCount}})</option>
+      {{/if}}
+      {{#each groupList}}
+        <option value="{{@key}}">{{this}}</option>
+      {{/each}}
+    </optgroup>
+  </select>
+{{else}}
+  <h1 class="customer-systems-count">- {{systemCount}} {{pluralize systemCount "System"}}</h1>
+{{/if}}

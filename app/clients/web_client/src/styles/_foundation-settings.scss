@@ -1,0 +1,46 @@
+// See node_modules/foundation-sites/scss/foundation/_settings.scss for available settings
+
+$experimental: true;
+$include-html-form-classes: true;
+
+$rem-base: $base-font-size;
+
+$row-width: 1400px;
+$global-radius: 4px;
+
+$button-tny: rem-calc(11);
+$button-sml: rem-calc(11);
+$button-med: rem-calc(11);
+$button-lrg: rem-calc(11);
+
+$form-label-font-size: 1rem;
+
+$off-canvas-bg: $inner-container-background-color;
+$off-canvas-link-color:  $headline-color;
+$off-canvas-link-border-bottom: none;
+
+$menu-slide: "transform 100ms ease";
+
+$pagination-li-font-size: 1em;
+$pagination-li-margin: emCalc(10px);
+$pagination-link-pad: .2em .8em;
+$pagination-link-font-color: $primary-color;
+$pagination-link-active-bg: $inner-container-background-color;
+$pagination-link-current-background: $inner-container-background-color;
+$pagination-link-current-font-color: $primary-font-color;
+$pagination-link-current-active-bg: $inner-container-background-color;
+
+$reveal-modal-class: "modal";
+
+$topbar-bg: $primary-nav-color;
+$topbar-breakpoint: 768px; // Change to 9999px for always mobile layout
+$topbar-dropdown-bg: $primary-nav-color;
+$topbar-height: rem-calc(60);
+$topbar-link-bg-active: lighten($topbar-bg, 15%);
+$topbar-link-bg-hover: lighten($topbar-bg, 15%);
+$topbar-link-font-size: 1rem;
+$topbar-link-text-transform: uppercase;
+$topbar-link-weight: 600;
+$topbar-menu-icon-color-toggled: $white;
+$topbar-menu-link-color-toggled: $white;
+$topbar-link-bg-active: $topbar-link-bg-hover;

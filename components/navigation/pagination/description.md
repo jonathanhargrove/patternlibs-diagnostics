@@ -1,0 +1,1 @@
+This is the styling for the pagination controls that move the user through the customer table pages.

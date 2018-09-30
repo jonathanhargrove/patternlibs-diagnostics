@@ -1,0 +1,58 @@
+// IE-11: Css that's specifically needed for IE-11 rendering
+
+#dashboard {
+  @include grid-row;
+
+  .panel-container {
+    display: block;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.5);
+    margin-bottom: 19px;
+
+    .panel-title {
+      display: block;
+      background-color: $grey-dark;
+      color: $header-color;
+      width: 100%;
+      padding: 10px;
+      text-transform: uppercase;
+      text-align: left;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+  }
+
+  .system-status-overview {
+    display: inline-block; // IE-11
+    width: 100%; // IE-11
+    margin-bottom: 13px;
+  }
+
+  .customer-adoption {
+    @include grid-column($columns: 5.9, $collapse: true);
+
+    @media #{$small-only} {
+      @include grid-column($columns: 12, $collapse: true, $float: left);
+    }
+  }
+
+  .alerts-history {
+    @include grid-column($columns: 5.9, $collapse: true, $float: right);
+    display: inline-block;
+    min-height: 577px;
+
+    @media #{$medium-only} {
+      min-height: 564px;
+    }
+
+    @media #{$small-only} {
+      @include grid-column($columns: 12, $collapse: true);
+    }
+  }
+
+  .site-messages {
+    display: inline-block;
+    width: 100%;
+  }
+}

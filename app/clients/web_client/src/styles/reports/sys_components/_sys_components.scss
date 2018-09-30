@@ -1,0 +1,193 @@
+#sys-components-container {
+  @media #{$medium-up} {
+    .mobile-content {
+      display: none;
+    }
+  }
+
+  @media #{$small-only} {
+    .desktop-content {
+      display: none;
+    }
+  }
+
+  .loading {
+    padding: 20px 0 20px 0;
+
+    .page-spinner {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .save-spinner {
+    float: right;
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .last-updated-at {
+    width: auto; //override the percentage width in _mixins.scss
+    display: none; // hide on mobile
+
+    @media #{$medium-up} {
+      display: block;
+    }
+
+    abbr {
+      @include responsive-abbr($large-up);
+    }
+  }
+
+  .edit-buttons, .save-buttons {
+    @media #{$small-only} {
+      left: 25%;
+      position: relative;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .component-row {
+    display: table-row;
+
+    @media #{$small-only} {
+      display: block;
+    }
+
+    @media #{$medium-only} {
+      .save {
+        width: 43px;
+        height: 25px;
+        min-width: 5px;
+        padding: 0px;
+      }
+
+      .cancel {
+        width: 50px;
+        height: 25px;
+        min-width: 10px;
+        padding: 0px;
+      }
+    }
+
+    > div {
+      @media #{$medium-up} {
+        display: table-cell;
+        padding: 10px;
+      }
+    }
+  }
+
+  .icon-toggle-state {
+    float: left;
+    font-size: 20px;
+    color: $grey-dark;
+    width: 2%;
+
+    &.open {
+      @extend .icon-arrow-down;
+    }
+    &.closed {
+      @extend .icon-arrow-right2;
+    }
+  }
+
+  table {
+    width: 98%;
+    &.only-one {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    @media #{$small-only} {
+      width: 93%;
+      margin-left: 6.75%;
+    }
+
+    th {
+      background: $grey-lighter;
+      color: $grey-dark;
+      border-left: 1px solid white;
+
+      @media #{$small-only} {
+        display: none;
+      }
+    }
+
+    th:first-child {
+      border-left: none;
+    }
+
+    &.closed tbody .component-row {
+      display: none;
+    }
+
+    &.open tbody .component-row {
+      display: table-row;
+    }
+
+    tbody {
+      .component-row:first-child {
+        display: table-row;
+      @media #{$small-only} {
+        display: block;
+      }
+    }
+
+      .placeholder {
+        display: table-row;
+        height: 20px;
+      }
+      input {
+        margin-bottom: 0;
+      }
+      button {
+        padding: 10px 20px;
+        margin-bottom: 0;
+      }
+
+      .errors {
+        div {
+          background-color: $red;
+          color: $white;
+        }
+        input {
+          background-color: lighten($red, 40%);
+        }
+      }
+    }
+  }
+
+  .panel-grid {
+    @media #{$medium-up} {
+      display: none !important;
+      visibility: hidden !important;
+    }
+
+    @include equal-width-grid-panel(1,2,4);
+    @include grid-block-style;
+    li {
+      min-height: 205px;
+    }
+  }
+
+  .panel-header .count {
+    @media #{$small-only} {
+      display: none !important;
+      visibility: none !important;
+    }
+  }
+
+  #add-component {
+    @extend .secondary-button;
+    @media #{$small-only} {
+      left: 25%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}

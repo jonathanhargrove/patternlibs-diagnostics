@@ -1,0 +1,27 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name"><!-- Empty name required for styles --></li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      {{#if dashboardEnabled}}
+        <li id="showDashboard"><a data-route href="dashboard">Dashboard</a></li>
+      {{/if}}
+      <li id="showCustomerList"><a data-route href="customers">Customers</a></li>
+      <li id="showAlertGuide"><a data-route href="alerts">Alert Guide</a></li>
+      <li id="showContactForm"><a data-route href="contact">Feedback</a></li>
+    </ul>
+
+    <ul class="right">
+      <li><a data-route href="notification_recipients">Notifications</a></li>
+      <li>
+        <a data-route href="customers/new">
+          <span class="icon-plus add-customer-icon"></span>
+          <span>Add Customer</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</nav>

@@ -1,0 +1,102 @@
+%base-checkbox {
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    z-index: -1000;
+  }
+
+  input[type="checkbox"]:checked ~ .checkbox-indicator::after {
+    opacity: 1;
+  }
+
+  input[type="checkbox"]:disabled ~ .checkbox-indicator {
+    cursor: not-allowed;
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .checkbox-indicator::after {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    transition: opacity 200ms;
+  }
+}
+
+%checkbox {
+  @extend %base-checkbox;
+
+  $check-color: #a5cc6c !default;
+  $disabled-check-color: $grey-dark !default;
+  $border-color: $grey-dark !default;
+  $background-color: $white !default;
+  $disabled-background-color: $grey-light !default;
+  $hover-background-color: $grey-lighter !default;
+  $focus-color: $blue !default;
+
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: 24px;
+  margin: 0;
+
+  > span {
+    padding-left: 0.313em;
+    padding-right: 0.313em;
+  }
+
+  > span,
+  .checkbox-indicator {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .checkbox-indicator {
+    background-color: $background-color;
+    border-color: $border-color;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    height: 18px;
+    position: relative;
+    width: 18px;
+  }
+
+  input[type="checkbox"]:disabled ~ .checkbox-indicator {
+    background-color: $disabled-background-color;
+  }
+
+  &:hover .checkbox-indicator {
+    background-color: $hover-background-color;
+  }
+
+  input[type="checkbox"]:focus ~ .checkbox-indicator {
+    box-shadow: 0 0 2px $focus-color;
+  }
+
+  .checkbox-indicator::after {
+    border-color: $check-color;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    height: 14px;
+    left: 5px;
+    transform: rotate(45deg);
+    width: 8px;
+  }
+
+  input[type="checkbox"]:disabled ~ .checkbox-indicator::after {
+    border-color: $disabled-check-color;
+  }
+}
+
+%checkbox-inverted {
+  $border-color: $white;
+  @extend %checkbox;
+
+  color: $white;
+  ::selection{
+    color: $white;
+  }
+}

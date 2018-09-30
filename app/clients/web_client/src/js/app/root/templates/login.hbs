@@ -1,0 +1,33 @@
+<div class="login-form">
+  <div class="header">
+    <div class="title">{{title}}</div>
+  </div>
+  <form class="details">
+    <div class="errors"></div>
+    <div class="user-name">
+      <label>Username
+        <input type="text" name="username" autofocus/>
+      </label>
+    </div>
+    <div class="password">
+      <label>Password
+        <input type="password" name="password"/>
+      </label>
+    </div>
+    <button class="submit">Login</button>
+  </form>
+</div>
+
+{{#if isTraneTheme}}
+  <div class="trane-login">
+    <div class="trane-login-footer">
+      <div class="trane-login-footer-content">
+        <div class="trane-login-copyright">©2018 Trane |
+          <a target="_blank" href="https://company.ingersollrand.com/privacy-policy.html">Privacy Policy</a> |
+          <a target="_blank" href="/terms_and_conditions">Terms and Conditions</a>
+        </div>
+        <div class="logo" id="ingersoll_img"></div>
+      </div>
+    </div>
+  </div>
+{{/if}}

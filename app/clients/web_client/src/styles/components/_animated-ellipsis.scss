@@ -1,0 +1,45 @@
+/*
+  Markup:
+
+    <span class="ellipsis" aria-hidden="true" role="presentation" tabindex="-1">
+      <span>.</span>
+      <span>.</span>
+      <span>.</span>
+    </span>
+
+  Styles:
+
+    .ellipsis { @extend %animated-ellipsis; }
+*/
+
+%animated-ellipsis {
+  @keyframes blink {
+    0% {
+      opacity: .2;
+    }
+
+    20% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: .2;
+    }
+  }
+
+  span {
+    animation-duration: 1.4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    display: inline;
+
+    &:nth-child(2) {
+      animation-delay: .2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: .4s;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.assign-customer-dialog {
+  @media #{$medium-up} {
+    width: 40rem;
+  }
+
+  .form-radio-wrapper {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+}
+
+.assign_customer-type {
+  @media #{$medium-up} {
+    display: inline;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="heading">
+  <h1 class="customer-name">{{nullText name deviceId}}</h1>
+</div>
+<div class="customer-header">
+  <!-- customer-details is needed to push customer-actions into the correct column -->
+  <!-- #TODO: Refactor "customer-" styling to avoid this type of thing -->
+  <div class="customer-details"></div>
+  <div class="customer-actions">
+    <button class="standard-button assign-system" id="assign-device"><i class="icon-plus3"></i> Assign System</button>
+  </div>
+</div>
+
+<div id="system-view" class="system-view" data-device-view-container></div>

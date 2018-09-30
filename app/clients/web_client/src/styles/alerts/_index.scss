@@ -1,0 +1,135 @@
+#alerts {
+  .select-code-below,
+  .or,
+  .enter-code,
+  .code-entry input,
+  .code-entry button,
+  .invalid-code {
+    display: inline-block;
+  }
+
+  .code-entry, .prompt {
+    display: flex;
+  }
+
+  .prompt {
+    margin-top: 10px;
+  }
+
+  .enter-code, .or, .select-code-below {
+    margin-top: 11px;
+  }
+
+  .code-entry input {
+    margin-left: 10px;
+    width: 80px;
+    height: 40px;
+  }
+
+  .invalid-code {
+    display: none;
+    height: 40px;
+    color: $error-color;
+    margin-top: 12px;
+    margin-left: 10px;
+  }
+
+  button {
+    padding-top: 10px;
+    height: 40px;
+    border-radius: 0;
+    font-size: .9em;
+  }
+
+  .mobile-select-code-below {
+    display: none;
+  }
+
+  .or, .select-code-below {
+    margin-right: 20px;
+  }
+
+  .category-shortcuts {
+    display: flex;
+    justify-content: space-between;
+    max-width: 258px;
+  }
+
+  .subsection-prefix {
+    font-weight: normal;
+  }
+
+  .section {
+    margin-top: 10px;
+  }
+
+  .subsection {
+    margin-left: 7px;
+    padding: 0px 2px;
+    margin-top: 5px;
+    display: inline-block;
+  }
+
+  .subsection-name {
+    color: $primary-nav-bold-color;
+  }
+
+  .section-name, .subsections {
+    display: inline-table;
+  }
+
+  .subsections {
+    max-width: 90%;
+  }
+
+  .back-to-top {
+    float: right;
+    margin-top: -26px;
+  }
+
+  .category:first-child .back-to-top {
+    display: none;
+  }
+
+  @media #{$small-only} {
+    button {
+      padding: 11px;
+      margin-right: 0;
+    }
+
+    .invalid-code {
+      margin-top: 45px;
+      margin-left: -147px;
+      height: 25px;
+    }
+
+    .or, .select-code-below {
+      display: none;
+    }
+
+    .mobile-select-code-below {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 1.2em;
+    }
+  }
+
+  .category-header {
+    display: flex;
+    margin-top: 30px;
+    border-bottom: 1px solid $split-color;
+    padding-bottom: 5px;
+
+    &:h2 {
+      margin-bottom: 0;
+    }
+
+    .category-name {
+      text-transform: initial;
+      padding-left: 10px;
+      padding-top: 3px;
+      font-weight: 100;
+    }
+  }
+}

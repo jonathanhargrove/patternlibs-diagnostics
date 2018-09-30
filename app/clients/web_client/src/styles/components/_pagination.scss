@@ -1,0 +1,38 @@
+.pagination-container {
+  height: 3em;
+
+  .pagination {
+    float: right;
+    margin-top: 1em;
+
+    li {
+      span.next {
+        @include css-triangle(7px, $secondary-font-color, left);
+        margin-left: 25%;
+      }
+
+      span.prev {
+        @include css-triangle(7px, $secondary-font-color, right);
+        margin-left: -25%;
+      }
+
+      &.unavailable {
+        span.next {
+          @include css-triangle(7px, $secondary-disabled-icon-color, left);
+        }
+
+        span.prev {
+          @include css-triangle(7px, $secondary-disabled-icon-color, right);
+        }
+      }
+
+      a {
+        @include radius(3px);
+      }
+    }
+
+    li:first-child a, li:last-child a {
+      padding: emCalc(8px);
+    }
+  }
+}

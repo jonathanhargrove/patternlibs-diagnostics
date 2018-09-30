@@ -1,0 +1,94 @@
+<div class="header">
+  <h1 class="title">{{formAction this}} Notification Recipient</h1>
+</div>
+<form class="notification-recipient-form" autocomplete="off">
+  <fieldset>
+    <div class="info-panel">
+      <h2>Recipient Info</h2>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Name
+            <input type="text" name="name" maxlength="200" autofocus/>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Email
+            <input type="text" name="email" maxlength="100"/>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="info-panel">
+      <h2>Notify Recipient Of:</h2>
+      <div class="row">
+        <div class="large-6 columns">
+          <label class="label-with-tooltip">
+            <input type="checkbox" name="criticalAlerts"/>
+            Critical Alerts
+          </label>
+          <span class="icon-question3" title="{{criticalAlertsTitle}}" data-tooltip></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label class="label-with-tooltip">
+            <input type="checkbox" name="majorAlerts"/>
+            Major Alerts
+          </label>
+          <span class="icon-question3" title="{{majorAlertsTitle}}" data-tooltip></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <label class="label-with-tooltip">
+            <input type="checkbox" name="betaAlerts"/>
+            Beta Alerts
+          </label>
+          <span class="icon-question3" title="{{betaAlertsTitle}}" data-tooltip></span>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="info-panel">
+      <h2>For Customers:</h2>
+      <div class="customer-selection-option">
+        <label>
+          <input type="radio" id="all-customers" name="customers" value="all" checked>
+          All Customers
+        </label>
+        <label>
+          <input type="radio" id="selected-customers" name="customers" value="subset">
+          Selected Customers
+        </label>
+      </div>
+      <div id="customer-columns-container" class="hidden">
+        {{#each customerListColumns}}
+          <div class="customer-column">
+            {{#each this }}
+                <label>
+                  {{#if this.selected}}
+                    <input type="checkbox" name="customer-{{this.id}}" checked />
+                  {{else}}
+                    <input type="checkbox" name="customer-{{this.id}}" />
+                  {{/if}}
+                  {{this.name}}
+                </label>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </fieldset>
+  <div class="button-container">
+    <button class='submit'>Save</button>
+    <a href="/notification_recipients" class="cancel">Cancel</a>
+    {{#if id}}
+      <button class="delete-notification-recipient delete-button">Delete Recipient</button>
+    {{/if}}
+  </div>
+</form>

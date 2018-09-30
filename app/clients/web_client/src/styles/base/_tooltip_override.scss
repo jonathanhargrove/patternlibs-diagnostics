@@ -1,0 +1,79 @@
+/*
+  Shared tooltip styles
+*/
+
+.tippy-tooltip.nexia-fixed-arrow-theme,
+.tippy-tooltip.nexia-theme {
+  background-color: white;
+  color: $headline-color;
+  font-size: 1rem;
+  max-width: 340px;
+  @include tooltip-box-shadow-border;
+}
+
+/*
+  Base Nexia theme
+*/
+
+.tippy-popper[x-placement^=top] .tippy-tooltip.nexia-theme [x-arrow] {
+  border-top-color: #939598;
+}
+
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.nexia-theme [x-arrow] {
+  border-bottom-color: #939598;
+}
+
+.tippy-popper[x-placement^=right] .tippy-tooltip.nexia-theme [x-arrow] {
+  border-right-color: #939598;
+}
+
+.tippy-popper[x-placement^=left] .tippy-tooltip.nexia-theme [x-arrow] {
+  border-left-color: #939598;
+}
+
+/*
+  Special theme for fixed arrows that are used on chart alarm tooltips
+*/
+
+$arrow-width: 10px;
+
+.tippy-popper[x-placement^=top] .tippy-tooltip.nexia-fixed-arrow-theme::before,
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.nexia-fixed-arrow-theme::before {
+  content: '';
+  display: block;
+
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  margin: 0 9px;
+}
+
+.tippy-popper[x-placement^=top] .tippy-tooltip.nexia-fixed-arrow-theme::before {
+  border-top: $arrow-width solid #939598;
+  border-right: $arrow-width solid transparent;
+  border-left: $arrow-width solid transparent;
+  bottom: -$arrow-width;
+}
+
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.nexia-fixed-arrow-theme::before {
+  border-bottom: $arrow-width solid #939598;
+  border-right: $arrow-width solid transparent;
+  border-left: $arrow-width solid transparent;
+  top: -$arrow-width;
+}
+
+.tippy-popper[x-placement=top] .tippy-tooltip.nexia-fixed-arrow-theme::before,
+.tippy-popper[x-placement=bottom] .tippy-tooltip.nexia-fixed-arrow-theme::before {
+  left: calc(50% - #{($arrow-width / 2)});
+}
+
+.tippy-popper[x-placement=top-start] .tippy-tooltip.nexia-fixed-arrow-theme::before,
+.tippy-popper[x-placement=bottom-start] .tippy-tooltip.nexia-fixed-arrow-theme::before {
+  left: ($arrow-width / 2);
+}
+
+.tippy-popper[x-placement=top-end] .tippy-tooltip.nexia-fixed-arrow-theme::before,
+.tippy-popper[x-placement=bottom-end] .tippy-tooltip.nexia-fixed-arrow-theme::before {
+  right: ($arrow-width / 2);
+}

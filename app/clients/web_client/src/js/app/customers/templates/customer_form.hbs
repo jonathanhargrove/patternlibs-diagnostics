@@ -1,0 +1,175 @@
+<div class="info-panel">
+  <fieldset class="grid-row">
+    <h2 class="customer-info-title">Customer Info</h2>
+
+    {{#if isTrane}}
+      <label class="company">Company Name
+        <input type="text" name="companyName" maxlength="100" autofocus/>
+      </label>
+    {{/if}}
+
+    <label class="name">First Name
+      <input type="text" name="firstName" maxlength="100" autofocus/>
+    </label>
+
+    <label class="name">Last Name
+      <input type="text" name="lastName" maxlength="100"/>
+    </label>
+
+    <label class="address">Address 1
+      <input type="text" name="address1" maxlength="255"/>
+    </label>
+
+    <label class="address">Address 2
+      <input type="text" name="address2" maxlength="255"/>
+    </label>
+
+    <label class="address">City
+      <input type="text" name="city" maxlength="100"/>
+    </label>
+
+    <label for="state" class="state">State
+      <select id="stateDropdown" name="state" class="large">
+        <optgroup label="">
+          <option value="" selected="selected"></option>
+        </optgroup>
+        <optgroup label="USA">
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </optgroup>
+        <optgroup label="Canada">
+          <option value="AB">Alberta</option>
+          <option value="BC">British Columbia</option>
+          <option value="MB">Manitoba</option>
+          <option value="NB">New Brunswick</option>
+          <option value="NL">Newfoundland and Labrador</option>
+          <option value="NS">Nova Scotia</option>
+          <option value="NT">Northwest Territories </option>
+          <option value="NU">Nunavut </option>
+          <option value="ON">Ontario</option>
+          <option value="PE">Prince Edward Island</option>
+          <option value="QC">Quebec</option>
+          <option value="SK">Saskatchewan</option>
+          <option value="YT">Yukon </option>
+        </optgroup>
+      </select>
+    </label>
+
+    <label title="This field is required." class="zip">
+      <span>Zip</span>
+      <input type="text" name="zip" maxlength="10"/>
+    </label>
+
+    <div class="phone">
+      <label title="This field is required.">Phone
+        <input type="tel" name="phone" maxlength="11"/>
+      </label>
+    </div>
+
+    <div class="email">
+      <label>Email
+        <input type="email" name="email" maxlength="100" />
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset class="grid-row">
+    <h2 class="notes-title">Notes</h2>
+    <div class="notes-panel">
+      <div class="notes">
+        <textarea name="note" class="no-resize-width"></textarea>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="grid-row">
+    <div class="alerts-panel">
+      <h2 class="alerts-title">Notify Dealer Of:</h2>
+      <div>
+        <label class="label-with-tooltip">
+          <input type="checkbox" name="criticalAlerts"/>
+          Critical Alerts
+        </label>
+        <span class="icon-question3" title="{{criticalAlertsTitle}}" data-tooltip></span>
+      </div>
+      <div>
+        <label class="label-with-tooltip">
+          <input type="checkbox" name="majorAlerts"/>
+          Major Alerts
+        </label>
+        <span class="icon-question3" title="{{majorAlertsTitle}}" data-tooltip></span>
+      </div>
+      <div>
+        <label class="label-with-tooltip">
+          <input type="checkbox" name="betaAlerts"/>
+          Beta Alerts
+        </label>
+        <span class="icon-question3" title="{{betaAlertsTitle}}" data-tooltip></span>
+      </div>
+    </div>
+
+    {{#if notificationRecipients}}
+      <div class="notification-recipients-panel">
+        <h2 class="notification-recipients-title">Send Alerts to Notification Recipients:</h2>
+        {{#each notificationRecipients}}
+          <label>
+            {{#if this.selected}}
+              <input type="checkbox" name="notification-recipient-{{this.id}}" checked />
+            {{else}}
+              <input type="checkbox" name="notification-recipient-{{this.id}}" />
+            {{/if}}
+            {{this.name}} - {{this.email}}
+          </label>
+        {{/each}}
+      </div>
+    {{/if}}
+  </fieldset>
+</div>

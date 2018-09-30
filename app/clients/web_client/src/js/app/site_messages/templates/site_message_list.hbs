@@ -1,0 +1,43 @@
+<div class="header">
+  <a id="new" class="header-link" href="/admin/site_messages/new"><span class="icon-plus"></span>Add Message</a>
+  <h1 class="title">Site Messages</h1>
+</div>
+<div class="titles">
+  <span class="message">Message</span>
+  <span class="enabled">Site Banner</span>
+  <span class="dashboard">Dashboard Panel</span>
+</div>
+<div class="items">
+  {{#each items}}
+    <div class="item">
+      <a class="message edit {{messageType}}" href="/admin/site_messages/{{id}}/edit">
+        {{#if image}}
+          <img src="{{image}}"/>
+        {{/if}}
+        <div class="message-text {{#if image}}with-image{{/if}}">
+          <div class="primary-text">{{primaryText}}</div>
+          <div class="secondary-text">{{secondaryText}}</div>
+        </div>
+      </a>
+      <div class="enabled">
+        <span class="status {{siteBannerEnabled}}">
+          {{#if siteBannerEnabled}}
+            enabled
+          {{else}}
+            disabled
+          {{/if}}
+        </span>
+        {{#if siteBannerEnabled}}
+        <div class='last-updated'>
+          <div class="last-updated-label">Last Updated:</div>
+          <div class="updated-at">{{shortDateTime updatedAt}}</div>
+        </div>
+        {{/if}}
+      </div>
+      <div class="dashboard">
+        <div class='dashboard-panel-title'><b>Title:</b> {{dashboardPanelTitle}}</div>
+        <span class="slot rounded-row-left">slot</span><span class="rounded-row-middle {{#if slotOneSet}}set{{/if}}">1</span><span class="rounded-row-right {{#if slotTwoSet}}set{{/if}}">2</span>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,52 @@
+<div class="header">
+  <div data-js="search-form-container"></div>
+  <h1 class="title">{{models.length}} {{pluralize models.length "Customer"}}</h1>
+  <div data-paginator></div>
+</div>
+<div id="customer-results">
+  <div id="list-titles" class="table-header">
+    <span class="table-header__cell customer-info sortable" data-sort-on="customer">
+      <span class="sort-controls" data-sort-indicator="customer"></span>
+      <span class="customer-label">Customer</span>
+      <div class="inline" data-js="filter-container">
+        <a
+          href="#"
+          data-js="filter-dropdown"
+          aria-controls="filter-assigned"
+          aria-expanded="false"
+          class="filter-icon{{#if filterEnabled}} enabled{{/if}}">
+        </a>
+        <ul aria-hidden="true" class="filter-dropdown-contents">
+          <li{{#if noFilterApplied }} class="selected"{{/if}}>
+            <a href="#" data-filter="all">All</a>
+          </li>
+          <li{{#if filteredByUnassigned }} class="selected"{{/if}}>
+            <a href="#" data-filter="unassigned">Unassigned</a>
+          </li>
+          <li{{#if filteredByAssigned }} class="selected"{{/if}}>
+            <a href="#" data-filter="assigned">Assigned</a>
+          </li>
+        </ul>
+      </div>
+    </span>
+    <div class="system-groups">
+      <div class="device-info-header">
+        <div {{#if showNdm}} class="ndm-feature-enabled" {{/if}}>
+          <span class="table-header__cell customer-system-name">System Name</span>
+          <span class="table-header__cell customer-device-id-header">Device ID</span>
+          <span class="table-header__cell customer-device-model">Model</span>
+          <span class="table-header__cell customer-alerts-status sortable" data-sort-on="alerts">
+            <div class="sort-controls alert-sort" data-sort-indicator="alerts"></div>
+            <div class="alerts-status-label">Alerts &amp; Status</div>
+          </span>
+          <span class="table-header__cell customer-actions">Actions</span>
+          {{#if showNdm}}
+            <span class="table-header__cell customer-ndm-id-header">NDM ID</span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="customer-list-items"></div>
+  <div data-paginator-clone></div>
+</div>

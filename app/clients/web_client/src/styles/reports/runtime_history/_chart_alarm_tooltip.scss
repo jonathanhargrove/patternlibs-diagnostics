@@ -1,0 +1,91 @@
+.chart-alarm-tooltip {
+  @media #{$medium-up} {
+    width: 320px;
+  }
+
+  .code {
+    color: $primary-font-color;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: -4px;
+  }
+
+  .status {
+    float: right;
+    margin-top: -19px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $headline-color;
+    font-size: .9rem;
+  }
+
+  .occurred-at {
+    font-size: .95rem;
+    margin-top: -3px;
+  }
+
+  .description {
+    padding-top: 5px;
+    line-height: .95rem;
+    padding-bottom: 3px;
+  }
+
+  .show-more {
+    .more-info {
+      width: auto;
+      height: 20px;
+
+      .icon-drawer-state {
+        font-size: 1.4em;
+        padding: 0;
+        margin: 0 0 0 -5px;
+      }
+
+      .title {
+        width:60px;
+        float: left;
+      }
+    }
+
+    .alarm-details {
+      display: none;
+
+      .block-title {
+        @include block-title;
+        padding: 5px;
+        box-shadow: none !important;
+
+        &.round-left {
+          @include rounded-left-corners(4px);
+        }
+        &.round-right {
+          @include rounded-right-corners(4px);
+        }
+      }
+      ul {
+        margin:0;
+      }
+      .field {
+        margin-left: 5px;
+
+        .field-label, .field-value {
+          font-size: 0.9em;
+          font-weight: 0;
+        }
+      }
+      .identifiers {
+        @include block-grid($per-row: 2, $spacing: 0px, $base-style: true);
+      }
+      .severity-zone-number {
+        @include block-grid($per-row: 2, $spacing: 0px, $base-style: true);
+      }
+      .root-cause {
+        .block-title {
+          @include rounded-edges(4px);
+        }
+
+        ul { padding-left: 10px }
+      }
+    }
+  }
+}

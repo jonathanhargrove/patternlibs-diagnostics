@@ -1,0 +1,38 @@
+.shutdown-devices-container {
+  .icon-plus {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .add-button > * {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .remove-device {
+    @include grid-column(.5, $collapse: true);
+    padding-top: 6px;
+  }
+
+  .select-device-type {
+    @include grid-column(6.5, $collapse: true);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .select-wiring-method {
+    @include grid-column(5, $collapse: true);
+  }
+
+  .select-device-type,
+  .select-wiring-method {
+    @extend %combobox;
+    &.is-other {
+      @extend %combobox-show-input;
+    }
+
+    .field-control {
+      width: 100%;
+    }
+  }
+}

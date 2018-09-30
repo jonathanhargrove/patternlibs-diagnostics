@@ -1,0 +1,292 @@
+#customer-container {
+
+  button.notes {
+    margin: 0px;
+    padding: 10px 15px 10px 15px;
+    position: relative;
+  }
+
+  .heading {
+    .customer-name, .customer-systems-count {
+      padding-right: 5px;
+    }
+
+    .customer-name {
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 0;
+      @include truncate();
+      max-width: 100%;
+    }
+
+    .systems-and-notes {
+      display: inline-block;
+      margin: 15px;
+
+      .customer-systems-count {
+        display: inline-block;
+        vertical-align: top;
+        font-weight: normal;
+        margin: 4px 10px 0 0;
+      }
+
+      .group-select {
+        width: 300px;
+        margin: 0 20px 0 0;
+      }
+    }
+
+    @media #{$small-only} {
+      .systems-and-notes, .customer-systems-count, .group-select {
+        width: 100%;
+      }
+
+      .customer-name, .customer-systems-count {
+        display: block;
+      }
+
+      .customer-name {
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+
+      .systems-and-notes {
+        margin: 0 0 1em 0;
+
+        .customer-systems-count {
+          top: 3px;
+          display: inline;
+          position: relative;
+        }
+
+        .group-select {
+          margin: 0 0 1em 0;
+          width: 100%;
+        }
+
+        .notes {
+          float: right;
+        }
+      }
+    }
+  }
+
+  .tab-content button.notes {
+    top: -5px;
+  }
+
+  .customer-header {
+    @include grid-row;
+
+    .customer-details {
+      min-height: 1px;
+      float: left;
+      @include grid-column($columns: 8, $collapse: true);
+
+      .customer-address, .customer-contact {
+        min-height: 1px; // forces the grid to layout properly if there's no content
+        color: $headline-color;
+        @include grid-column($columns: 4, $collapse: true);
+      }
+
+      .customer-contact {
+        a {
+          display: block;
+          word-wrap: break-word;
+          width: 100%;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .customer-actions {
+      @include grid-column($columns: 12, $collapse: true);
+
+      button {
+        float: right;
+        margin: 0 0 0 10px;
+      }
+
+      i {
+        font-size: 1em;
+        margin: auto 8px auto -4px;
+      }
+    }
+
+    @media #{$medium-down} {
+      .customer-details {
+        .customer-address, .customer-contact {
+          @include grid-column($columns: 6, $collapse: true);
+        }
+      }
+    }
+
+    @media #{$small-only} {
+      .customer-actions {
+        @include grid-column($columns: 12, $collapse: true);
+
+        margin: 1em 0;
+
+        a {
+          float: none;
+        }
+      }
+
+      .customer-details {
+        @include grid-column($columns: 12, $collapse: true);
+
+        .customer-address, .customer-contact {
+          @include grid-column($columns: 12, $collapse: true);
+        }
+      }
+    }
+  }
+
+  .device-tabs {
+    @include grid-row;
+    margin-top: 50px;
+    padding-left: 0; // Override default ul/ol
+    list-style: none;
+    border-bottom: 1px solid $border-color;
+
+    > li {
+      position: relative;
+      display: block;
+      float: left;
+      // Make the list-items overlay the bottom border
+      margin-bottom: -1px;
+    }
+
+    .tab {
+      width: 200px;
+      border: 1px solid $border-color;
+      border-top-color: $border-highlight-color;
+      @include vertical-radius(top);
+      margin-right: 3px;
+      background-color: $inner-container-background-color;
+
+      .tab-content {
+        padding: 10px 15px;
+      }
+
+      a {
+        color: $secondary-font-color;
+
+        div {
+          font-size: .85rem;
+          line-height: 1.1rem;
+          text-transform: uppercase;
+          font-weight: normal;
+
+          > span {
+            float: right;
+            font-weight: light;
+          }
+        }
+
+        .device-name {
+          font-weight: bold;
+          font-size: 1rem;
+          margin-right: 5em;
+          margin-bottom: 1em;
+          @include truncate();
+        }
+      }
+
+      button.notes {
+        @include standard-button($margins: false, $padding: false, $bg: $inner-container-background-color);
+        pointer-events: none;
+        // margin & padding
+
+        // positioning
+        float: right;
+        right: -10px;
+      }
+
+      &.active {
+        border-bottom-color: #fff;
+        background-color: #fff;
+        border-top-color: $border-color;
+
+        button.notes {
+          @include standard-button($margins: false, $padding: false, $bg: #fff);
+          pointer-events: all;
+        }
+
+        a {
+          cursor: default;
+          color: $primary-font-color;
+        }
+      }
+
+      &.hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    }
+
+    .next-page, .prev-page {
+      padding-top: 20px;
+
+      a {
+        min-width: 35px;
+        color: $module-header-color;
+
+        > i {
+          font-size: 30px;
+        }
+
+        &.disabled {
+          cursor: default;
+          pointer-events: none;
+          color: lighten($module-header-color, 30%)
+        }
+      }
+    }
+
+    .prev-page a {
+      margin-left: -10px;
+      padding-right: 10px;
+
+      .icon-left {
+        @extend .icon-arrow-left;
+      }
+    }
+
+    .next-page {
+      float: right;
+
+      a {
+        margin-right: -10px;
+
+        .icon-right {
+          @extend .icon-arrow-right2;
+        }
+      }
+    }
+  }
+}
+
+@media #{$small-only} {
+  .device-tabs {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media #{$medium-up} {
+  .device-dropdown {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media #{$large-up} {
+  #add-system-view{
+    width: 40%;
+  }
+
+  #add-ndm-view{
+    width: 40%;
+  }
+}

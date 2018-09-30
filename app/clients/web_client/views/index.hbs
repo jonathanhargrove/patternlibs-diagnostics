@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title> <!-- title content is set by MainRouter#setupTheme -->
+    <!-- favicon is set by MainRouter#setupTheme -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+  <!-- Webpack will automatically insert all bundles -->
+  </head>
+  <body class="login-view">
+    <div id="banner-container">
+    </div>
+    <div class="background">
+      <div class="outer_container">
+        <div class="off-canvas-wrap">
+          <div class="inner-wrap">
+            <div class="main_header"></div>
+            <div class="inner_container">
+              <div id="main-content"></div>
+              <div id="trane-legal-footer"></div>
+            </div>
+            <!-- close the off-canvas menu -->
+          </div>
+        </div>
+      </div>
+    </div>
+    {{#if htmlWebpackPlugin.options.isProduction}}
+    <script src="//rum-static.pingdom.net/pa-58121709293aecd24d0285b8.js" async></script>
+    {{/if}}
+  </body>
+</html>

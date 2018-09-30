@@ -1,0 +1,218 @@
+#site-message-list {
+  @include grid-row;
+
+  span {
+    @include truncate();
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  .message {
+    @include grid-column($columns: 8);
+  }
+
+  .enabled {
+    @include grid-column($columns: 2);
+  }
+
+  .dashboard {
+    @include grid-column($columns: 2);
+  }
+
+  @media #{$small-only} {
+    .titles {
+      .message {
+        @include grid-column($columns: 6);
+      }
+
+      .enabled {
+        display: none;
+      }
+    }
+
+    .items {
+      .message {
+        @include grid-column($columns: 12);
+        margin-bottom: 15px;
+      }
+    }
+
+    .enabled {
+      @include grid-column($columns: 6);
+    }
+
+    .dashboard {
+      @include grid-column($columns: 6);
+    }
+  }
+
+  $list-title-height: 50px;
+  .titles {
+    height: $list-title-height;
+    @include radius(10px);
+
+    span {
+      background: $table-header-color;
+      line-height: $list-title-height;
+      padding-left: 15px;
+      border-right: 1px solid $table-header-bg-color;
+      font-weight: bold;
+      position: relative;
+    }
+  }
+
+  .items {
+    > div {
+      @include grid-row;
+      border-bottom: 1px solid $table-block-sep-color;
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+
+    .enabled .status, .dashboard span {
+      border: 1px solid $border-color;
+      text-align: center;
+      padding: 4px 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      cursor: default;
+    }
+
+    .message {
+      border: 1px solid $border-color;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      text-decoration: inherit;
+      color: inherit;
+
+      &.info {
+        background-color: $info-banner-background-color;
+      }
+
+      &.warning {
+        background-color: $warning-banner-background-color;
+      }
+
+      .message-text.with-image {
+        padding-left: 15px;
+        margin-top: -5px;
+      }
+
+      .primary-text {
+        margin-bottom: 5px;
+      }
+
+      @media #{$medium} {
+        img {
+          @include grid-column($columns: 2, $collapse: true);
+        }
+
+        .message-text {
+          @include grid-column($columns: 10, $collapse: true);
+        }
+      }
+
+      @media #{$large-up} {
+        img {
+          @include grid-column($columns: 1.5, $collapse: true);
+        }
+
+        .message-text {
+          @include grid-column($columns: 10.5, $collapse: true);
+        }
+      }
+
+      @media #{$small-only} {
+        img {
+          @include grid-column($columns: 12, $collapse: true);
+
+          margin-top: 5px;
+          margin-bottom: 10px;
+        }
+
+        .message-text {
+          @include grid-column($columns: 12, $collapse: true);
+        }
+
+        .message-text.with-image {
+          padding-left: 0;
+        }
+      }
+
+      .secondary-text {
+        font-weight: normal;
+      }
+    }
+
+    .enabled {
+      .status {
+        display: inline-block;
+        border-radius: 14px;
+        letter-spacing: 0px;
+
+        &.true {
+          border-color: $grey-darker;
+          background-color: $field-value-positive-color;
+          color: white;
+        }
+
+        &.false {
+          color: $primary-action-disabled-color;
+        }
+      }
+
+      .last-updated {
+        color: $grey-darker;
+      }
+
+      .last-updated-label {
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      .updated-at {
+        font-size: 12px;
+      }
+    }
+
+    .dashboard {
+      .dashboard-panel-title {
+        margin-bottom: 8px;
+      }
+
+      span {
+        border-radius: 4px;
+
+        &.set {
+          background-color: $blue-dark;
+          color: white;
+          font-weight: bold;
+          border-color: $grey-darker;
+        }
+
+        &.slot {
+          background-color: $grey-lighter;
+        }
+
+        &.rounded-row-left {
+          border-right: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &.rounded-row-middle {
+          border-radius: 0;
+        }
+
+        &.rounded-row-right {
+          border-left: 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
+}

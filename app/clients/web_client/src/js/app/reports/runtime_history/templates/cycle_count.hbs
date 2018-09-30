@@ -1,0 +1,23 @@
+{{#if stages.length}}
+<table>
+  <thead>
+    <tr>
+      <th>Cycle Count History</th>
+      <th>Cycle Count</th>
+      <th>Run Time Mins</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each stages}}
+      <tr>
+        <td>
+          <div class="icon" style="background-color: {{color}}"></div>
+          <div class="cell-label">{{constToTitleCase stage}}</div>
+        </td>
+        <td>{{cycleCount}}</td>
+        <td>{{precision runtimeMinutes 0}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{/if}}

@@ -1,0 +1,109 @@
+<div class="panel-container">
+  <div class="panel-header">
+    <div class="title">Alert History</div>
+    <div class="error icon-circle"></div>
+    <div class="error icon-notification"></div>
+  </div>
+  <div class="panel-content">
+    <div class="alarm-times">
+      Alerts occurring between {{beginOfReport}} and {{endOfReport}}
+    </div>
+    {{#each alarmsByDay}}
+      <div class="alarm-history-day closed">
+        <div class="alarm-day">
+          <div class="icon-drawer-state"></div>
+          <div class="alarm-day-info">
+            <div class="day-summary">
+              <div class="day-str">{{day}}</div>
+              <div class="severity-counts">
+                {{#each alarmCounts}}
+                  <div class="severity-count {{severity}}">
+                    <div class="alarm-icon {{alarmIcon severity}}"></div>
+                    <div class="count">{{count}}</div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+            <div class="alarm-day-alarms">
+              <div class="responsive-table-header">
+                <div class="summary column-header">Alert Info</div>
+                <div class="occurred-at column-header">Occurred At</div>
+                <div class="cleared-at column-header">Cleared At</div>
+              </div>
+              {{#each alarms}}
+                <div class="alarm closed">
+                  <div class="icon-drawer-state"></div>
+                  <div class="alarm-attributes">
+                    <div class="responsive-table-body">
+                      <div class="summary">
+                        <div class="alarm-icon {{alarmIcon severity}} {{severity}}"></div>
+                        <div class="alarm-level-code {{severity}}">{{code}}</div>
+                        <div class="alarm-descriptions">
+                          {{#each description}}<div>{{this}}</div>{{/each}}
+                        </div>
+                      </div>
+                      <div class="column-label">Occurred At</div>
+                      <div class="occurred-at">{{formattedStart}}</div>
+                      <div class="column-label">Cleared At</div>
+                      <div class="cleared-at">
+                        {{#if clearedBy}}
+                          <span class="alarm-icon icon-notification major" data-js="cleared-by" title="{{clearedBy}}"></span>
+                        {{/if}}
+                        {{formattedStop}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="potential-causes">
+                    <div class="responsive-table-header">
+                      <div class="causes column-header">Potential Causes</div>
+                      <div class="unit-type column-header">Unit Type</div>
+                      <div class="serial-id column-header">Serial ID</div>
+                      <div class="zone-number column-header">Zone Number</div>
+                    </div>
+                    <div class="responsive-table-content">
+                      <div class="column-label">Potential Causes</div>
+                      <div class="causes">
+                        <ul>
+                          {{#each rootCause.causes}}
+                            <li>
+                              {{info}}
+                              {{#if details.length}}
+                                <ul class="cause-detail">
+                                  {{#each details}}
+                                    <li>{{this}}</li>
+                                  {{/each}}
+                                </ul>
+                              {{/if}}
+                            </li>
+                          {{/each}}
+                        </ul>
+                        {{#each rootCause.details}}
+                          <div class="details">{{this}}</div>
+                        {{/each}}
+                      </div>
+                      {{#if showPlatformInfo}}
+                        <div class="column-label">Unit Type</div>
+                        <div class="unit-type">{{{nullText unitType}}}</div>
+                        <div class="column-label">Serial Number</div>
+                        <div class="serial-id">{{{nullText serialId}}}</div>
+                        <div class="column-label">Zone Number</div>
+                        <div class="zone-number">{{{nullText zoneId}}}</div>
+                      {{/if}}
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <h4>No alerts in the last {{displayDayCount}} days</h4>
+    {{/each}}
+    {{#if moreHistory}}
+      <div class="expand-history">
+        <button id="get-more" class="secondary-button">Show More History</button>
+      </div>
+    {{/if}}
+  </div>
+</div>

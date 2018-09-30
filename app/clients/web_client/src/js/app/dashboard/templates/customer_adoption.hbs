@@ -1,0 +1,49 @@
+<span class="panel-title">Customer Adoption</span>
+
+<div class="timespan-select">
+  <a class="left-button">Past 30 Days</a>
+  <a>Past 90 Days</a>
+  <a class="right-button">Past 365 Days</a>
+</div>
+
+<div id="new-customers">
+  <div class="chart"></div>
+  <div class="title-container">
+    <p class="title">New Customers</p>
+    <div class="timeframe">
+      Customers created
+      <br/>
+      after {{timespanStartDate}}
+    </div>
+  </div>
+</div>
+<div id="existing-customers">
+  <div class="chart"></div>
+  <div class="title-container">
+    <p class="title">Existing Customers</p>
+    <div class="timeframe">
+      Customers created
+      <br/>
+      before {{timespanStartDate}}
+    </div>
+  </div>
+</div>
+
+<div class="chart-legend">
+  <div class="item no-systems">
+    <div class="no-systems-color"/>
+    <span>No Systems</span>
+  </div>
+  <div class="item opted-out">
+    <div class="opted-out-color"/>
+    <span>Opted Out</span>
+  </div>
+  <div class="item some-systems-opted-in">
+    <div class="some-systems-opted-in-color"/>
+    <span>Some Systems Opted In</span>
+  </div>
+  <div class="item all-systems-opted-in">
+    <div class="all-systems-opted-in-color"/>
+    <span>Opted In</span>
+  </div>
+</div>

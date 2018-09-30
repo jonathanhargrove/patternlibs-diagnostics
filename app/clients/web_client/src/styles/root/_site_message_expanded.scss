@@ -1,0 +1,16 @@
+#site-message-expanded {
+  font-size: 1.3rem;
+
+  &.info {
+    background-color: $info-banner-background-color;
+  }
+
+  &.warning {
+    background-color: $warning-banner-background-color;
+  }
+
+  .primary-text {
+    font-weight: bold;
+    margin: 10px auto;
+  }
+}

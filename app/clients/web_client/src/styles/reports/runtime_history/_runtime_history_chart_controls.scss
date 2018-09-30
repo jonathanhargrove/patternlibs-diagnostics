@@ -1,0 +1,197 @@
+// TODO: this has to be deeply nested because there are conflicting global
+// styles, but these should really be cleaned up
+.runtime-history-container {
+  .panel-content {
+    .runtime-history-detail {
+      .chart-controls {
+        @include clearfix;
+        padding: 20px 20px 0px 20px;
+        text-align: center;
+
+        @media #{$small-only} {
+          padding: 20px 0;
+        }
+
+        .date-paginator,
+        .date-picker,
+        .mode-toggle {
+          width: 100%;
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .date-picker,
+        .mode-toggle {
+          @media #{$medium-up} {
+            width: auto;
+          }
+        }
+
+
+        .date-picker {
+          text-align: center;
+          @media #{$medium-up} {
+            float: right;
+            text-align: right;
+          }
+        }
+
+        .mode-toggle {
+          @media #{$medium-up} {
+            float: left;
+          }
+
+          .button-group {
+            display: inline-block;
+            padding-left: 4px;
+          }
+        }
+
+
+        .secondary-button {
+          border: 1px solid $border-color;
+          outline: none;
+          font-size: .95rem;
+          color: $secondary-disabled-font-color;
+          display: inline-block;
+          vertical-align: middle;
+
+          &:not(:last-child) {
+            margin-right: 2px;
+          }
+
+          &:hover {
+            color: $button-font-active-color;
+          }
+
+          &.active {
+            background: $border-highlight-color;
+            color: $button-font-active-color;
+          }
+
+          &.heating {
+            @include side-radius(right, 0);
+          }
+
+          &.cooling {
+            margin-left: -6px;
+            @include side-radius(left, 0);
+          }
+
+          &.left {
+            @include side-radius(right, 0);
+          }
+
+          &.center {
+            @include side-radius(right, 0);
+            @include side-radius(left, 0);
+          }
+
+          &.right {
+            @include side-radius(left, 0);
+          }
+        }
+
+        .faqs {
+          margin: 0px;
+          font-variant: normal;
+          padding: 8px 0px 8px 0px;
+          color: $grey-darkest;
+        }
+
+        .refresh {
+          margin: 0px;
+          font-variant: normal;
+          padding: 8px;
+          color: $grey-darkest;
+        }
+
+        .calendar {
+          margin: 0px;
+          padding: 4px 0px 2px 2px;
+          color: $secondary-font-color;
+          font-size: 1.5em;
+
+          .icon-caret-down {
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .secondary-button.reset-zoom {
+        color: $grey-darkest;
+        display: none;
+        border: 1px solid $border-color;
+        outline: none;
+        margin: 0;
+        padding: 8px;
+
+        &.active, &.visible {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .date-paginator {
+    padding-top: 5px;
+    height: 60px;
+    background-color: white;
+    text-align: center;
+    @extend .font-bold;
+
+    .controls {
+      display: inline-block;
+
+      .control,
+      .info {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .control {
+        height: 32px;
+        font-size: 1.9em;
+        color: $secondary-font-color;
+
+        &.disabled {
+          color: $secondary-disabled-font-color;
+          cursor: default;
+
+          &:hover {
+            background-color: $background-color;
+          }
+        }
+
+        &.page-next,&.page-last {
+          padding: 0px 9px 0px 12px;
+        }
+
+        &.page-prev,&.page-first {
+          padding: 0px 12px 0px 9px;
+        }
+
+        &:hover {
+          background-color: $secondary-hover-bg-color;
+          border-radius: 3px;
+        }
+      }
+
+      .day {
+        text-transform: uppercase;
+        font-size: 20px;
+        @media #{$medium-up} {
+          width: 270px;
+        }
+        margin-top: 1px;
+      }
+
+      .instructions {
+        font-size: 14px;
+        color: $module-header-color;
+        text-align: center;
+        margin-top: 2px;
+      }
+    }
+  }
+}

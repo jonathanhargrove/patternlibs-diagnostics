@@ -1,0 +1,54 @@
+.panel-container {
+  @include bottom-box-shadow;
+  @include radius($global-radius);
+}
+
+.panel-header {
+  @include panel-header;
+}
+
+.field {
+  @include grid-row();
+}
+
+.field-label, .field-value, .field-control {
+  @include grid-column();
+  text-transform: uppercase;
+  font-size: .85rem;
+}
+
+.field-label {
+  @include grid-column($columns: 7.5);
+  font-weight: 600;
+  padding-left: 9px !important; // overrides grid-column
+  color: $table-field-label-color;
+  overflow: hidden;
+  @include truncate();
+}
+
+// ↓ doubly specific to override global input styles
+.field-control.field-control,
+.field-value {
+  @include grid-column($columns: 4.5, $collapse: true);
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 5px;
+}
+
+// ↓ doubly specific to override global input styles
+.field-control.field-control {
+  border: 1px solid $grey;
+  border-radius: 4px;
+  line-height: 1;
+  height: 26px;
+  margin: 0; // override global input margin
+  padding-left: 4px !important; // overrides grid-column
+  padding-top: 0; // overrides global input styles
+  padding-bottom: 0; // overrides global input styles
+
+  @include qualify(select) {
+    padding-right: 14px !important; // overrides grid-column
+  }
+}

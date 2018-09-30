@@ -1,0 +1,65 @@
+#header {
+  @include grid-row;
+  padding: 10px 20px;
+
+  .logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+  }
+
+  @media #{$medium-up} {
+    .header-menu {
+      float: right;
+      height: 2em;
+      margin-top: 15px;
+    }
+
+    .user-info {
+      float: right;
+      margin-top: 15px;
+      width: 300px;
+    }
+
+    .user-info div { display: inline; }
+  }
+  @media #{$small-only} {
+    .header-menu {
+      float: right;
+      height: 2em;
+    }
+
+    .user-info {
+      width: 100%;
+      margin-top: 10px;
+      float: right;
+
+      div { display: block; }
+    }
+  }
+
+  .header-menu a {
+    color: $headline-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-left: 20px;
+  }
+}
+
+.impersonating {
+  background: rgb(255, 238, 0);
+  clear: both;
+  padding-left: 2em;
+  padding-top: 0.5em;
+  margin-bottom: 10px;
+
+  h1 {
+    display: inline-block
+  }
+
+  @media #{$small-only} {
+    h1 {
+      font-size: 18px;
+    }
+  }
+}

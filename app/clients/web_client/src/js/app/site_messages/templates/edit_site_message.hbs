@@ -1,0 +1,85 @@
+<div class="header">
+  <h1 class="title">
+    {{#if isNew}} New {{else}} Edit {{/if}} Site Message
+  </h1>
+</div>
+<div>
+<form class="form-view">
+  <fieldset>
+    <h2>Site Banner</h2>
+    <label>
+      <input type="checkbox" name="siteBannerEnabled"/>
+      Enabled
+    </label>
+
+    <h2>Message</h2>
+
+    <label>
+      Type
+      <div class="message-type">
+        <label>
+          <input type="radio" id="message-type-info" name="messageType" value="info"/>
+          <span class="info">info</span>
+        </label>
+        <label>
+          <input type="radio" id="message-type-warning" name="messageType" value="warning"/>
+          <span class="warning">warning</span>
+        </label>
+      </div>
+    </label>
+
+    {{#unless image}}
+      <label>
+        Image
+        <input type="file" id="image-file" accept="image/*"/>
+      </label>
+    {{/unless}}
+    {{#if image}}
+      <a id="remove-image">Remove image</a>
+      <img id="image" src="{{image}}"/>
+    {{/if}}
+
+    <label>
+      Primary Text
+      <textarea class="no-resize-width" name="primaryText" cols="20" rows="1">{{primaryText}}</textarea>
+    </label>
+
+    <label>
+      Secondary Text
+      <textarea class="no-resize-width" name="secondaryText" cols="20" rows="10">{{secondaryText}}</textarea>
+    </label>
+
+    <h2>Dashboard Panel</h2>
+
+    <label>
+      Title
+      <input type="text" name="dashboardPanelTitle" maxlength="200"/>
+    </label>
+
+    <label>
+      Slot
+      <div class="dashboard-panel-slot">
+        <label>
+          <input type="radio" id="dashboard-panel-slot-none" name="dashboardPanelSlot" value=""/>
+          Do not display
+        </label>
+        <label>
+          <input type="radio" id="dashboard-panel-slot-1" name="dashboardPanelSlot" value="1"/>
+          Display in slot 1
+        </label>
+        <label>
+          <input type="radio" id="dashboard-panel-slot-2" name="dashboardPanelSlot" value="2"/>
+          Display in slot 2
+        </label>
+      </div>
+    </label>
+
+    <div class="button-container">
+      <button id="submit">Save</button>
+      <a href="/admin/site_messages" id="cancel">Cancel</a>
+      {{#if id}}
+        <button id="delete" class="delete-button">Delete Message</button>
+      {{/if}}
+    </div>
+  </fieldset>
+</form>

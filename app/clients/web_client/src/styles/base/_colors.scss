@@ -1,0 +1,101 @@
+// COLOR PALETTE:
+// These should only be referenced from within this file.
+
+$black:         #000000;
+$grey-darkest:  #4D4D4D;
+$grey-darker:   #767676;
+$grey-dark:     #939598;
+$grey:          #C3C3C3;
+$grey-light:    #D2D2D2;
+$grey-lighter:  #F0EEEC;
+$grey-lightest: #F9F8F7;
+$white:         #FFFFFF;
+
+$red-dark:      #9A1920;
+$red:           #cd3529;
+
+$yellow:          #f0c33b;
+$yellow-light:    #ffd119;
+$yellow-lighter:  #ffffa6;
+$yellow-lightest: #fdf8ef;
+
+$green:         #92c04f;
+
+$blue-darker:   #3e4da1;
+$blue-dark:     #5497B3;
+$blue:          #2ca3e1;
+$blue-light:    #6EC2EF;
+$blue-lightest: #edf5f9;
+
+// ELEMENT COLORS:
+// All css files should reference these color variables
+// TODO: Review where each color variable is used to make sure the name
+// makes sense for where it's being used; reorganize/condense this list.
+
+$background-color:                 $white;
+
+$primary-color:                    $blue;
+$primary-nav-color:                $blue;
+$primary-nav-bold-color:           $blue-darker;
+$primary-font-color:               $grey-darkest;
+$primary-action-color:             $green;
+$primary-action-disabled-color:    $grey;
+
+$secondary-action-color:           $white;
+$secondary-font-color:             $grey-darker;
+$secondary-hover-bg-color:         $grey-lighter;
+$secondary-disabled-font-color:    $grey;
+$secondary-disabled-icon-color:    $grey-lighter;
+
+$subnote-color:                    $grey-dark;
+
+$success-color:                    $green;
+$error-color:                      $red;
+$raised-icon-shadow-color:         $grey-darkest;
+
+$headline-color:                   $grey-darker;
+
+$danger-action-color:              $red;
+
+$border-color:                     $grey;
+$border-highlight-color:           $grey-light;
+$inner-container-background-color: $grey-lighter;
+$header-color:                     $white;
+$module-header-color:              $grey-dark;
+
+$split-color:                      $grey;
+$sub-split-color:                  $grey-lighter;
+
+$table-header-bg-color:            $white;
+$table-header-color:               $grey-lighter;
+$table-column-header-color:        $grey;
+$table-field-label-color:          $grey-dark;
+$table-field-color:                $grey-dark;
+$table-block-sep-color:            $grey-lighter;
+$table-stripe-color:               $grey-lightest;
+
+$critical-alarm-color:             $red;
+$major-alarm-color:                $yellow;
+$normal-alarm-color:               $green;
+$info-alarm-color:                 $blue;
+
+$system-cooling-color:             $blue-dark;
+$system-heating-color:             $red-dark;
+
+$field-value-positive-color:       $green;
+$field-value-negative-color:       $red;
+
+$button-font-active-color:         $grey-darkest;
+
+$watermark-caption-color:          $grey-light;
+$placeholder-color:                $grey;
+
+$info-banner-background-color:     $blue-lightest;
+$warning-banner-background-color:  $yellow-lightest;
+
+$inline-warning-banner:            $yellow-lighter;
+
+$icon-dismiss-color:               $grey-dark;
+
+$subcaption-background-color:     $grey-darker;
+$subcaption-color:                $white;

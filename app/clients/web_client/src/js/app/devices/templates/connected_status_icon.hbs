@@ -1,0 +1,8 @@
+<div class="connected-status-icon --{{status}}" data-tooltip title="{{title}}">
+{{#if connectionDefined}}
+  <div class="icon-background icon-circle"></div>
+  <div class="icon-foreground {{connectedIcon}}"></div>
+{{else}}
+  <img src="/img/devices/status_undefined.gif" class="icon-foreground status-unknown"/>
+{{/if}}
+</div>

@@ -1,0 +1,37 @@
+<div id="alert-basic-info">
+  <div id="alert-id"><h1>{{alertId}}</h1></div>
+  <div id="alert-name"><h2>Name:</h2> <h3>{{alertName}}</h3></div>
+  <div id="alert-severity">
+    <h2>Type:</h2>
+    <span class="alarm-type {{alarmType}} {{alarmIcon alarmType}}"></span>
+    <h3>{{alertSeverity}}</h3>
+  </div>
+</div>
+{{#if problemDescription}}
+  <div id="problem-description">
+    <h2>Problem Description:</h2>
+    <ul>
+      {{#each problemDescription}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+{{#if anyPossibleCause}}
+  <div id="alert-possible-causes"><h2>Possible Causes:</h2>
+    <ul>
+      {{#each possibleCauses}}
+        {{#each this.info}}
+          <li>{{this}}</li>
+        {{/each}}
+        {{#if this.details}}
+          <ul>
+            {{#each this.details}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

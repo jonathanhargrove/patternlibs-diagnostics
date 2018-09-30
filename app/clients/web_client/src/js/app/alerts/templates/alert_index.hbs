@@ -1,0 +1,47 @@
+<div class="header">
+  <h1 class="title">Alert Guide</h1>
+</div>
+
+<div class="prompt">
+  <h2 class="select-code-below">Select a code below</h2>
+  <h2 class="or">or</h2>
+  <h2 class="enter-code">Enter code</h2>
+  <div class="code-entry">
+    <input type="text"/>
+    <button>SUBMIT</button>
+  </div>
+  <div class="invalid-code">
+    Invalid Code
+  </div>
+</div>
+<h2 class="mobile-select-code-below">Or select a code below</h2>
+
+<div class="category-shortcuts">
+  {{#each categories}}
+    <a class="category-shortcut" href="#{{this}}">{{this}}</a>
+  {{/each}}
+</div>
+
+<div class="alerts">
+  {{#each alerts}}
+    <div id="{{this.categoryCode}}" class="category">
+      <div class="category-header">
+        <h2 class="category-code">{{this.categoryCode}}</h2>
+        <span class="category-name">({{this.categoryName}})</span>
+      </div>
+      <a href="#" class="back-to-top icon-arrow-up2"></a>
+      {{#each this.sections}}
+        <div class="section">
+          <div class="section-name">{{this.sectionName}}</div>
+          <div class="subsections">
+            {{#each this.subsections}}
+              <a class="subsection" href="/alerts/{{this.code}}">
+                <span class="subsection-prefix">{{this.prefix}}</span><span class="subsection-name">{{this.subsectionName}}</span>
+              </a>
+            {{/each}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>

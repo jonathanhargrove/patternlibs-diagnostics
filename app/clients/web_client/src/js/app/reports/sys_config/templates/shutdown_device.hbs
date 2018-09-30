@@ -1,0 +1,16 @@
+<div class="field">
+{{#if state.isEditing}}
+  <i class="icon-remove remove-device" data-js="remove-device"></i>
+  <div class="select-device-type {{boolText (eq 'other' model.deviceType) 'is-other'}}">
+    <select class="field-control" data-js="select-device-type"></select>
+    <input type="text" placeholder="Device Type" data-js="other-device-type">
+  </div>
+  <div class="select-wiring-method {{boolText (eq 'other' model.wiringMethod) 'is-other'}}">
+    <select class="field-control" data-js="select-wiring-method"></select>
+    <input type="text" placeholder="Wiring Method" data-js="other-wiring-method">
+  </div>
+{{else}}
+  <div class="field-label">{{boolText (eq 'other' model.deviceType) model.otherDeviceType (friendlySystemConfig model.deviceType)}}</div>
+  <div class="field-value">{{boolText (eq 'other' model.wiringMethod) model.otherWiringMethod (friendlySystemConfig model.wiringMethod)}}</div>
+{{/if}}
+</div>

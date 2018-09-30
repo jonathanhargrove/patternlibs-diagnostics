@@ -1,0 +1,83 @@
+#dashboard {
+  #customer-list {
+    padding: 20px;
+
+    .device-info {
+      .customer-actions {
+        @include grid-column($columns: 3);
+
+        .remove-disposition-container {
+          text-align: right;
+          padding: 5px 0 0 5px;
+
+          span {
+            line-height: 10px;
+          }
+
+          button {
+            margin: 5px 0 0 8px;
+            padding: 5px 10px;
+          }
+        }
+
+        #disposition-action {
+          // the input is overlayed over the dropdown to create a "combobox" like hybrid between the two
+          input {
+            position: relative;
+            margin-top: -37px;
+            width: calc(100% - 26px);
+            margin-bottom: 0;
+          }
+
+          select {
+            position: relative;
+            padding-right: 30px;
+            outline: none;
+          }
+        }
+
+        @media #{$small-only} {
+          @include grid-column($columns: 11, $collapse: true);
+        }
+
+        .save-success, .save-error {
+          text-align: right;
+          display: none;
+          padding-top: 5px;
+        }
+
+        .save-success {
+          color: $success-color;
+        }
+
+        .save-error {
+          color: $error-color;
+        }
+      }
+
+      @media #{$small-only} {
+        overflow: visible;
+
+        .customer-alerts-status {
+          margin-top: -3px;
+        }
+
+        .customer-system-name {
+          padding-bottom: 15px;
+        }
+
+        .opted-out {
+          display: none;
+        }
+
+        .customer-actions {
+          @include grid-column($columns: 12, $collapse: true);
+
+          .disposition-action {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

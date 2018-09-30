@@ -1,0 +1,102 @@
+form {
+  fieldset {
+    border: none;
+    padding: 10px 10px 0px 10px;
+
+    select {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.button-container {
+  border-top: 1px solid $border-color;
+  padding-top: 20px;
+  margin-top: 30px;
+  height: 63px;
+
+  .cancel {
+    margin-left: 5px;
+  }
+
+  .disable-anchor {
+    opacity: .4;
+    cursor: default !important;
+    pointer-events: none;
+  }
+
+  .delete-button {
+    @extend .danger-button;
+  }
+
+  button.delete-button {
+    margin-right: 0px;
+    float: right;
+    @media #{$only-small} {
+      padding: 10px;
+    }
+  }
+
+  .add-ndm-button {
+    @extend .standard-button;
+
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  button.add-ndm-button {
+    float: left;
+    @media #{$only-small} {
+      padding: 10px;
+    }
+  }
+
+  .delete-ndm-button {
+    @extend .delete-button;
+  }
+
+  button.delete-ndm-button {
+    float: left;
+    @media #{$only-small} {
+      padding: 10px;
+    }
+  }
+}
+
+// A combination of a dropdown with a text box. Can be used for autocomplete or
+// filling out a custom value for a dropbox using an "Other" field.
+// Example:
+//   <div class="combobox">
+//     <select></select>
+//     <input type="text">
+//   </div>
+//   .combobox { @extend %combobox }
+//   .combobox.active { @extend %combobox-show-input }
+%combobox {
+  position: relative;
+
+  input[type=text] {
+    // hide by default
+    display: none;
+
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    height: 26px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+
+    // Don't "cover" the dropdown arrow
+    width: calc(100% - 20px);
+  }
+}
+
+%combobox-show-input {
+  input { display: block; }
+  select { color: transparent; }
+}

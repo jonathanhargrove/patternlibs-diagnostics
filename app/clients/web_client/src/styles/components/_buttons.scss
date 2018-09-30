@@ -1,0 +1,104 @@
+button {
+  transition: none !important;
+
+  &.secondary-button {
+    &:hover {
+      background: $secondary-hover-bg-color;
+    }
+  }
+}
+
+@mixin button-colors($bg: $bg, $button-function-factor: $button-function-factor, $button-font-color-alt: $button-font-color-alt,$button-font-color: $button-font-color){
+  @if $bg {
+    $bg-lightness: lightness($bg);
+    background-color: $bg;
+
+    &:hover,
+    &:focus {
+      background-color: scale-color($bg, $lightness: $button-function-factor); 
+    }
+
+    @if $bg-lightness > 70% {
+      color: $button-font-color-alt;
+
+      border: {
+        color: darken($bg, 20%);
+        width: 1px;
+      }
+
+      &:hover,
+      &:focus {
+        color: $button-font-color-alt;
+        @include gradient(darken($bg, 10%), darken($bg, 5%));
+        box-shadow: none;
+      }
+    }
+    @else {
+      color: $button-font-color;
+      border-color: $bg;
+      border-width: 1px;
+
+      &:hover,
+      &:focus {
+        color: $button-font-color;
+        @include gradient(lighten($bg, 10%), lighten($bg, 5%));
+      }
+    }
+  }
+}
+
+
+$button-margin-bottom: 0;
+@mixin standard-button($padding: $button-sml, $bg: $primary-action-color, $margins: true) {
+  @include button($padding: $padding, $radius: $global-radius, $bg: $bg);
+  @include gradient($bg,$bg);
+  @include button-colors($bg);
+
+  @if $margins {
+    margin: 0 5px 5px 0;
+  }
+
+  font-size: $base-font-size - 2;
+  box-shadow: none;
+  min-width: 55px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.standard-button {
+  @include standard-button();
+}
+
+.secondary-button {
+  @include standard-button($bg:$secondary-action-color);
+}
+
+.danger-button {
+  @include standard-button($bg: $danger-action-color);
+}
+
+button {
+  @extend .standard-button;
+}
+
+input[type="button"] {
+  @extend .standard-button;
+}
+
+@mixin embedded-button-margins {
+  margin: 0px 5px 0px 0px;
+  @media #{$only-small} {
+    margin: 5px;
+  }
+}
+
+.embedded-button {
+  @include standard-button($margins: false);
+  @include embedded-button-margins;
+}
+
+.embedded-secondary-button {
+  @include standard-button($bg: $secondary-action-color, $margins: false);
+  @include embedded-button-margins;
+}

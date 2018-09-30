@@ -1,0 +1,40 @@
+<div class="device-info">
+  <div class="customer-system-name">
+    <div>{{nullText name deviceId}}</div>
+  </div>
+  <div class="customer-device-id">
+    <div class="device-auid">{{deviceId}}</div>
+    <div class="customer-device-status" data-system-connected></div>
+    {{#if serialNumber}}
+      <div class="serial">{{serialNumber}}</div>
+    {{/if}}
+  </div>
+  <div {{#if showNdm}} class="ndm-feature-enabled" {{/if}}>
+    <div class="customer-device-model">
+      <div>
+        {{customerDeviceModel deviceModel zoningEnabled}}
+      </div>
+    </div>
+    <div class="customer-alerts-status" data-customer-alerts></div>
+    <div class="customer-actions">
+      {{#if showDispositionDropdown}}
+        <span class="disposition-action-container"/>
+      {{/if}}
+      {{#if showInformationIcon}}
+        <div class="icon-container">
+          <a data-route href="/customers/{{customerId}}/systems/{{deviceId}}">
+            <span class="icon-info3"></span>
+          </a>
+        </div>
+      {{/if}}
+    </div>
+    {{#if showNdm}}
+      <div class="customer-ndm-id">
+        {{#if ndmId}}
+          <div class="ndm-id">{{ndmId}}</div>
+          <div class="ndm-device-status" data-spider-connected></div>
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+</div>

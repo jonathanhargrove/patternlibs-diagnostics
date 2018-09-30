@@ -1,0 +1,279 @@
+body[data-theme="trane"] {
+  // we're using an id here because classes are removed and applied by subviews
+  $green-lighter: #9CBC84;
+  $green: #5A9032;
+  $green-darker: #446C26;
+
+  $gray-darker: #333333;
+  $gray-dark: #666666;
+  $gray: #818181;
+  $gray-light: #BABBBD;
+  $gray-lightest: #F0EEEC;
+
+  $gray-blue: #3E515F;
+
+  $blue-dark: #003270;
+  $blue: #335B89;
+  $blue-light: #7297c1;
+
+  $white: #FFFFFF;
+  $black: #000;
+
+  a {
+    color: $blue-dark;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .top-bar {
+    background-color: $gray-dark;
+
+    a {
+      color: $gray-dark;
+
+      &:hover {
+        color: $gray-darker;
+      }
+    }
+
+    &.expanded .title-area {
+      background-color: $gray-dark;
+    }
+
+    .top-bar-section {
+      li a, ul {
+        background-color: $gray-dark;
+        color: $white;
+      }
+
+      li.active a:hover,
+      li a:hover{
+        background-color: $gray-darker;
+      }
+
+      li a.active {
+        background-color: $gray-darker;
+      }
+    }
+  }
+
+  #customer-list-items {
+    a {
+      &:hover {
+        color: $blue;
+      }
+
+      &:active {
+        color: $blue;
+      }
+    }
+
+    .icon-info3 {
+      &:active {
+        color: $blue;
+      }
+
+      &:hover {
+        color: $blue-dark;
+      }
+    }
+  }
+
+  .group-header a {
+    color: $blue-dark;
+  }
+
+  #logo_img {
+    background-image: url("/img/Icons__trane-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 45px;
+  }
+
+  .submit[disabled] {
+    background-color: $green-lighter;
+    border-color: $gray-dark;
+  }
+
+  .submit, .standard-button {
+    background: $green;
+
+    &:hover {
+      background: $green-darker;
+    }
+  }
+
+  .secondary-button {
+    background: $white;
+    color: $black;
+
+    &:hover {
+      background: $gray-lightest;
+    }
+  }
+
+  .add-ndm-button {
+    background: $green;
+
+    &:hover {
+      background: $green-darker;
+    }
+  }
+
+  .table-header {
+    span {
+      background-color: $gray-lightest;
+    }
+    .customer-info, .device-info-header, .customer-ndm-id-header {
+      background-color: $gray-lightest;
+    }
+  }
+
+  #customer-list .system-groups .device-info-header {
+    background-color: $gray-lightest;
+  }
+
+  ul.pagination li a {
+    color: $blue-dark;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .pagination-container .pagination {
+    li.unavailable {
+      span.prev {
+        border-color: transparent $gray-lightest transparent transparent;
+      }
+
+      span.next {
+        border-color: transparent transparent transparent $gray-lightest;
+      }
+    }
+
+    li.current a {
+      background: $gray-lightest;
+    }
+  }
+
+  .page-spinner {
+    border-top-color: $green-lighter;
+    border-left-color: $green-lighter;
+  }
+
+  #trane-legal-footer {
+    margin-top: 48px;
+    font-weight: bold;
+    color: $gray;
+
+    a {
+      color: $gray;
+      text-decoration: underline;
+    }
+  }
+
+  .trane-login {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .trane-login-footer {
+    background-size: cover;
+    background-color: $gray-light;
+    position: fixed;
+    margin: 0 auto;
+    margin-top: 440px;
+    height: 154px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+
+  .trane-login-footer-content {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 58px 20px 0px 20px;
+    height: 48px;
+  }
+
+  .trane-login-copyright {
+    display: inline-block;
+    font-weight: bold;
+    font-size: smaller;
+    color: $white;
+  }
+
+  #ingersoll_img {
+    background-image: url("/img/Icons__ingersollrand-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: right;
+    height: 45px;
+    width: 200px;
+  }
+
+  #alerts {
+    .subsection-prefix {
+      color: $blue-light;
+    }
+  }
+
+  @media #{$small-only} {
+    .customer {
+      .customer-info {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        .name {
+          padding: 5px 5px 5px 15px;
+        }
+
+        .customer-info-details {
+          padding-left: 15px;
+        }
+      }
+    }
+
+    #trane-legal-footer {
+      margin-top: 20px;
+      margin-left: 20px;
+
+      @media #{$small-only} {
+        margin-left: 0;
+      }
+    }
+
+    .trane-login-footer {
+      height: 118px;
+    }
+
+    #login-view {
+      margin-top: -30px;
+    }
+
+    .trane-login-footer-content {
+      display: grid;
+      height: 74px;
+      padding-top: 0px;
+      margin: 24px 30px 42px 30px;
+      font-size: smaller;
+    }
+
+    .trane-login-copyright {
+      margin-bottom: 14px;
+    }
+
+    #trane-ts-and-cs {
+      max-width: 315px;
+    }
+  }
+}

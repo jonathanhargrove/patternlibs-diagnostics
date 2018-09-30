@@ -1,0 +1,38 @@
+@mixin nexia-table-style {
+  table {
+    left: 50%;
+    margin: 0 auto;
+    height: auto;
+    border: none;
+    font-size: 20px;
+
+    th:first-child {
+      @include side-radius(left, 6px);
+    }
+
+    th:last-child {
+      @include side-radius(right, 6px);
+    }
+
+    th {
+      border-right: 1px solid $background-color;
+      background-color: $inner-container-background-color;
+      height: 50px;
+      color: $module-header-color;
+      @extend .font-bold;
+    }
+
+    tbody > tr {
+      background: $background-color;
+      height: 40px;
+      border-bottom: 1px solid #f0eeec;
+    }
+  }
+}
+
+@mixin table-header {
+  overflow-y: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: $inner-container-background-color;
+}

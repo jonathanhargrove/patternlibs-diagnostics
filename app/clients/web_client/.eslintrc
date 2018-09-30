@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "jasmine": true
+  },
+  // Set each global variable name equal to true to allow the variable to be
+  // overwritten or false to disallow overwriting
+  "globals": {
+    "RACK_ENV": false,
+    "CLIENT_VERSION": false,
+    "sinon": false,
+    "_": false,
+    "Factories": false,
+    "define": false,
+    "Foundation": false,
+    "I18n": false,
+    "$": false
+  },
+  "extends": "standard",
+  "plugins": [
+    "jasmine"
+  ],
+  "rules": {
+    "no-multi-spaces": "off",
+    "semi": ["error", "always"],
+    "jasmine/no-focused-tests": 2
+  }
+}

@@ -1,0 +1,28 @@
+.page-watermark, .panel-watermark {
+  text-align: center;
+  width: 100%;
+}
+
+.page-watermark {
+  margin-top: 10em;
+  margin-bottom: 12em;
+
+  > h1 {
+    color: $watermark-caption-color;
+    font-size: 3em;
+  }
+
+  > h2 {
+    color: $table-field-label-color;
+  }
+}
+
+.panel-watermark {
+  margin-top: 4em;
+  padding-bottom: 3em;
+
+  > h1 {
+    color: $grey-light;
+    font-size: 1.7em;
+  }
+}

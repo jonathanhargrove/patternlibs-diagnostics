@@ -1,0 +1,52 @@
+<div class="notification-policy-header">
+  <h3 class="notification-policy-title">Policy For:
+    <span class="notification-policy-id">{{alarmId}}</span>
+  </h3>
+</div>
+
+<form class="notification-policy-form">
+  <fieldset>
+    <div class="notification-policy-wrapper">
+      <input class="form-radio notification-policy-radio" type="radio" name="policy-type" value="true" id="notification-policy-send">
+      <label class="form-radio-label notification-policy-label" for="notification-policy-send"> Send </label>
+    </div>
+
+    <div class="notification-policy-wrapper">
+      <input class="form-radio notification-policy-radio" type="radio" name="policy-type" value="false" data-js="notification-policy-disable" id="notification-policy-disable">
+      <label class="form-radio-label notification-policy-label" for="notification-policy-disable"> Don't Send </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h3>Send If:</h3>
+    <div class="notification-policy-wrapper">
+      <input class="form-radio notification-policy-send-if policy-send-if-radio notification-policy-radio" type="radio" name="policy-type" value="true" data-js="notification-policy-occurrence" id="notification-policy-occurrence">
+      <label class="form-radio-label notification-policy-label notification-policy-send-if" for="notification-policy-occurrence">
+        <span>Occurs</span>
+          <input type="number" min="0" name="occurrence-count" data-js="occurrence-count" class="notification-policy-input">
+          <span>times in</span>
+          <input type="number" min="0" name="occurrence-time"  data-js="occurrence-time" class="notification-policy-input">
+
+        <div class="notification-policy-select-wrapper">
+          <select name="occurrence-interval" data-js="occurrence-interval" class="notification-policy-input notification-policy-select"></select>
+        </div>
+      </label>
+    </div>
+
+    <div class="notification-policy-wrapper">
+      <input class="form-radio notification-policy-send-if policy-send-if-radio notification-policy-radio" type="radio" name="policy-type" value="true" id="notification-policy-active">
+      <label class="form-radio-label notification-policy-label notification-policy-send-if" for="notification-policy-active">
+        <span>Is active (not cleared) for more than</span>
+        <input type="number" min="0" name="active-count" class="notification-policy-input">
+        <div class="notification-policy-select-wrapper">
+          <select name="active-interval" class="notification-policy-input notification-policy-select"></select>
+        </div>
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <button class='submit' type="button">Done</button>
+    <a class="cancel" data-js="cancel-modal">Cancel</a>
+  </fieldset>
+</form>

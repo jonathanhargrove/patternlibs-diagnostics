@@ -1,0 +1,10 @@
+<div class="primary-legend-container active">
+  <ul>
+    {{#each series}}
+    <li class="zone" data-series="{{name}}" data-indoor-outdoor="{{id}}">
+      <div class="primary-icon" style="background-color:{{color}};"></div>
+      <div class="description">{{name}}</div>
+    </li>
+    {{/each}}
+  </ul>
+</div>

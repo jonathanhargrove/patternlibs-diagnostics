@@ -1,0 +1,25 @@
+.panel-content {
+  .cool, .cooling {
+    .field-value {
+      color: $system-cooling-color;
+    }
+  }
+
+  .hot, .heating, .heat {
+    .field-value {
+      color: $system-heating-color;
+    }
+  }
+
+  .positive {
+    .field-value {
+      color: $field-value-positive-color;
+    }
+  }
+
+  .negative {
+    .field-value {
+      color: $field-value-negative-color;
+    }
+  }
+}

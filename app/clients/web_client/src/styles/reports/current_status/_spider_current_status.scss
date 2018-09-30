@@ -1,0 +1,190 @@
+.ndm-current-status-container {
+  .panel-grid {
+    @include grid-row;
+    @include grid-block-style;
+    @include equal-height-blocks;
+  }
+
+  .checkbox-control {
+    @extend %checkbox;
+  }
+
+  .field-label {
+    padding-left: 0 !important; // overrides styles/components/_panels.scss
+  }
+
+  .panel-content {
+    .checkbox-indicator {
+      display: none;
+    }
+  }
+
+  .panel-header {
+    .config-toggle-many {
+      display: none;
+    }
+  }
+
+  .panel-container {
+    &.config-enabled {
+      .checkbox-indicator {
+        display: inline-block;
+      }
+
+      .config-toggle-many {
+        display: inline-block;
+
+        .separator {
+          display: inline;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+
+        label {
+          display: inline;
+        }
+      }
+
+      .config-edit-toggle {
+        border: 2px solid $primary-action-color;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+    }
+
+    &:not(.config-enabled) {
+      .field.disabled {
+        .field-label {
+          color: $grey-light;
+        }
+
+        .field-value {
+          color: $grey-light;
+        }
+      }
+    }
+  }
+
+  .panel-header {
+    abbr {
+      @include responsive-abbr($large-up);
+    }
+
+    .checkbox-control {
+      @extend %checkbox-inverted;
+    }
+
+    .title-container {
+      display: inline-block;
+    }
+
+    .last-updated {
+      display: none;
+
+      @media #{$medium-up} {
+        display: inline;
+      }
+    }
+
+    .server-status {
+      margin-right: .4375rem;
+      text-align: center;
+      float: right;
+
+      .ellipsis {
+        @extend %animated-ellipsis;
+      }
+    }
+
+    .config-edit-toggle {
+      @extend .secondary-button;
+      float: right;
+      margin: 5px 6px;
+      min-width: 80px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .panel-grid-block {
+    $x-spacing: 30px;
+
+    @include grid-column($columns: 12, $collapse: true);
+
+    .block-title {
+      @include justify-content(.9rem);
+    }
+
+    .block-content {
+      column-width: 220px;
+      column-gap: $x-spacing;
+      padding-left: $x-spacing;
+      padding-right: $x-spacing;
+      padding-bottom: $base-font-size;
+
+      .checkbox-indicator {
+        margin-right: 6px;
+      }
+
+    }
+
+    &.status {
+      .block-content {
+        column-width: 190px;
+        column-gap: 0;
+      }
+
+      .field-contents {
+        width: 85%;
+      }
+    }
+
+    .field-contents {
+      font-size: 0; // Remove space between inline blocks
+      position: relative;
+      width: 88%;
+    }
+
+    .field-label {
+      text-transform: none;
+    }
+
+    .field-label,
+    .field-value {
+      display: inline-block;
+      float: none;
+      vertical-align: middle;
+      width: 50%;
+    }
+
+    .field-description {
+      color: $grey;
+      position: absolute;
+      left: 0;
+      top: $base-font-size + 2;
+      font-size: $base-font-size - 4;
+    }
+
+    &.indoor,
+    &.outdoor {
+      .block-content {
+        column-rule: 1px solid $grey-lighter;
+      }
+    }
+
+    &.status,
+    &.thermostat {
+      @media #{$medium-up} {
+        @include grid-column($columns: 6, $collapse: true);
+      }
+    }
+  }
+
+  // override styles/components/_panels.scss so that if the deviceId overflows,
+  // it will show the whole value instead of truncating.
+  .device-id .field-value {
+    overflow: visible;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+}

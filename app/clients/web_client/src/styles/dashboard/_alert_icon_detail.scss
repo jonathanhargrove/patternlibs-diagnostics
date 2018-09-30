@@ -1,0 +1,99 @@
+#map {
+  #map-dealer-icon-detail, #map-customer-icon-detail {
+    .name {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 32px;
+      font-weight: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 390px;
+
+      @media #{$small-only} {
+        max-width: 180px;
+      }
+    }
+
+    .contact-link {
+      float: left;
+      clear: left;
+      padding-top: 3px;
+      font-weight: lighter;
+      font-size: .9em;
+      margin-top: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+
+      @media #{$small-only} {
+        max-width: 100px;
+      }
+    }
+
+    .email {
+      display: inline-block;
+    }
+
+    .phone {
+      float: left;
+    }
+
+    .customer-steet-address {
+      margin-top: 5px;
+    }
+
+    .device {
+      @include grid-row;
+      @include grid-column($columns: 12, $collapse: true);
+      margin-top: 10px;
+      line-height: 1.4;
+
+      a {
+        display: inline-block;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 260px;
+        vertical-align: middle;
+
+        @media #{$small-only} {
+          max-width: 160px;
+        }
+      }
+
+      .device-info {
+        padding: 10px 0px;
+        border-top: 1px solid $grey-lighter;
+
+        .alerts {
+          float: right;
+          font-size: 14px;
+        }
+
+        .major {
+          color: $yellow;
+        }
+
+        .critical {
+          color: $red;
+        }
+
+        .alert-icon {
+          margin-left: 15px;
+        }
+
+        .count {
+          font-family: "Source Sans Pro", sans-serif;
+          vertical-align: sub;
+        }
+      }
+    }
+
+    .dealer-name {
+      font-size: 20px;
+    }
+  }
+}

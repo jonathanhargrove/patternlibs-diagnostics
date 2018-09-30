@@ -1,0 +1,41 @@
+#edit-notification-recipient-view {
+  form.notification-recipient-form {
+    .label-with-tooltip {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .icon-question3 {
+      color: #2ca3e1;
+    }
+
+    #customer-columns-container {
+      label {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-left: 15px;
+      }
+    }
+
+    @media #{$large-up} {
+      #customer-columns-container {
+        @include grid-row;
+
+        .customer-column {
+          @include grid-column($columns: 3, $collapse: true);
+        }
+      }
+    }
+  }
+
+  .customer-selection-option {
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+    label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}

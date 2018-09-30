@@ -1,0 +1,12 @@
+<div class="customer-info" data-customer-id="{{id}}">
+  {{#if showCompanyName}}
+    <div class='name'><a data-route href='/customers/{{id}}#all'>{{companyName}}</a></div>
+    <div class="customer-info-details">{{fullName this}}</div>
+  {{else}}
+    <div class='name'><a data-route href='/customers/{{id}}#all'>{{fullName this}}</a></div>
+  {{/if}}
+  <div class="customer-info-details">{{streetAddress this}}</div>
+  <div class="customer-info-details">{{cityStateZip this}}</div>
+</div>
+<div data-system-groups-container class="system-groups">
+</div>

@@ -1,0 +1,65 @@
+#notification-recipient-list {
+  @include grid-row;
+
+  span {
+    @include truncate();
+  }
+
+  .notification-recipient-name {
+    @include grid-column($columns: 3);
+    @include truncate();
+  }
+  .notification-recipient-email {
+    @include grid-column($columns: 3);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .notification-recipient-selected-alerts {
+    @include grid-column($columns: 3);
+  }
+  .notification-recipient-actions {
+    @include grid-column($columns: 3);
+  }
+
+  @media #{$small-only} {
+    .notification-recipient-list-titles,
+    .notification-recipient-actions {
+      display: none;
+    }
+
+    .notification-recipient > div {
+      @include grid-column($columns: 12, $collapse:null,$float:false);
+      float: none;
+    }
+  }
+}
+
+$list-title-height: 50px;
+.notification-recipient-list-titles {
+  height: $list-title-height;
+  @include radius(10px);
+
+  span {
+    background: #F0EEEC;
+    line-height: $list-title-height;
+    padding-left: 15px;
+    border-right: 1px solid white;
+    font-weight: bold;
+    position: relative;
+  }
+}
+
+.notification-recipient-list-items {
+  > div {
+    @include grid-row;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  .notification-recipient-actions {
+    span + span {
+      margin-left: 15px;
+    }
+  }
+}

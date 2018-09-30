@@ -1,0 +1,26 @@
+body.login-view {
+  .inner_container {
+    background-color: white;
+
+    #main-content {
+      box-shadow: none;
+    }
+  }
+
+  .login-form {
+    @include module;
+    max-width: 400px;
+
+    .header {
+      @include vertical-radius(top);
+    }
+  }
+
+  .details {
+    padding: 1em;
+
+    .user-name, .password {
+      @include grid-row();
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<div class="chart-alarm-tooltip">
+  <div class="code">{{code}}</div>
+  <div class="status">{{status}}</div>
+  <div class="occurred-at">{{dateTimeString}}</div>
+  <div class="description">{{description}}</div>
+  <div class="show-more">
+    <div class="more-info">
+      <a href="#">
+        <span class="icon-drawer-state closed"></span>
+        <span class="title">More Info</span>
+      </a>
+    </div>
+    <div class="alarm-details">
+      <ul>
+        <div class="identifiers">
+          <li>
+            <div class="block-title">Unit Type</div>
+            <div class="field">
+              {{unitType}}
+            </div>
+          </li>
+          <li>
+            <div class="block-title round-right">Serial Id</div>
+            <div class="field">
+              {{serialId}}
+            </div>
+          </li>
+        </div>
+        <div class="severity-zone-number">
+          <li>
+            <div class="block-title round-left">Severity</div>
+            <div class="field">
+              {{titleCase severity}}
+            </div>
+          </li>
+          <li>
+            <div class="block-title round-right">Zone Number</div>
+            <div class="field">
+              {{zoneId}}
+            </div>
+          </li>
+        </div>
+        <div class="root-cause">
+          <li>
+            <div class="block-title">Root Cause</div>
+            <div class="field">
+              <ul>
+                {{#each rootCause.causes}}
+                <li>{{info}}
+                    {{#if details.length}}
+                    <ul>
+                      {{#each details}}
+                      <li>{{this}}</li>
+                      {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+              </ul>
+              {{#each rootCause.details}}
+              <div class="details">{{this}}</div>
+              {{/each}}
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+.notification-policy {
+  padding: 0;
+
+  .notification-policy-header {
+    background-color: $grey;
+    padding: 10px;
+  }
+
+  .notification-policy-title {
+    color: $black;
+  }
+
+  .notification-policy-id {
+    color: $black;
+    position: absolute;
+    right: 10px;
+  }
+
+  .notification-policy-form {
+    padding: 10px;
+  }
+
+  .notification-policy-wrapper {
+    margin: 0 0 1rem 0;
+  }
+
+  .notification-policy-input {
+    display: inline-block;
+    width: 95px;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  .notification-policy-label {
+    font-weight: bold;
+  }
+
+  .notification-policy-control {
+    margin: 0 0 1rem 0;
+  }
+
+  .notification-policy-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+    font-weight: bold;
+  }
+
+  .notification-policy-send-if {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .policy-send-if-radio {
+    margin-top: 7px;
+  }
+
+  .notification-policy-label.notification-policy-send-if {
+    @media #{$small-only} {
+      width: 80%;
+    }
+  }
+
+  .notification-policy-select-wrapper {
+    line-height: 0;
+    display: inline-block;
+    @extend .icon-triangle-solid;
+    position: relative;
+
+    &::before {
+      @extend [class^="icon-"];
+      margin-left: -20px;
+      font-size: 7px;
+      position: absolute;
+      top: 75%;
+      right: 10px;
+      z-index: -1;
+      transform: rotate(180deg);
+      bottom: 25%;
+    }
+  }
+
+  .notification-policy-radio:checked {
+    @supports (-ms-ime-align: auto) {
+      transform: translateY(0);
+    }
+
+    & + .notification-policy-label {
+      @supports (-ms-ime-align: auto) {
+        transform: translateY(0);
+      }
+    }
+  }
+}

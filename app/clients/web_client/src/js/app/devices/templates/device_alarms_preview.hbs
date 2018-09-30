@@ -1,0 +1,19 @@
+{{#optedIn status}}
+  {{#if criticalAlerts}}
+    <span class="critical">
+      <span class="{{alarmIcon 'critical'}}"></span><span class="count">{{criticalAlerts}}</span>
+    </span>
+  {{/if}}
+  {{#if majorAlerts}}
+    <span class="major">
+      <span class="{{alarmIcon 'major'}}"></span><span class="count">{{majorAlerts}}</span>
+    </span>
+  {{/if}}
+  {{#if normalAlerts}}
+    <span class="normal">
+      <span class="{{alarmIcon 'normal'}}"></span><span class="count">{{normalAlerts}}</span>
+    </span>
+  {{/if}}
+{{else}}
+  <div class="opted-out">{{upperCase status}}</div>
+{{/optedIn}}

@@ -1,0 +1,51 @@
+.customer-search-form {
+    width: 50%;
+
+    .search-container {
+      border: 1px solid #999999;
+
+      .selected-customer {
+        display: none;
+        padding: 3px;
+        margin: 4px;
+        font-size: 12.25px;
+        color: white;
+        background-color: purple;
+
+        .remove-button {
+          margin-left: 5px;
+        }
+      }
+    }
+
+  .customer-searchbar {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .customer-results-container {
+    position: relative;
+  }
+
+  .customer-results:empty {
+    display: none;
+  }
+
+  .customer-results:not(:empty) {
+    border: 1px $grey solid;
+    max-height: 150px;
+    overflow: scroll;
+    @include bottom-box-shadow;
+    background-color: $white;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .customer-result-item {
+    padding: 20px 20px 1px 20px;
+    &:hover {
+      background-color: $grey-lightest
+    }
+  }
+}

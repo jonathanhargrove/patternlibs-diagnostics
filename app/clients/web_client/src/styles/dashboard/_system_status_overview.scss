@@ -1,0 +1,64 @@
+// IE-11: Css that's specifically needed for IE-11 rendering
+
+#system-status-overview {
+  @include grid-column($columns: 12, $collapse: true);
+  padding: 30px 45px;
+  color: $grey-darker;
+
+  .item {
+    @include grid-column($columns: 2, $collapse: true);
+    text-align: center;
+    padding-bottom: 5px; // IE-11
+
+    .img {
+      max-width: 40px;
+      max-height: 40px;
+      margin-bottom: 7px;
+    }
+
+    .icon-count {
+      font-size: 30px;;
+    }
+
+    .count {
+      margin-left: -5px;
+      font-family: sans-serif;
+    }
+
+    .status-label {
+      text-transform: uppercase;
+      font-size: 1.2em;
+    }
+  }
+
+  @media #{$small-only} {
+    padding: 15px;
+
+    .item {
+      width: 50%;
+      text-align: center;
+      padding-bottom: 25px; // IE-11
+
+      .img {
+        display: block;
+        margin: auto;
+        max-width: 40px;
+        max-height: 40px;
+        margin-bottom: 5px;
+      }
+
+      .icon-count {
+        display: grid;
+        text-align: center;
+      }
+
+      .count {
+        margin-left: 0px;
+      }
+
+      .status-label {
+        font-size: 1.3em;
+      }
+    }
+  }
+}

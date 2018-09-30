@@ -1,0 +1,59 @@
+<div class="panel-container {{#if configEnabled}}config-enabled{{/if}}">
+  <div class="panel-header">
+    <div class="title-container">
+      <div class="title">
+        {{ productShortName }} Data Module
+        <span>
+          {{#if configEnabled}}
+            Configuration
+          {{else}}
+            Status
+          {{/if}}
+        </span>
+      </div>
+      <div class="config-toggle-many">
+        <div class="separator">|</div>
+        <label class="checkbox-control">
+          <input
+            type="checkbox"
+            {{#if allEnabled}}checked="checked"{{/if}}
+            data-toggle-sensor-type="all"
+          />
+          <i class="checkbox-indicator"></i>
+          <span>Select All</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Comes before .server-status in markup so the order is reversed when `float:right` -->
+    <button class="config-edit-toggle" data-js="toggle-config">
+      {{#if configEnabled}}
+        Done
+      {{else}}
+        Edit
+      {{/if}}
+    </button>
+
+    <div class="server-status">
+      {{#if showLastUpdatedAt}}
+        <span class="last-updated">
+          Last updated:&nbsp;
+          <abbr title="{{longDateTime lastUpdatedAt}}"><span>{{shortDateTime lastUpdatedAt}}</span></abbr>
+        </span>
+      {{else if showSaving}}
+        <span>Saving</span>
+        <span class="ellipsis" aria-hidden="true" role="presentation">
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+        </span>
+      {{else if showSaved}}
+        <span>Saved</span>
+      {{else if showError}}
+        <span class="error">There was an error saving the configuration.</span>
+      {{/if}}
+    </div>
+  </div>
+  <div class="panel-content">
+  </div>
+</div>

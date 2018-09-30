@@ -1,0 +1,45 @@
+<div class="restrictions-manager">
+  <div class="header">
+    <h1 class="title">Features</h1>
+  </div>
+  {{#if enabledFeatures}}
+    <div>
+      <h2>Enabled Features</h2>
+      <ul>
+        {{#each enabledFeatures}}
+          <li>
+            <div class="feature-container">
+              <div class="feature-code-container">
+                <span class="feature-code">{{this}}</span>
+              </div>
+              <div class="remove-container">
+                <button class="remove-button danger-button" data-feature-code="{{this}}">Remove</button>
+              </div>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{#if messages}}
+    {{#each messages}}
+    <div class="message">
+      {{this}}
+    </div>
+    {{/each}}
+  {{/if}}
+  <form>
+    <fieldset>
+      <div>
+        <label>Feature Code
+          <input type="text" name="featureCode" autofocus/>
+      </label>
+      </div>
+    </fieldset>
+    <div class="button-container">
+      <button class="submit">Enable Feature</button>
+      <a class="cancel">Close</a>
+    </div>
+  </form>
+</div>

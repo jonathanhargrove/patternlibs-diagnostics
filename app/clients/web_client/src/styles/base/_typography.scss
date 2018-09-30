@@ -1,0 +1,38 @@
+@import "../base/colors";
+@import "../base/variables";
+@import "icons";
+
+body {
+  font-weight: $base-font-weight;
+  color: $body-font-color;
+  line-height: $base-line-height;
+}
+
+p {
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+a {
+  @extend .font-bold;
+  color: $primary-nav-color;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.clickable-icon {
+  color: lighten($primary-font-color, 15%);
+  @include radius(3px);
+  &:hover {
+    color: darken($primary-font-color, 15%);
+    background-color: $border-highlight-color;
+    @extend .clickable;
+  }
+}
+
+.icon-font-header {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}

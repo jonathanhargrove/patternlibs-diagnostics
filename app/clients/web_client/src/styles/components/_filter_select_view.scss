@@ -1,0 +1,61 @@
+.filter-select-view {
+  position: relative;
+
+  &.expanded {
+    border: 1px solid $grey-light;
+    border-top: none;
+    border-radius: 5px 5px 0 0;
+    box-sizing: border-box;
+    margin-bottom: 4em;
+  }
+
+  button.select-customer {
+    width: 100%;
+    background: $grey-light;
+    padding: 5px;
+    border: 1px solid $grey-light;
+    color: black;
+
+    .button-label {
+      float: left;
+      width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .indicator {
+      float: right;
+      width: 10%;
+      margin-top: 0.25em;
+    }
+  }
+
+  input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .search-and-results.expanded {
+    display: block;
+    position: absolute;
+    background: $white;
+    z-index: 5;
+    left: -1px;
+    right: -1px;
+    border: 1px solid $grey-light;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .search-and-results.collapsed {
+    display: none;
+  }
+
+  .search-results {
+    max-height: 10em;
+    overflow: auto;
+  }
+}

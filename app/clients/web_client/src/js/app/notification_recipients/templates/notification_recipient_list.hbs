@@ -1,0 +1,12 @@
+<div class="header">
+  <a class="header-link add-notification-recipient" href="/notification_recipients/new"><span class="icon-plus"></span>Add Recipient</a>
+  <h1 class="title"><span id="notification-recipient-count"></span> {{pluralize models.length "Notification Recipient"}}</h1>
+</div>
+<div class="notification-recipient-list-titles">
+  <span class="notification-recipient-name">Name</span>
+  <span class="notification-recipient-email">Email</span>
+  <span class="notification-recipient-selected-alerts">Selected Alerts</span>
+  <span class="notification-recipient-actions">Actions</span>
+</div>
+<div class="notification-recipient-list-items"></div>
+<div class="pagination-container"></div>

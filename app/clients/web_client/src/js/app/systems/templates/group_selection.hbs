@@ -1,0 +1,18 @@
+ <label>Group Assignment
+   <select id="group-selector" class="large">
+     <option value="">[Unassigned]</option>
+     <option id="new-group-option" value="">{{createNewGroupLabel}}</option>
+     {{#if anySystemsWithGroups}}
+       <optgroup label="Existing Groups">
+         {{#each groupList}}
+           <option value="{{this}}">{{this}}</option>
+         {{/each}}
+       </optgroup>
+     {{/if}}
+   </select>
+ </label>
+ <div class='new-group hidden'>
+   <label>Enter New Group Name
+     <input id="new-group" type="text"></input>
+   </label>
+ </div>

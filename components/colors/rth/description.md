@@ -1,0 +1,1 @@
+Runtime history graph legend and chart line colors for thermostat and Nexia Diagnostics Module.

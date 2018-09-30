@@ -1,0 +1,608 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icon-untitled150 {
+  width: 0.85546875em;
+}
+
+.icon-untitled151 {
+  width: 0.927734375em;
+}
+
+.icon-untitled159 {
+  width: 0.857421875em;
+}
+
+.icon-untitled160 {
+  width: 0.857421875em;
+}
+
+.icon-untitled161 {
+  width: 0.857421875em;
+}
+
+.icon-untitled162 {
+  width: 0.857421875em;
+}
+
+.icon-untitled163 {
+  width: 0.857421875em;
+}
+
+.icon-untitled164 {
+  width: 0.787109375em;
+}
+
+.icon-untitled165 {
+  width: 0.857421875em;
+}
+
+.icon-untitled166 {
+  width: 0.857421875em;
+}
+
+.icon-untitled167 {
+  width: 0.857421875em;
+}
+
+.icon-untitled168 {
+  width: 0.857421875em;
+}
+
+.icon-untitled169 {
+  width: 1.072265625em;
+}
+
+.icon-untitled176 {
+  width: 0.927734375em;
+}
+
+.icon-untitled177 {
+  width: 0.927734375em;
+}
+
+.icon-untitled218 {
+  width: 0.927734375em;
+}
+
+.icon-untitled221 {
+  width: 0.927734375em;
+}
+
+.icon-untitled222 {
+  width: 0.78515625em;
+}
+
+.icon-untitled223 {
+  width: 1.0703125em;
+}
+
+.icon-untitled225 {
+  width: 0.78515625em;
+}
+
+.icon-untitled226 {
+  width: 0.85546875em;
+}
+
+.icon-untitled227 {
+  width: 0.78515625em;
+}
+
+.icon-untitled228 {
+  width: 0.927734375em;
+}
+
+.icon-untitled229 {
+  width: 0.712890625em;
+}
+
+.icon-untitled230 {
+  width: 0.85546875em;
+}
+
+.icon-untitled231 {
+  width: 0.927734375em;
+}
+
+.icon-untitled232 {
+  width: 0.85546875em;
+}
+
+.icon-untitled233 {
+  width: 0.85546875em;
+}
+
+.icon-untitled234 {
+  width: 0.85546875em;
+}
+
+.icon-untitled235 {
+  width: 0.642578125em;
+}
+
+.icon-untitled236 {
+  width: 0.427734375em;
+}
+
+.icon-untitled237 {
+  width: 0.642578125em;
+}
+
+.icon-untitled238 {
+  width: 0.927734375em;
+}
+
+.icon-untitled239 {
+  width: 0.85546875em;
+}
+
+.icon-untitled240 {
+  width: 1.0703125em;
+}
+
+.icon-untitled241 {
+  width: 0.927734375em;
+}
+
+.icon-untitled242 {
+  width: 0.927734375em;
+}
+
+.icon-untitled243 {
+  width: 1.0703125em;
+}
+
+.icon-untitled245 {
+  width: 0.85546875em;
+}
+
+.icon-untitled246 {
+  width: 0.5703125em;
+}
+
+.icon-untitled247 {
+  width: 0.85546875em;
+}
+
+.icon-untitled248 {
+  width: 0.5703125em;
+}
+
+.icon-untitled249 {
+  width: 0.927734375em;
+}
+
+.icon-untitled250 {
+  width: 0.927734375em;
+}
+
+.icon-untitled252 {
+  width: 0.5703125em;
+}
+
+.icon-untitled254 {
+  width: 0.927734375em;
+}
+
+.icon-untitled255 {
+  width: 0.78515625em;
+}
+
+.icon-untitled256 {
+  width: 0.85546875em;
+}
+
+.icon-untitled257 {
+  width: 0.85546875em;
+}
+
+.icon-untitled258 {
+  width: 0.927734375em;
+}
+
+.icon-untitled260 {
+  width: 0.5703125em;
+}
+
+.icon-untitled261 {
+  width: 0.857421875em;
+}
+
+.icon-untitled262 {
+  width: 0.642578125em;
+}
+
+.icon-untitled263 {
+  width: 0.642578125em;
+}
+
+.icon-untitled264 {
+  width: 0.85546875em;
+}
+
+.icon-untitled265 {
+  width: 0.85546875em;
+}
+
+.icon-untitled266 {
+  width: 0.85546875em;
+}
+
+.icon-untitled267 {
+  width: 0.85546875em;
+}
+
+.icon-untitled268 {
+  width: 0.85546875em;
+}
+
+.icon-untitled269 {
+  width: 0.85546875em;
+}
+
+.icon-untitled270 {
+  width: 0.85546875em;
+}
+
+.icon-untitled271 {
+  width: 0.85546875em;
+}
+
+.icon-untitled272 {
+  width: 0.85546875em;
+}
+
+.icon-untitled273 {
+  width: 0.927734375em;
+}
+
+.icon-untitled274 {
+  width: 0.927734375em;
+}
+
+.icon-untitled276 {
+  width: 0.85546875em;
+}
+
+.icon-untitled277 {
+  width: 0.85546875em;
+}
+
+.icon-untitled278 {
+  width: 0.78515625em;
+}
+
+.icon-untitled279 {
+  width: 0.78515625em;
+}
+
+.icon-untitled280 {
+  width: 0.85546875em;
+}
+
+.icon-untitled282 {
+  width: 0.78515625em;
+}
+
+.icon-untitled285 {
+  width: 0.78515625em;
+}
+
+.icon-untitled286 {
+  width: 0.212890625em;
+}
+
+.icon-untitled287 {
+  width: 0.927734375em;
+}
+
+.icon-untitled288 {
+  width: 0.927734375em;
+}
+
+.icon-untitled289 {
+  width: 1.0703125em;
+}
+
+.icon-untitled290 {
+  width: 0.927734375em;
+}
+
+.icon-untitled291 {
+  width: 1.0703125em;
+}
+
+.icon-untitled294 {
+  width: 1.0703125em;
+}
+
+.icon-untitled295 {
+  width: 0.78515625em;
+}
+
+.icon-untitled296 {
+  width: 0.85546875em;
+}
+
+.icon-untitled297 {
+  width: 0.85546875em;
+}
+
+.icon-untitled298 {
+  width: 0.85546875em;
+}
+
+.icon-untitled299 {
+  width: 0.85546875em;
+}
+
+.icon-untitled300 {
+  width: 0.85546875em;
+}
+
+.icon-untitled301 {
+  width: 0.927734375em;
+}
+
+.icon-untitled302 {
+  width: 0.78515625em;
+}
+
+.icon-untitled303 {
+  width: 1.0703125em;
+}
+
+.icon-untitled304 {
+  width: 0.927734375em;
+}
+
+.icon-untitled306 {
+  width: 0.85546875em;
+}
+
+.icon-untitled309 {
+  width: 0.5703125em;
+}
+
+.icon-untitled310 {
+  width: 0.5703125em;
+}
+
+.icon-untitled311 {
+  width: 0.35546875em;
+}
+
+.icon-untitled312 {
+  width: 0.35546875em;
+}
+
+.icon-untitled313 {
+  width: 0.5703125em;
+}
+
+.icon-untitled314 {
+  width: 0.5703125em;
+}
+
+.icon-untitled315 {
+  width: 0.5703125em;
+}
+
+.icon-untitled316 {
+  width: 0.85546875em;
+}
+
+.icon-untitled320 {
+  width: 0.5703125em;
+}
+
+.icon-untitled322 {
+  width: 1.0703125em;
+}
+
+.icon-untitled323 {
+  width: 1.0703125em;
+}
+
+.icon-untitled325 {
+  width: 0.927734375em;
+}
+
+.icon-untitled326 {
+  width: 1.0703125em;
+}
+
+.icon-untitled327 {
+  width: 0.5703125em;
+}
+
+.icon-untitled328 {
+  width: 0.5703125em;
+}
+
+.icon-untitled329 {
+  width: 0.642578125em;
+}
+
+.icon-untitled330 {
+  width: 0.642578125em;
+}
+
+.icon-untitled331 {
+  width: 0.35546875em;
+}
+
+.icon-untitled332 {
+  width: 0.35546875em;
+}
+
+.icon-untitled333 {
+  width: 0.642578125em;
+}
+
+.icon-untitled334 {
+  width: 0.642578125em;
+}
+
+.icon-untitled335 {
+  width: 1.0703125em;
+}
+
+.icon-untitled336 {
+  width: 1.0703125em;
+}
+
+.icon-untitled337 {
+  width: 0.642578125em;
+}
+
+.icon-untitled338 {
+  width: 0.427734375em;
+}
+
+.icon-untitled339 {
+  width: 0.875em;
+}
+
+.icon-untitled340 {
+  width: 0.927734375em;
+}
+
+.icon-untitled341 {
+  width: 1.0703125em;
+}
+
+.icon-untitled342 {
+  width: 0.642578125em;
+}
+
+.icon-untitled343 {
+  width: 0.642578125em;
+}
+
+.icon-untitled344 {
+  width: 0.85546875em;
+}
+
+.icon-untitled345 {
+  width: 0.85546875em;
+}
+
+.icon-untitled346 {
+  width: 0.85546875em;
+}
+
+.icon-untitled347 {
+  width: 1.0703125em;
+}
+
+.icon-untitled348 {
+  width: 0.78515625em;
+}
+
+.icon-untitled349 {
+  width: 0.5703125em;
+}
+
+.icon-untitled350 {
+  width: 0.35546875em;
+}
+
+.icon-untitled351 {
+  width: 0.35546875em;
+}
+
+.icon-untitled352 {
+  width: 0.642578125em;
+}
+
+.icon-untitled353 {
+  width: 0.78515625em;
+}
+
+.icon-untitled354 {
+  width: 0.91015625em;
+}
+
+.icon-untitled355 {
+  width: 0.927734375em;
+}
+
+.icon-untitled356 {
+  width: 0.927734375em;
+}
+
+.icon-untitled357 {
+  width: 0.927734375em;
+}
+
+.icon-untitled358 {
+  width: 0.85546875em;
+}
+
+.icon-untitled359 {
+  width: 0.85546875em;
+}
+
+.icon-untitled360 {
+  width: 0.85546875em;
+}
+
+.icon-untitled362 {
+  width: 0.78515625em;
+}
+
+.icon-untitled363 {
+  width: 0.85546875em;
+}
+
+.icon-untitled364 {
+  width: 0.78515625em;
+}
+
+.icon-untitled365 {
+  width: 0.85546875em;
+}
+
+.icon-untitled366 {
+  width: 0.85546875em;
+}
+
+.icon-untitled367 {
+  width: 0.85546875em;
+}
+
+.icon-untitled368 {
+  width: 0.85546875em;
+}
+
+.icon-untitled369 {
+  width: 0.85546875em;
+}
+
+.icon-untitled370 {
+  width: 0.85546875em;
+}
+
+.icon-untitled371 {
+  width: 0.712890625em;
+}
+
+.icon-untitled373 {
+  width: 0.85546875em;
+}

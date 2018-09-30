@@ -1,0 +1,41 @@
+<!-- FIXME: don't use customer-* classes -->
+<!-- TODO: There's a lot of repitition between unassigned device list item and customer list item system -->
+<div class="customer-info">
+  <div class='name'><a href='/unassigned/{{deviceId}}'>{{placeholderName}}</a></div>
+</div>
+
+<div class="device">
+  <div class="device-info">
+    <div class="customer-system-name">
+      <div>{{nullText name deviceId}}</div>
+    </div>
+    <div class="customer-device-id">
+      <div class="device-auid">{{deviceId}}</div>
+        {{#if serialNumber}}
+          <div class="serial">{{serialNumber}}</div>
+        {{/if}}
+      <div class="customer-device-status" data-device-connected></div>
+    </div>
+    <div {{#if ndmEnabled}}class="ndm-feature-enabled"{{/if}}>
+      <div class="customer-device-model">
+        <div>
+          {{customerDeviceModel deviceModel zoningEnabled}}
+        </div>
+      </div>
+      <div class="customer-alerts-status" data-device-alerts>
+      </div>
+      <div class="customer-actions">
+        {{#if showDispositionDropdown}}
+          <span class="disposition-action-container"/>
+        {{/if}}
+        {{#if showInformationIcon}}
+          <div class="icon-container">
+            <a data-route href="/unassigned/{{deviceId}}">
+              <span class="icon-info3"></span>
+            </a>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

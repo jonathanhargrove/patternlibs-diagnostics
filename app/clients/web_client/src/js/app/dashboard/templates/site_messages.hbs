@@ -1,0 +1,17 @@
+<span class="panel-title">Updates</span>
+
+{{#each messages}}
+  <div class="item">
+    <div class="item-container {{messageType}} slot-{{dashboardPanelSlot}}">
+      <h3 class="title">{{dashboardPanelTitle}}</h3>
+      {{#if image}}
+        <div class="image" data-id="{{id}}">
+          <img src="{{image}}"/>
+          <div class='expand'>click to expand</div>
+        </div>
+      {{/if}}
+      <div class="primary-text">{{primaryText}}</div>
+      <div class="secondary-text">{{secondaryText}}</div>
+    </div>
+  </div>
+{{/each}}

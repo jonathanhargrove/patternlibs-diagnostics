@@ -1,0 +1,321 @@
+@import "runtime_history_chart_controls";
+
+.runtime-history-container {
+  margin-top: 30px;
+
+  .loading {
+    padding: 200px 0;
+
+    .page-spinner {
+      margin-top: 0px;
+    }
+  }
+
+  .chart .loading {
+    margin-top: 14px; /* helps keep chart size consistent during loading */
+  }
+
+  .chart .page-watermark {
+    margin-bottom: 0;
+    margin-top: 14px; /* helps keep chart size consistent during loading */
+    padding-top: 7em;
+  }
+
+
+  .highcharts-tooltip {
+      > span {
+          min-width: 270px;
+          z-index: 1000000000000000;
+
+          .tooltip-wrapper {
+              @include rounded-edges(4px);
+              background: $white;
+              padding-left: 10px;
+              padding-right: 5px;
+
+              p {
+                  font-size: 12px;
+              }
+
+              .tooltips-details {
+                  height: 12px;
+                  padding: 5px 10px 5px;
+
+                  .time, .temp, .humidity{
+                      color: $module-header-color;
+                      height: 5px;
+                      float: left;
+                      text-align: left;
+                  }
+
+                  .time {
+                      width: 43%;
+                      margin-top: 10px;
+                  }
+
+                  .outdoor-capacity {
+                      float: left;
+                      margin-top: 5px;
+                      margin-left: -3px;
+                  }
+
+                  .outdoor {
+                      @include rounded-edges(4px);
+                      float: right;
+                      width: 50%;
+                      min-height: 35px;
+                      padding: 0px 7px 0px;
+                      border: 1px solid $border-highlight-color;
+
+                      .legend {
+                          color: $module-header-color;
+                      }
+
+                      .temp {
+                          float: left;
+                          width: 48%
+                      }
+
+                      .humidity {
+                          float: right;
+                          width: 48%
+                      }
+                  }
+              }
+              table {
+                  background: none !important;
+                  border: none;
+                  margin-top: 15px;
+                  margin-bottom: 5px;
+                  width: 100%;
+
+                  tr {
+                      background: none !important;
+                      font-size: 10px;
+                      height: 10px;
+                      padding: 0px -2px 0px -2px;
+                  }
+
+                  th {
+                      color: $module-header-color;
+                      font-weight: bold;
+                      font-size: 12px;
+                      margin-top: 10px;
+                  }
+
+                  td {
+                      background: none !important;
+                      font-size: 12px;
+                      height: 10px;
+                      line-height: .75rem;
+
+                      &.mode {
+                          text-transform: capitalize;
+                      }
+                  }
+
+                  .zone {
+                      .mode {
+                          min-width: 70px;
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  .panel-content {
+    .runtime-history-detail {
+      height: 100%;
+
+      .chart-content {
+        left: 50%;
+        margin: 0 auto;
+        margin-bottom: -30px;
+        height: 400px;
+        width: 95%;
+
+        .chart {
+          width: 100%;
+
+          .loading {
+            padding-top: 150px;
+          }
+
+          .highcharts-container > span {
+            .alarm-icon, .alarm-icon-background {
+              font-size: 1.5rem;
+              margin-left: -50%;
+            }
+
+            .alarm-icon-background {
+              color: white;
+              -webkit-text-stroke: 3px white;
+              text-shadow: 0px 0px 3px white;
+            }
+
+            .alarm-icon {
+              margin-top: -100%;
+
+              &.critical {
+                color: $critical-alarm-color;
+              }
+
+              &.major {
+                color: $major-alarm-color;
+              }
+
+              &.normal {
+                color: $normal-alarm-color;
+              }
+            }
+          }
+        }
+      }
+
+      .alert-filter-warning {
+        @include radius(4px);
+        position: relative;
+        margin-left: 100px;
+        margin-right: 100px;
+        background-color: $inline-warning-banner;
+        padding: 5px 10px;
+        text-align: center;
+        font-size: .9em;
+        margin-bottom: 10px;
+      }
+
+      @media #{$small-only} {
+        .alert-filter-warning {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
+
+      .legends {
+        position: relative;
+        padding-bottom: 20px;
+        padding-right: 94px;
+        margin-left: 47px;
+      }
+
+      .primary-legend-container {
+        margin-right: 20px;
+      }
+
+      .download-csv {
+        padding: 10px;
+      }
+
+      .primary-legend-container, .secondary-legend-container {
+        margin-top: 10px;
+        @include rounded-edges(4px);
+        display: inline-block;
+        float: left;
+        border: 1px solid $border-highlight-color;
+        width: auto;
+        height: auto;
+        @include radius(4px);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: white;
+
+        .zone {
+          cursor: pointer;
+          will-change: opacity; /* Chrome isn't rerendering element on opacity
+                                   change, so this fixes that issue */
+
+          &.disabled {
+            opacity: 0.3;
+          }
+        }
+        ul {
+          list-style-type: none;
+          margin-left: 10px;
+          margin-top: 2px;
+        }
+        li {
+          display: inline;
+          float: left;
+          padding-right: 10px;
+          text-transform: capitalize;
+          font-size: 12px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          &.secondary-legend-item {
+            &.disabled {
+              opacity: 0.4;
+            }
+          }
+
+          .primary-icon, .secondary-icon {
+            float: left;
+            width: 19px;
+          }
+          .primary-icon {
+            height: 18px;
+          }
+          .secondary-icon {
+            margin-right: 5px;
+            height: 10px;
+
+            &.solid-2pt, &.skinny-dashed, &.fat-solid {
+              border: 0;
+              background: #fff;
+            }
+
+            &.skinny-dashed {
+              margin-top: 1px;
+              border-bottom: 1px dashed #000;
+            }
+
+            &.outdoor-temp {
+              margin-top: 8px;
+              height: 4px;
+              width: 19px;
+              background: url("/img/odrh-line.png") no-repeat;
+            }
+
+            &.outdoor-humidity {
+              margin-top: 8px;
+              height: 4px;
+              width: 25px;
+              background: url("/img/odrh-line.png") no-repeat;
+            }
+
+            &.solid-2pt {
+              margin-top: 1px;
+              border-bottom: 2px solid #000;
+            }
+
+            &.dash-dotted {
+              margin-top: 8px;
+              width: 25px;
+              background: url("/img/idrh-line.png") no-repeat;
+            }
+
+            &.fat-solid {
+              margin-top: 4px;
+              border-bottom: 8px solid #000;
+            }
+
+            &.off-icon {
+              margin-top: 2px;
+              width: 15px;
+              border-bottom: 15px solid #6B6B6B;
+            }
+          }
+          .description {
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-left: 25px;
+          }
+        }
+      }
+    }
+  }
+}

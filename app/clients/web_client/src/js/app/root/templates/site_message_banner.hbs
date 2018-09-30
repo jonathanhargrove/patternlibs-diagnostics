@@ -1,0 +1,13 @@
+<img src="/img/close.svg" class="dismiss"/>
+<div class="contents">
+  {{#if image}}
+    <div class="image">
+      <img src="{{image}}"/>
+      <div class='expand'>click to expand</div>
+    </div>
+  {{/if}}
+  <div class="message {{#if image}}with-image{{/if}}">
+    <div class="primary-text">{{primaryText}}</div>
+    <div>{{secondaryText}}</div>
+  </div>
+</div>

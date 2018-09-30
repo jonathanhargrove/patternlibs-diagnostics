@@ -1,0 +1,22 @@
+<div class="tooltip-wrapper">
+  <div class="tooltips-details">
+    <div class="time">{{time}}</div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Sensor</th>
+      <th>Value</th>
+    </tr>
+    {{#each data}}
+      <tr>
+        <td class="name" style="color:{{this.color}}">
+          {{@key}}
+        </td>
+        <td class="internal-temp" style="color:{{this.color}}">
+          {{this.value}}
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</div>

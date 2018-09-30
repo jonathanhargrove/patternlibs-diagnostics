@@ -1,0 +1,14 @@
+.system-view {
+  .error {
+    float: right;
+    padding: 7px 7px 0 0;
+    font-size: 1.6rem;
+    display: none;
+
+    &.icon-circle {
+      margin-left: -2rem;
+      color: $error-color;
+      text-shadow: -1px 2px 7px $raised-icon-shadow-color;
+    }
+  }
+}

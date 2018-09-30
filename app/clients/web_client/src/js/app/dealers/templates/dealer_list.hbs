@@ -1,0 +1,9 @@
+<div class="header">
+  <h1 class="title"><span id="dealer-count"></span> {{pluralize models.length "Dealer"}}</h1>
+</div>
+<div id="dealer-results">
+  <form method="post" id='dealer-form'>
+    <select name="dealerUuid" id="dealer-list-items" size="10"></select>
+    <button type="submit" id="impersonate">Impersonate Dealer</button>
+  </form>
+</div>

@@ -1,0 +1,127 @@
+.alarm-times {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+
+.expand-history {
+  span {
+    padding: 20px 0 20px 0;
+    margin-left: 50%;
+  }
+  padding: 5px;
+
+  #get-more {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding: 0.3em 1.5em;
+  }
+}
+
+.alarm-history-day {
+  padding: 5px;
+  @include grid-row();
+
+  border-bottom: 1px solid $grey-dark;
+
+  &:last-child { border-bottom: none; }
+
+  &.open {
+    alarm-day .icon-drawer-state {
+      cursor: pointer;
+      @extend .icon-arrow-down;
+    }
+    .alarm-day-alarms { display: block; }
+  }
+
+  &.closed {
+    alarm-day .icon-drawer-state {
+      cursor: pointer;
+      @extend .icon-arrow-right;
+    }
+    .alarm-day-alarms { display: none; }
+  }
+
+  .alarm-day {
+    .day-summary {
+      padding-top: 5px;
+
+      .day-str { display: inline-block; float: left; margin-right: 10px;}
+
+      .severity-counts {
+        display: inline;
+
+        .severity-count {
+          display: inline-block;
+          .count, .alarm-icon { display: inline-block; }
+          .alarm-icon { display: inline-block; width: 14px; margin-right: 3px; }
+        }
+      }
+    }
+
+    .critical {
+      color: $critical-alarm-color;
+    }
+
+    .major {
+      color: $major-alarm-color;
+    }
+
+    .normal {
+      color: $normal-alarm-color;
+    }
+
+    @include grid-row();
+
+    .icon-drawer-state {
+      cursor: pointer;
+      @include grid-column($columns: 0.5, $collapse: true);
+    }
+
+    @media #{$medium-up} {
+      .icon-drawer-state {
+        @include grid-column($columns: 0.25, $collapse: true);
+      }
+    }
+
+    .alarm-day-info {
+      @include grid-row($behavior: nest-collapse);
+      @include grid-column($columns: 11.5);
+
+      @media #{$small-only} { // Below: 640px
+        .alarm-icon {
+          @include grid-column($columns: 1);
+        }
+        .alarm-level-code {
+          @include grid-column($columns: 10);
+        }
+        .alarm-descriptions {
+          @include grid-column($columns: 12);
+        }
+        .occurred-at, .cleared-at { @include grid-column($columns: 10) }
+      }
+      @media #{$medium-up} {
+        .alarm-day-alarms {
+          .summary { @include grid-column($columns: 8); }
+          .occurred-at, .cleared-at { @include grid-column($columns: 2) }
+
+          .alarm-attributes {
+            .summary {
+              @include grid-row($behavior: nest);
+              @include grid-column($columns: 8);
+
+              .alarm-icon { @include grid-column($columns: 0.25); }
+              .alarm-level-code { @include grid-column($columns: 1.5); }
+              .alarm-descriptions { @include grid-column($columns: 9.5); }
+              .alarm-description {
+                @include grid-row($behavior: nest);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

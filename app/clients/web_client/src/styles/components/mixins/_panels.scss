@@ -1,0 +1,251 @@
+/*  Panels
+
+*** Markup ***
+Template for quickly creating a new panel
+
+<div id="new-panel-container">                -- wrapped in the id of the associated BackboneView
+ <div class="panel-container">
+ <div class="panel-header">
+   <div class="title">New Panel</div>
+ </div>
+ <div class="panel-content">
+   <div class="system-configuration-detail">  -- The className of the associated BackboneView
+     <ul class="panel-grid no-bullet">         -- panel-grid is Foundation's class to evenly space blocks
+       <li>                                   -- Each <li> in the <ul> is a block in the grid
+         <div class="first-block-class">
+           <div class="block-title">First Block Column</div>
+           <div class="field">
+             <div class="field-label">First Data Point</div>
+             <div class="field-value">{{firstDataPoint}}</div>
+           </div>
+           <div class="field">
+             <div class="field-label">Second Data Point</div>
+             <div class="field-value">{{secondDataPoint}}</div>
+           </div>
+           <div class="field">
+             <div class="field-label">Third Data Point</div>
+             <div class="field-value">{{thirdDataPoint}}</div>
+           </div>
+           <div class="field">
+             <div class="field-label">Fourth Data Point</div>
+             <div class="field-value">{{fourthDataPoint}}</div>
+           </div>
+         </div>
+       </li>                                  -- add more <li> to the <ul> for more blocks in the grid
+     </ul>
+   </div>
+ </div>
+</div>
+
+*** Stylesheet ***
+
+#new-panel-container {
+  .panel-content {
+    .panel-grid {
+      @include equal-width-grid-panel(1,2,4); -- This mixin controls grid responsiveness
+      @include grid-block-style;
+    }
+  }
+}
+
+*** Diagram ***
+
+
+                  ┌──────────────────────────────────────────────────────────────────────────────┐◀───┐
+                  │                        Panel Header (.panel-header)                          │    │
+                  │                                                                              │    │
+             ┌───▶├──────────────────────────┬─▲───────────────────────┬─────────────────────────┤    │
+             │    │Block Title (.block-title)│ │                       │                         │    │
+             │    ├──────────────────────────┼ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┤    │
+             │    │                          │ │                       │ ┌─────────┐ ┌─────────┐ │    │
+             │    │                          │ │                       │ │         │ │         │ │    │
+             │    │                          │ │                       │ │         │ │         │ │    │
+ Panel Content    │                          │ │                       │ │         │ │         │ │       Panel
+(.panel-content)  │                          │ │                       │ │         │ │         │ │ (.panel-container)
+                  │                          │ │                       │ │         │ │         │ │
+             │    │                          │ │                       │ │         │ │         │ │    │
+             │    │                          │ │                       │ │         │ │         │ │    │
+             │    │                          │ │                       │ │         │ │         │ │    │
+             │    │                          │ │     Panel Block       │ │         │ │         │ │    │
+             │    │                          │ │                       │ │         │ │         │ │    │
+             │    │                          │ │                       │ │    ▲    │ │         │ │    │
+             │    │                          ◀─┼───────────────────────▶ └────┼────┘ └─────────┘ │    │
+             └───▶└──────────────────────────┴─▼───────────────────────┴──────┼──────────────────┘◀───┘
+                                                                              │
+                                                                              │
+                                                                              │
+                                                                              │
+                                                                   Panel Block Inner Column
+                                                                      (column-count: 2)
+
+*/
+
+@mixin panel-header {
+  @include vertical-radius(top, 4px);
+
+  background-color: $module-header-color;
+  color: white;
+  @include side-radius($side: top, $radius: $global-radius);
+  line-height: 38px;
+  height: 38px;
+  min-height: 38px;
+  padding-left: 5px;
+
+  .title {
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+    padding-left: 0.313em;
+  }
+
+  .last-updated-at {
+    @include last-updated-at;
+  }
+}
+
+@mixin header-with-action {
+  @include panel-header;
+  height: 46px;
+
+  .action {
+    @include grid-column($float: right);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: initial;
+
+    button {
+      min-height: 32px;
+      @extend .embedded-button;
+      padding-top: 3px;
+      padding-bottom: 5px;
+      margin-top: 2px;
+
+      .icon {
+        font-size: 18px;
+        padding: 0px 10px;
+        text-align: left;
+      }
+
+      .icon-left {
+        @extend .icon;
+        padding-left: 0px;
+      }
+
+      .icon-right {
+        @extend .icon;
+        padding-right: 0px;
+      }
+    }
+  }
+}
+
+@mixin equal-width-grid-panel($small-rows, $small-medium-rows, $medium-rows) {
+  list-style: none;
+  margin: 0;
+
+  @media #{$small-only} {
+    @include block-grid($per-row: $small-rows, $spacing: 0px, $base-style: true);
+  }
+
+  @media #{$small-medium-only} {
+    @include block-grid($per-row: $small-medium-rows, $spacing: 0px, $base-style: true);
+  }
+
+  @media #{$large-up} {
+    @include block-grid($per-row: $medium-rows, $spacing: 0px, $base-style: true);
+  }
+}
+
+@mixin grid-block-style {
+  $odd-background-color: #fff;
+
+  background-color: $table-stripe-color;
+
+  @include qualify(ul) {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  .field {
+    margin-top: 12px;
+  }
+
+  .block-title {
+    @include block-title;
+  }
+
+  > li {
+    border-right: 1px solid $table-block-sep-color;
+
+    &:nth-child(odd) {
+      background-color: $odd-background-color;
+    }
+  }
+
+  .block-content {
+    margin: 0;
+    padding: 12px;
+
+    .field {
+      margin-bottom: 12px;
+      // override grid-block-style to interact with padding correctly
+      margin-top: 0;
+    }
+
+    .field-label {
+      // override components/_panels.scss important rule ¯\_(ツ)_/¯
+      // TODO: migrate all .field-label to use .block-content padding instead
+      // of important padding
+      padding-left: 0 !important;
+    }
+  }
+}
+
+@mixin equal-height-blocks {
+  // https://css-tricks.com/fluid-width-equal-height-columns/#article-header-id-3
+  overflow: hidden;
+
+  > li {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+  }
+}
+
+@mixin module($include-action: false) {
+  @include grid-row;
+  @include bottom-box-shadow;
+  @include radius($global-radius);
+  margin-bottom: 15px !important;
+
+  .header {
+    @if $include-action {
+      @include header-with-action;
+    } @else {
+      @include panel-header;
+    }
+  }
+
+  &:only-of-type, &:last-of-type {
+    margin-bottom: 0px !important;
+  }
+}
+
+@mixin block-title {
+  color: $module-header-color;
+  font-weight: bold;
+  font-size: .9rem;
+  padding: 9px;
+  background-color: $inner-container-background-color;
+  border-left: 1px solid white;
+  box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+  line-height: 1.8;
+}
+
+@mixin field {
+  @include grid-row();
+
+  @media #{$only-small} {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}

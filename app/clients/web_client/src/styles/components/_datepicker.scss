@@ -1,0 +1,13 @@
+.datepicker td.active.day,
+.datepicker th.active.day,
+.datepicker td.active.year,
+.datepicker th.active.year,
+.datepicker td span.active,
+.datepicker th span.active {
+  background: $primary-color;
+  border-radius: 4px;
+  color: white;
+}
+.datepicker thead {
+  background-color: transparent;
+}

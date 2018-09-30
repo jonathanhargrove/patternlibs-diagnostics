@@ -1,0 +1,65 @@
+<div class="description desktop-content">{{{inputOrValue this 'description'}}}</div>
+{{#if hasZones}}
+<div class="zone-name desktop-content">{{{inputOrValue this 'zoneName'}}}</div>
+{{/if}}
+<div class="model-number desktop-content">{{{inputOrValue this 'modelNumber'}}}</div>
+<div class="serial-number desktop-content">{{{inputOrValue this 'serialNumber'}}}</div>
+<div class="version-number desktop-content">{{{inputOrValue this 'versionNumber'}}}</div>
+{{#if communicating}}
+  <div class="connection-status desktop-content">
+    <span class="{{posNegColor isConnected}}">{{displayComponentStatus isConnected}}</span>
+    {{#if displayBatteryLevel}}
+    <span class="battery-level">Battery Level: {{percent batteryLevel}}</span>
+    {{/if}}
+  </div>
+  {{else}}
+    {{#if isEditing}}
+      <div class="save-buttons desktop-content"><button class="save">Save</button><button class="danger-button cancel">Cancel</button></div>
+    {{else}}
+      <div class="edit-buttons desktop-content"><button class="update">Update</button><button class="danger-button delete">Delete</button></div>
+    {{/if}}
+{{/if}}
+
+<div class="panel-grid no-bullet mobile-content">
+  <div class="block-title">{{description}}</div>
+  {{#if ../hasZones}}
+  <div class="field">
+    <div class="field-label">Zone Name</div>
+    <div class="field-value zoneName">{{{inputOrValue this 'zoneName'}}}</div>
+  </div>
+  {{/if}}
+
+  <div class="field">
+    <div class="field-label">Description</div>
+    <div class="field-value model-number">{{{inputOrValue this 'description'}}}</div>
+  </div>
+  <div class="field">
+    <div class="field-label">Model Number</div>
+    <div class="field-value model-number">{{{inputOrValue this 'modelNumber'}}}</div>
+  </div>
+  <div class="field">
+    <div class="field-label">Serial Number</div>
+    <div class="field-value serial-number">{{{inputOrValue this 'serialNumber'}}}</div>
+  </div>
+  <div class="field">
+    <div class="field-label">Version Number</div>
+    <div class="field-value version-number">{{{inputOrValue this 'versionNumber'}}}</div>
+  </div>
+  {{#if communicating}}
+    <div class="field">
+      <div class="field-label">Network Connection</div>
+      <div class="field-value">
+        <span class="{{posNegColor isConnected}} connection-status">{{displayComponentStatus isConnected}}</span>
+        {{#if batteryLevel}}
+        <span class="battery-level">Battery Level: {{percent batteryLevel}}</span>
+        {{/if}}
+      </div>
+    </div>
+    {{else}}
+      {{#if isEditing}}
+        <div class="save-buttons"><button class="save">Save</button><button class="danger-button cancel">Cancel</button></div>
+      {{else}}
+        <div class="edit-buttons"><button class="update">Update</button><button class="danger-button delete">Delete</button></div>
+      {{/if}}
+  {{/if}}
+</div>

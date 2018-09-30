@@ -1,0 +1,426 @@
+@mixin filter-icon($imgUrl: "../img/filter-icon.svg") {
+  background-image: url($imgUrl);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 20px 20px;
+}
+
+.filter-icon {
+  margin-top: 15px;
+  margin-right: 3px;
+  float: right;
+  width: 20px;
+  height: 20px;
+  border: none;
+  color: $grey-lighter;
+  padding: 13px 12px 12px 12px;
+  border-radius: 20px;
+
+  @include filter-icon();
+
+  &:hover, &:focus {
+    @include filter-icon();
+
+    background-color: $grey-lighter;
+    outline: 0;
+  }
+
+  &.enabled {
+    @include gradient($primary-action-color, $primary-action-color);
+    @include button-colors($primary-action-color);
+    @include filter-icon("../img/filter-icon-white.svg");
+
+    &:hover, &:focus {
+      background-color: scale-color($primary-action-color, $lightness: $button-function-factor);
+
+      @include filter-icon("../img/filter-icon-white.svg");
+    }
+  }
+}
+
+.filter-dropdown-contents {
+  @include tooltip-box-shadow-border();
+
+  padding-top: 1px;
+  border-width: 1px;
+  background-color: white;
+  display: none;
+  z-index: 10;
+  position: absolute;
+  width: 200px;
+  list-style-type: none;
+
+  li {
+    &.selected {
+      background-color: $primary-action-color;
+      cursor: default;
+
+      a {
+        color: white;
+
+        &:hover {
+          background-color: $primary-action-color;
+        }
+      }
+    }
+
+    a {
+      color: $body-font-color;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      padding: 7px;
+
+      &:hover {
+        background-color: $grey-lighter;
+      }
+    }
+  }
+
+  .filter-selection {
+    cursor: pointer;
+  }
+}
+
+.header {
+  position: relative;
+  overflow: auto;
+
+  .search-form-view {
+    @media #{$medium-up} {
+      float: right;
+      width: 25%;
+    }
+  }
+}
+
+// setup grid for customer list and list titles
+#customer-list {
+  @include grid-row;
+
+  .customer-info {
+    @include grid-column($columns: 3);
+
+    &:not(:first-child) {
+      padding-bottom: 10px;
+    }
+
+    .name {
+      @include truncate();
+    }
+  }
+
+  .system-groups {
+    @include grid-row;
+    @include grid-column($columns: 9, $collapse: true);
+
+    .device-info-header {
+      background-color: $grey-lighter;
+    }
+  }
+
+  .system-group.has-group:first-child {
+      margin-top: 10px;
+  }
+
+  .group-header-clickable {
+    @include grid-column($columns: 6);
+  }
+
+  .group-header-clickable:hover {
+    cursor: pointer;
+  }
+
+  .group-name-link {
+    @include grid-column($columns: 6);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .group-header-alerts {
+    width: 150px;
+    float: left;
+  }
+
+  #group-header-collapse {
+    color: gray;
+    float: right;
+  }
+
+  .systems, .group-header {
+    @include grid-row;
+    @include grid-column($columns: 12, $collapse: true);
+  }
+
+  .group-header {
+    background-color: $grey-lightest;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    padding: 5px 0;
+
+    a {
+      font-weight: 600;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .group-header-alerts {
+      display: inline-block;
+    }
+
+    .normal {
+      color: $normal-alarm-color;
+    }
+
+    .major {
+      color: $major-alarm-color;
+    }
+
+    .critical {
+      color: $critical-alarm-color;
+    }
+
+    .count {
+      margin-right: 15px;
+      margin-left: 4px;
+    }
+  }
+
+  .group-header-toggle {
+    display: inline-block;
+    color: $grey-dark;
+    float: right;
+    padding-top: 3px;
+  }
+
+  .group-header-toggle:hover {
+    cursor: pointer;
+  }
+
+  .device {
+    &:not(:last-child){
+      border-bottom: 1px solid $sub-split-color;
+    }
+    overflow: hidden;
+    padding: 22px 0;
+  }
+
+  .device-info-header span {
+    @include truncate();
+  }
+
+  .sort-controls {
+    float: right;
+    margin-right: -10px;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+
+  .alerts-status-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .customer-label {
+    border-right: none;
+  }
+
+  .device-info, .device-info-header {
+    @include grid-row;
+    @include grid-column($columns: 12, $collapse: true);
+
+    > div {
+      min-height: 1px;
+    }
+
+    .customer-alerts-status {
+      @include grid-column($columns: 2.5);
+
+      min-height: 1px; // A min-height assures that .opted-out shows in the event that no status is provided
+    }
+
+    .customer-actions, .customer-device-model {
+      @include grid-column($columns: 2);
+      // when a column is not populated in the customer list,
+      // without a min-height the div colapses and causes mis-alignment
+      min-height: 1px;
+      .icon-container {
+        padding-top: 1px;
+      }
+    }
+
+    .customer-actions {
+      border-right: 0;
+    }
+
+    .ndm-feature-enabled {
+      .customer-actions {
+        @include grid-column($columns: 1.5);
+      }
+
+      .customer-device-model {
+        @include grid-column($columns: 1.5);
+      }
+    }
+
+    .customer-system-name {
+      @include grid-column($columns: 2);
+    }
+
+    .customer-ndm-id, .customer-ndm-id-header {
+      @include grid-column($columns: 2);
+    }
+
+    .customer-ndm-id-header {
+      border-left: 1px solid $background-color;
+    }
+
+    .customer-device-id,
+    .customer-ndm-id {
+      @include justify-content;
+    }
+
+    .customer-device-id,
+    .customer-device-id-header,
+    .customer-serial-number {
+      @include grid-column($columns: 2.5);
+
+      .serial {
+        vertical-align: text-top;
+        display: inline-block;
+        margin-top: 10px;
+        width: 80%;
+      }
+    }
+
+    .customer-alerts-status{
+      span {
+        & + span {
+          margin-left: 15px;
+        }
+
+        &.critical {
+          color: $critical-alarm-color;
+        }
+
+        &.major {
+          color: $major-alarm-color;
+        }
+
+        &.normal {
+          color: $normal-alarm-color;
+        }
+      }
+
+      .count {
+        vertical-align: sub;
+        margin-left: 4px;
+      }
+      .opted-out {
+        font-size: 0.85rem;
+        color:$headline-color;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @media #{$small-only} {
+    #list-titles,
+    .group-header-alerts,
+    .customer-device-id,
+    .customer-serial-number,
+    .customer-device-status,
+    .customer-device-model,
+    .customer-ndm-id {
+      display: none;
+    }
+
+    .group-name-link {
+      @include grid-column($columns: 10);
+    }
+
+    .group-header-clickable {
+      @include grid-column($columns: 2);
+
+      .group-header-alerts {
+        display: none;
+      }
+    }
+
+    .customer-info, .device-info, .system-groups {
+      @include grid-column($columns: 12, $collapse:null,$float:false);
+
+      .customer-system-name {
+        @include grid-column($columns: 5, $collapse:null,$float:false);
+      }
+
+      .customer-alerts-status {
+        @include grid-column($columns: 5, $collapse:null,$float:false);
+      }
+
+      .customer-actions {
+        @include grid-column($columns: 2, $collapse:null,$float:false);
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+#customer-list-items {
+  .customer {
+    @include grid-row;
+    border-bottom: 1px solid $split-color;
+
+    .customer-info {
+      padding: 22px 10px;
+    }
+  }
+
+  .customer-info {
+    .name {
+      width: 100%;
+      display: inline-block;
+
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .customer-info-details, .customer-device-id, .customer-serial-number, .customer-device-status, .customer-device-model, .customer-ndm-id {
+    font-size: .85em;
+  }
+
+  .customer-info-details, .customer-device-id, .customer-serial-number, .customer-device-status, .customer-device-model, .customer-actions, .customer-ndm-id {
+    color: $secondary-font-color;
+  }
+
+  // these will be full of styles specific to each grid item
+  .customer-system-name div {
+    @include truncate();
+  }
+
+  .customer-alerts-status {
+    @include truncate();
+  }
+
+  .customer-device-id {}
+  .customer-device-model {}
+  .customer-actions {
+    span + span {
+      margin-left: 15px;
+    }
+  }
+
+  @media #{$small-only} {
+    .device-info + .device-info {
+      padding-top: 10px;
+    }
+  }
+}
