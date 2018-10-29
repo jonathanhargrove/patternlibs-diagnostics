@@ -1,1 +1,1 @@
-Primary navigation controls.
+Primary navigation buttons. This is consistent across the site and always visible. Active page is inidicated with a light blue hilite (#6fc0eb;). Mobile view changes the blue navbar to a blue navbar with hamburger menu.
